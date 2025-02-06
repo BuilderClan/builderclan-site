@@ -14,8 +14,8 @@ export default function Home() {
       <hr />
       <OpportunitySection />
       <hr />
-      <ContactSection />
-      <hr />
+      {/* <ContactSection /> */}
+      {/* <hr /> */}
       <FaqSection />
       <hr />
       <CTA />

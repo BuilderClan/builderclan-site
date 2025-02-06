@@ -61,16 +61,12 @@ const faqs = [
 ];
 
 export default function FaqSection() {
-  //   const [openIndex, setOpenIndex] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
-  //   const toggleFAQ = (index) => {
-  //     setOpenIndex(openIndex === index ? null : index);
-  //   };
   return (
     <section className="section" id="faq">
       <div className="container mx-auto">
-        <div className="m-20">
+        <div className="mb-20">
           <h1 className="section-heading">
             Frequently <span className="text-white">Asked Questions</span>
           </h1>
