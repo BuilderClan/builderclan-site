@@ -119,10 +119,10 @@ export default function Header() {
         </div>
 
         {/* Buttons Section (Desktop) */}
-        <div className="hidden lg:flex">
+        {/* <div className="hidden lg:flex">
           <Button content="Sign Up" />
           <Button content="Login" active />
-        </div>
+        </div> */}
 
         {/* Hamburger Menu (Mobile) */}
         <div className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
