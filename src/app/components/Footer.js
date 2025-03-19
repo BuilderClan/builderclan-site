@@ -36,7 +36,7 @@ export default function Footer() {
             />
           </button>
           <button className={`px-6 py-3 text-white social-icon`}>
-            <Image src={`/GitHub.svg`} alt="github" width={20} height={20} />
+            <Image src={`/Github.svg`} alt="github" width={20} height={20} />
           </button>
           <button className={`px-6 py-3 text-white social-icon`}>
             <Image

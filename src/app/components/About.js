@@ -38,8 +38,8 @@ export default function AboutSection() {
                 <div className="icon-wrapper mb-6">
                   <div className="icon-inner-wrapper ">
                     <Image
-                      src={`/Vision.svg`}
-                      alt="mission"
+                      src={`/vision.svg`}
+                      alt="vision"
                       width={34}
                       height={32}
                     />

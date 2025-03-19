@@ -5,7 +5,8 @@ export default function HomeSection() {
   return (
     <section
       className="min-h-[calc(100vh-93px)] flex items-center pt-10 pb-5"
-      id="home">
+      id="home"
+    >
       <div className="container h-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-4 h-full pb-24">
           <div className="col-span-12 lg:col-span-7 lg:mb-0 mb-10">
@@ -25,7 +26,11 @@ export default function HomeSection() {
                 {`Join a dynamic community where innovation meets collaboration. Whether you're a coder, designer, or visionary, you belong here. Let's build something extraordinary together!`}
               </div>
               <div className="header-cta">
-                <Button content="Get Started" active />
+                <Button
+                  content="Get Started"
+                  href="https://discord.gg/R6wqrBJb9H"
+                  active
+                />
               </div>
             </div>
           </div>
