@@ -11,9 +11,7 @@ export default function CTA() {
             </h1>
             <div className="section-sub-text">{`Visit our website.`}</div>
           </div>
-          <a href="https://discord.gg/R6wqrBJb9H">
-          <Button content="Join Discord" active />
-          </a>
+          <Button content="Join Discord" active href="https://discord.gg/R6wqrBJb9H" />
         </div>
       </div>
     </section>
