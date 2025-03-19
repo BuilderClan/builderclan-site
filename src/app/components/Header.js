@@ -106,14 +106,14 @@ export default function Header() {
               Opportunity
             </Link>
             <Link
-              href="#contact"
+              href="#joinclan"
               className={
-                activeLink === "contact"
+                activeLink === "joinclan"
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
               onClick={() => setIsOpen(false)}>
-              Contact
+              Join BuilderClan
             </Link>
           </div>
         </div>

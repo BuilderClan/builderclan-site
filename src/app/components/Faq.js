@@ -56,7 +56,7 @@ const faqs = [
   {
     question: "How do I contact the BuilderClan team?",
     answer:
-      "You can reach us at contact@builderclan.com or use the contact form on our website.",
+      "You can reach us at main.builderclan@gmail.com or use the contact form on our website.",
   },
 ];
 
