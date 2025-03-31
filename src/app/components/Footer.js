@@ -18,16 +18,20 @@ export default function Footer() {
       <div className="py-10 contact">
         <div>
           <Image src={`/Email.svg`} alt="location" width={20} height={20} />
-          <span>main.builderclan@gmail.com</span>
+          <span className="text-sm md:text-base">
+            main.builderclan@gmail.com
+          </span>
         </div>
         <div>
           <Image src={`/Location.svg`} alt="location" width={20} height={20} />
-          <span>Somewhere in the world</span>
+          <span className="text-sm md:text-base">Somewhere in the world</span>
         </div>
       </div>
       <div className="socials mt-10">
-        <div className="flex gap-2">
-          <button className={`px-6 py-3 text-white social-icon`}>
+        <div className="flex gap-2 flex-wrap md:flex-nowrap justify-center">
+          <button
+            className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
+          >
             <Image
               src={`/Facebook.svg`}
               alt="facebook"
@@ -35,10 +39,14 @@ export default function Footer() {
               height={20}
             />
           </button>
-          <button className={`px-6 py-3 text-white social-icon`}>
+          <button
+            className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
+          >
             <Image src={`/Github.svg`} alt="github" width={20} height={20} />
           </button>
-          <button className={`px-6 py-3 text-white social-icon`}>
+          <button
+            className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
+          >
             <Image
               src={`/LinkedIn.svg`}
               alt="linkedin"
@@ -47,8 +55,12 @@ export default function Footer() {
             />
           </button>
         </div>
-        <p>BuildClan All Rights Reserved</p>
-        <p>Privacy Policy | Terms of Service</p>
+        <p className="text-sm md:text-base text-center">
+          BuilderClan All Rights Reserved
+        </p>
+        <p className="text-sm md:text-base text-center">
+          Privacy Policy | Terms of Service
+        </p>
       </div>
     </footer>
   );

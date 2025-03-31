@@ -113,9 +113,11 @@ hr {
 .menu-bar-icon.active .menu-bar:nth-child(1) {
   transform: rotate(45deg) translateY(12px);
 }
+
 .menu-bar-icon.active .menu-bar:nth-child(2) {
   opacity: 0;
 }
+
 .menu-bar-icon.active .menu-bar:nth-child(3) {
   transform: rotate(-45deg) translateY(-12px);
 }
@@ -152,8 +154,7 @@ hr {
 }
 
 .custom-anim-left {
-  animation: custom-anim-left 1.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.8s
-    forwards;
+  animation: custom-anim-left 1.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.8s forwards;
   opacity: 0;
 }
 
@@ -220,11 +221,9 @@ hr {
 }
 
 .icon-wrapper {
-  background: linear-gradient(
-    180deg,
-    rgba(202, 255, 51, 0.05) 0%,
-    rgba(202, 255, 51, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(202, 255, 51, 0.05) 0%,
+      rgba(202, 255, 51, 0) 100%);
   width: 72px;
   height: 72px;
   display: flex;
@@ -234,11 +233,9 @@ hr {
 }
 
 .icon-inner-wrapper {
-  background: linear-gradient(
-    180deg,
-    rgba(202, 255, 51, 0.05) 0%,
-    rgba(202, 255, 51, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(202, 255, 51, 0.05) 0%,
+      rgba(202, 255, 51, 0) 100%);
   width: 56px;
   height: 56px;
   display: flex;
@@ -459,12 +456,14 @@ hr {
 .footer {
   background-color: var(--bg-color-secondary);
   padding: 60px 80px 40px;
+  @apply w-full flex flex-col items-center text-center px-4 md:px-8 lg:px-16;
 }
 
 .footer-logo {
   display: flex;
   gap: 4px;
   justify-content: center;
+  @apply flex items-center gap-2 text-lg md:text-xl;
 }
 
 .footer .menu-items {
@@ -474,6 +473,7 @@ hr {
   font-family: "Lexend", sans-serif;
   justify-content: center;
   border-bottom: 1px solid var(--border-color);
+  @apply flex flex-col md:flex-row gap-4 md:gap-8;
 }
 
 .footer .contact {
@@ -484,11 +484,13 @@ hr {
   justify-content: center;
   color: var(--text-color-gray);
   border-bottom: 1px solid var(--border-color);
+  @apply flex flex-col md:flex-row gap-4 md:gap-8;
 }
 
 .footer .contact div {
   display: flex;
   gap: 6px;
+  @apply flex items-center gap-2 justify-center;
 }
 
 .footer .socials {
@@ -500,12 +502,14 @@ hr {
   align-items: center;
   font-size: 14px;
   color: var(--text-gray);
+  @apply w-full border-t border-gray-700 flex flex-col items-center gap-4;
 }
 
 .social-icon {
   padding: 12px;
   background-color: var(--primary-color);
   border-radius: 100px;
+  @apply rounded-full hover:bg-gray-700 transition-colors;
 }
 
 .back-to-top {
