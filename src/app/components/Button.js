@@ -1,13 +1,17 @@
-export default function Button({ content, active, menuActive, href }) {
-  const className = `px-6 py-3 text-white ${active ? "btn-builder-active" : ""} ${
-    menuActive ? "btn-link" : ""
-  }`;
-
-  return href ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+const Button = ({ content, href, active, onClick }) => {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={`text-sm lg:text-base px-6 py-3 rounded-[82px] font-normal transition-all duration-300 ${
+        active
+          ? "btn-builder-active hover:opacity-90"
+          : "text-white hover:text-[#CAFF33]"
+      }`}
+    >
       {content}
     </a>
-  ) : (
-    <button className={className}>{content}</button>
   );
-}
+};
+
+export default Button;

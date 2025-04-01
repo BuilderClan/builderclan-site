@@ -63,6 +63,14 @@ const faqs = [
 export default function FaqSection() {
   const [showAll, setShowAll] = useState(false);
 
+  const handleToggle = () => {
+    if (showAll) {
+      const faqSection = document.getElementById("faq");
+      faqSection?.scrollIntoView({ behavior: "smooth" });
+    }
+    setShowAll(!showAll);
+  };
+
   return (
     <section className="section" id="faq">
       <div className="container mx-auto">
@@ -87,7 +95,8 @@ export default function FaqSection() {
           </div>
           <button
             className="flex gap-1 items-center faq-load-btn max-w-[160px] mx-auto w-full justify-center z-10 relative mt-10"
-            onClick={() => setShowAll(!showAll)}>
+            onClick={handleToggle}
+          >
             <span>{!showAll ? `Show more` : `Show less`}</span>
             <Image
               src={`/ArrowDown.svg`}

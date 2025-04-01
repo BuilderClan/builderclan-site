@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -32,17 +33,24 @@ export default function Footer() {
           <button
             className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
           >
-            <Image
-              src={`/Facebook.svg`}
-              alt="facebook"
+            <Instagram
+              color="black"
+              alt="instagram"
               width={20}
               height={20}
+              href="https://www.instagram.com/builder.clan/"
             />
           </button>
           <button
             className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
           >
-            <Image src={`/Github.svg`} alt="github" width={20} height={20} />
+            <Image
+              src={`/Github.svg`}
+              alt="github"
+              width={20}
+              height={20}
+              href="https://github.com/BuilderCastle"
+            />
           </button>
           <button
             className={`px-4 md:px-6 py-2 md:py-3 text-white social-icon`}
@@ -52,6 +60,7 @@ export default function Footer() {
               alt="linkedin"
               width={20}
               height={20}
+              href="https://www.linkedin.com/in/builderclan-undefined-207724357/"
             />
           </button>
         </div>

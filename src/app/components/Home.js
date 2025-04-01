@@ -1,7 +1,24 @@
+"use client";
+
 import Button from "./Button";
 import Image from "next/image";
 
 export default function HomeSection() {
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const element = document.querySelector("#joinclan");
+    const offset = 50;
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section
       className="min-h-[calc(100vh-93px)] flex items-center pt-10 pb-5"
@@ -28,8 +45,9 @@ export default function HomeSection() {
               <div className="header-cta">
                 <Button
                   content="Get Started"
-                  href="https://discord.gg/R6wqrBJb9H"
+                  href="#joinclan"
                   active
+                  onClick={handleScroll}
                 />
               </div>
             </div>
