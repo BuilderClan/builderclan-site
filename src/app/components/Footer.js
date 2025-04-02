@@ -60,7 +60,7 @@ export default function Footer() {
               alt="linkedin"
               width={20}
               height={20}
-              href="https://www.linkedin.com/in/builderclan-undefined-207724357/"
+              href="https://www.linkedin.com/in/builderclan/"
             />
           </button>
         </div>
