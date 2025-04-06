@@ -13,14 +13,20 @@ export default function Footer() {
         <Link href="#home">Home</Link>
         <Link href="#about">About</Link>
         <Link href="#opportunity">Opportunity</Link>
-        <Link href="#contact">Contact</Link>
       </div>
       <div className="py-10 contact flex flex-col gap-2 md:gap-0">
         <div>
-          <Image src="/Email.svg" alt="location" width={20} height={20} />
-          <span className="text-sm md:text-base">
-            main.builderclan@gmail.com
-          </span>
+          <Link
+            href="mailto:main.builderclan@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <Image src="/Email.svg" alt="email" width={20} height={20} />
+            <span className="text-sm md:text-base">
+              main.builderclan@gmail.com
+            </span>
+          </Link>
         </div>
         <div>
           <Image src="/Location.svg" alt="location" width={20} height={20} />
