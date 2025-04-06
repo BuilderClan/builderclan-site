@@ -55,7 +55,7 @@ export default function HomeSection() {
           <div className="col-span-12 lg:col-span-4 lg:col-start-9">
             <div className="flex flex-col justify-center items-center h-full px-2">
               <div className="hero-image">
-                <Image src={`/Logo.png`} alt="logo" width={400} height={400} />
+                <Image src="/Logo.png" alt="logo" width={400} height={400} />
               </div>
             </div>
           </div>
