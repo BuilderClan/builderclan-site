@@ -382,7 +382,7 @@ hr {
 }
 
 .faq-content.show {
-  max-height: 2000px;
+  max-height: 4000px;
 }
 
 .faq-content::before {
