@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
 
 const faqs = [
   {
@@ -62,6 +64,15 @@ const faqs = [
 
 export default function FaqSection() {
   const [showAll, setShowAll] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    controls.start({
+      y: [0, -10, 0],
+      transition: { duration: 2, repeat: Number.POSITIVE_INFINITY },
+    });
+  }, [controls]);
 
   const handleToggle = () => {
     if (showAll) {
@@ -71,43 +82,167 @@ export default function FaqSection() {
     setShowAll(!showAll);
   };
 
+  const faqVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    }),
+    hover: {
+      scale: 1.03,
+      boxShadow: "0px 10px 30px rgba(202, 255, 51, 0.1)",
+      y: -5,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 15,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section className="section" id="faq">
       <div className="container mx-auto">
-        <div className="mb-20">
-          <h1 className="section-heading">
-            Frequently <span className="text-white">Asked Questions</span>
-          </h1>
-          <div className="section-sub-text">
+        <motion.div
+          className="mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={titleVariants}
+        >
+          <motion.h1
+            className="section-heading"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Frequently{" "}
+            <motion.span
+              className="text-white"
+              initial={{ opacity: 0, y: 5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Asked Questions
+            </motion.span>
+          </motion.h1>
+          <motion.div
+            className="section-sub-text"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             {`Still you have any questions? Contact our Team via main.builderclan@gmail.com`}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <div className="faq-wrapper relative">
-          <div className={`faq-content ${showAll ? "show" : ""}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="p-10 faq-card">
-                  <div className="pb-4 faq-question">{faq.question}</div>
-                  <div className="pt-4 faq-answer">{faq.answer}</div>
-                </div>
-              ))}
+          <AnimatePresence mode="wait">
+            <div className={`faq-content ${showAll ? "show" : ""}`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {faqs.slice(0, showAll ? faqs.length : 4).map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    className="p-10 faq-card backdrop-blur-sm"
+                    custom={index}
+                    initial="hidden"
+                    whileInView="visible"
+                    whileHover="hover"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={faqVariants}
+                    onHoverStart={() => setHoveredCard(index)}
+                    onHoverEnd={() => setHoveredCard(null)}
+                  >
+                    <motion.div
+                      className="pb-4 faq-question font-semibold"
+                      initial={{ color: "#caff33" }}
+                      animate={
+                        hoveredCard === index
+                          ? {
+                              color: ["#caff33", "#a5cc29", "#caff33"],
+                              transition: {
+                                duration: 1.5,
+                                repeat: Number.POSITIVE_INFINITY,
+                              },
+                            }
+                          : { color: "#caff33" }
+                      }
+                    >
+                      {faq.question}
+                    </motion.div>
+                    <motion.div
+                      className="pt-4 faq-answer"
+                      initial={{ opacity: 0.8 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-          <button
+          </AnimatePresence>
+          <motion.button
             className="flex gap-1 items-center faq-load-btn max-w-[160px] mx-auto w-full justify-center z-10 relative mt-10"
             onClick={handleToggle}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 5px 15px rgba(202, 255, 51, 0.15)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              opacity: { duration: 0.5, delay: 0.6 },
+              y: { duration: 0.5, delay: 0.6 },
+              scale: { duration: 0.2 },
+            }}
           >
             <span>{!showAll ? `Show more` : `Show less`}</span>
-            <Image
-              src={`/ArrowDown.svg`}
-              alt="arrow"
-              width={18}
-              height={18}
-              className={`${
-                showAll ? "rotate-180" : ""
-              } transition-all duration-300`}
-            />
-          </button>
+            <motion.div
+              animate={{
+                rotate: showAll ? 180 : 0,
+                y: showAll ? 0 : [0, 5, 0],
+              }}
+              transition={{
+                rotate: { duration: 0.3 },
+                y: {
+                  duration: 1.5,
+                  repeat: !showAll ? Number.POSITIVE_INFINITY : 0,
+                  repeatType: "reverse",
+                },
+              }}
+            >
+              <Image
+                src={`/ArrowDown.svg`}
+                alt="arrow"
+                width={18}
+                height={18}
+              />
+            </motion.div>
+          </motion.button>
         </div>
       </div>
     </section>

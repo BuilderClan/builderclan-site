@@ -2,8 +2,20 @@
 
 import Button from "./Button";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function HomeSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleScroll = (e) => {
     e.preventDefault();
     const element = document.querySelector("#joinclan");
@@ -19,44 +31,163 @@ export default function HomeSection() {
     }
   };
 
+  const heroTextVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    }),
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
     <section
-      className="min-h-[calc(100vh-93px)] flex items-center pt-10 pb-5"
+      className="min-h-[calc(100vh-93px)] flex items-center justify-center pt-10 pb-5"
       id="home"
     >
-      <div className="container h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-4 h-full pb-24">
+      <div className="container mx-auto px-4 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 h-full pb-24">
           <div className="col-span-12 lg:col-span-7 lg:mb-0 mb-10">
             <div className="flex flex-col justify-center h-full px-2">
-              <div className="hero-catchphrase slider-custom-anim-left mb-4">
-                {`✨ Together, let's build something extraordinary! ✨`}
-              </div>
-              <div className="mb-3">
+              <motion.div
+                className="hero-catchphrase slider-custom-anim-left mb-4"
+                custom={0}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={heroTextVariants}
+              >
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                    repeatDelay: 2,
+                  }}
+                >
+                  ✨
+                </motion.span>
+                {` Together, let's build something extraordinary! `}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                    repeatDelay: 2,
+                  }}
+                >
+                  ✨
+                </motion.span>
+              </motion.div>
+              <motion.div
+                className="mb-3"
+                custom={1}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={heroTextVariants}
+              >
                 <h1 className="hero-heading">
                   Welcome to BuilderClan
                   <br className="hidden md:block" /> The Tech Community where
                   <br />
-                  <span>Innovation meets Collaboration!</span>
+                  <motion.span
+                    className="gradient-text"
+                    animate={{
+                      color: [
+                        "rgba(202, 255, 51, 0.8)",
+                        "#caff33",
+                        "#a5cc29",
+                        "rgba(165, 204, 41, 0.8)",
+                      ],
+                      textShadow: [
+                        "0 0 5px rgba(202, 255, 51, 0.3)",
+                        "0 0 10px rgba(202, 255, 51, 0.5)",
+                        "0 0 5px rgba(165, 204, 41, 0.3)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "mirror",
+                      ease: "easeInOut",
+                    }}
+                    style={{
+                      fontWeight: "bold",
+                      display: "inline-block",
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  >
+                    Innovation meets Collaboration!
+                  </motion.span>
                 </h1>
-              </div>
-              <div className="hero-sub-text mb-10">
+              </motion.div>
+              <motion.div
+                className="hero-sub-text mb-10"
+                custom={2}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={heroTextVariants}
+              >
                 {`Join a dynamic community where innovation meets collaboration. Whether you're a coder, designer, or visionary, you belong here. Let's build something extraordinary together!`}
-              </div>
-              <div className="header-cta">
+              </motion.div>
+              <motion.div
+                className="header-cta"
+                custom={3}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={heroTextVariants}
+              >
                 <Button
                   content="Get Started"
                   href="#joinclan"
                   active
                   onClick={handleScroll}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
           <div className="col-span-12 lg:col-span-4 lg:col-start-9">
             <div className="flex flex-col justify-center items-center h-full px-2">
-              <div className="hero-image">
-                <Image src="/Logo.png" alt="logo" width={400} height={400} />
-              </div>
+              <motion.div
+                className="hero-image"
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={imageVariants}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 10,
+                  }}
+                >
+                  <Image src="/Logo.png" alt="logo" width={400} height={400} />
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
