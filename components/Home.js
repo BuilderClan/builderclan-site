@@ -45,16 +45,17 @@ export default function HomeSection() {
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8, rotate: -5 },
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
-      rotate: 0,
+      y: 0,
       transition: {
         duration: 1,
         delay: 0.5,
         type: "spring",
         stiffness: 100,
+        damping: 8,
       },
     },
   };
@@ -178,10 +179,21 @@ export default function HomeSection() {
                 variants={imageVariants}
               >
                 <motion.div
-                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -10,
+                    transition: {
+                      y: {
+                        duration: 0.4,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "reverse",
+                        ease: "easeOut",
+                      },
+                    },
+                  }}
                   transition={{
                     type: "spring",
-                    stiffness: 200,
+                    stiffness: 300,
                     damping: 10,
                   }}
                 >

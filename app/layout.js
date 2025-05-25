@@ -32,7 +32,9 @@ export default function RootLayout({ children }) {
         </div>
         {children}
         <Footer />
-        <BackToTop />
+        <div className="fixed z-10">
+          <BackToTop />
+        </div>
       </body>
     </html>
   );
