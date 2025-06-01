@@ -125,17 +125,6 @@ export default function CTA() {
                 href="https://discord.gg/GFnBvjc5tj"
               />
             </motion.div>
-
-            <motion.div
-              className="absolute inset-0 bg-primary rounded-lg"
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: [0, 0.2, 0],
-                scale: [0.8, 1.2, 1.8],
-              }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeOut" }}
-              style={{ filter: "blur(10px)" }}
-            />
           </motion.div>
         </div>
       </motion.div>
