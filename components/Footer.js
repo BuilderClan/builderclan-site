@@ -199,7 +199,7 @@ export default function Footer() {
               },
               {
                 platform: "github",
-                href: "https://github.com/BuilderCastle",
+                href: "https://github.com/BuilderClan",
                 icon: (
                   <Image
                     src="/Github.svg"
@@ -211,7 +211,7 @@ export default function Footer() {
               },
               {
                 platform: "linkedin",
-                href: "https://www.linkedin.com/in/builderclan/",
+                href: "https://www.linkedin.com/company/builderclan/",
                 icon: (
                   <Image
                     src="/LinkedIn.svg"
