@@ -509,7 +509,7 @@ hr {
   padding: 12px;
   background-color: var(--primary-color);
   border-radius: 100px;
-  @apply rounded-full hover:bg-gray-700 transition-colors;
+  @apply rounded-full transition-colors;
 }
 
 .back-to-top {

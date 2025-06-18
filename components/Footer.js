@@ -45,7 +45,6 @@ export default function Footer() {
       ref={footerRef}
       style={{ opacity, y }}
     >
-      {/* Animated background */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent -z-10"
         animate={{
@@ -117,7 +116,6 @@ export default function Footer() {
       </div>
       <div className="py-10 contact flex flex-col gap-2 md:gap-0">
         <motion.div
-          whileHover={{ x: 5 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           whileInView={{
             opacity: [0, 1],
@@ -133,7 +131,6 @@ export default function Footer() {
             className="flex items-center gap-2"
           >
             <motion.div
-              whileHover={{ rotate: 10 }}
               animate={{
                 rotate: [0, 5, 0, -5, 0],
               }}
@@ -154,7 +151,6 @@ export default function Footer() {
         </motion.div>
         <motion.div
           className="flex items-center gap-2"
-          whileHover={{ x: 5 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           whileInView={{
             opacity: [0, 1],
@@ -239,7 +235,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 md:px-6 py-2 md:py-3 text-white social-icon flex items-center justify-center bg-white rounded-lg relative overflow-hidden"
+                  className="px-4 md:px-6 py-2 md:py-3 text-white social-icon flex items-center justify-center rounded-lg relative overflow-hidden"
                 >
                   {social.icon}
 
@@ -260,7 +256,6 @@ export default function Footer() {
           <motion.p
             className="text-sm md:text-base text-center"
             initial={{ opacity: 0.7 }}
-            whileHover={{ opacity: 1 }}
             whileInView={{
               opacity: [0, 0.7],
               y: [10, 0],
@@ -273,7 +268,6 @@ export default function Footer() {
           <motion.p
             className="text-sm md:text-base text-center md:text-right"
             initial={{ opacity: 0.7 }}
-            whileHover={{ opacity: 1 }}
             whileInView={{
               opacity: [0, 0.7],
               y: [10, 0],
