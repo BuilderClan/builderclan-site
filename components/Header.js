@@ -73,7 +73,8 @@ export default function Header() {
             isOpen
               ? "left-[0%] bg-color-main h-[calc(100vh-93px)] top-[101%]"
               : ""
-          }`}>
+          }`}
+        >
           <div className="menu-links ml-1 flex lg:flex-row flex-col lg:items-center">
             <Link
               href="#home"
@@ -82,7 +83,8 @@ export default function Header() {
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
-              onClick={() => setIsOpen(false)}>
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Link>
             <Link
@@ -92,7 +94,8 @@ export default function Header() {
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
-              onClick={() => setIsOpen(false)}>
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Link>
             <Link
@@ -102,8 +105,20 @@ export default function Header() {
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
-              onClick={() => setIsOpen(false)}>
+              onClick={() => setIsOpen(false)}
+            >
               Opportunity
+            </Link>
+            <Link
+              href="/careers"
+              className={
+                activeLink === "careers"
+                  ? `${isOpen ? "active-link-color" : "menu-link-active"}`
+                  : ""
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Careers
             </Link>
             <Link
               href="#joinclan"
@@ -112,7 +127,8 @@ export default function Header() {
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
-              onClick={() => setIsOpen(false)}>
+              onClick={() => setIsOpen(false)}
+            >
               Join BuilderClan
             </Link>
           </div>
@@ -129,7 +145,8 @@ export default function Header() {
           <div
             className={`flex flex-col gap-1.5 menu-bar-icon ${
               isOpen ? "active" : ""
-            }`}>
+            }`}
+          >
             <div className={`menu-bar`}></div>
             <div className={`menu-bar`}></div>
             <div className={`menu-bar`}></div>
