@@ -25,7 +25,7 @@ const signupSchema = z.object({
   role: z.enum(["student", "professional", "employer"], {
     errorMap: () => ({ message: "Please select a role" }),
   }),
-  phone: z
+  phone_number: z
     .string()
     .min(10, { message: "Phone number must be at least 10 digits" })
     .regex(/^\d+$/, { message: "Phone number must contain only digits" }),
@@ -94,15 +94,19 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
         referral_code: referralCode,
       };
 
-      await axios.post(API_ENDPOINT, formData, {
+      const response = await axios.post(API_ENDPOINT, formData, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
       });
 
-      setSubmitSuccess(true);
-      reset();
+      if (response.status === 200 || response.status === 201) {
+        setSubmitSuccess(true);
+        reset();
+      } else {
+        throw new Error("Registration failed");
+      }
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || error.message || "Failed to register";
@@ -158,12 +162,12 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               />
 
               <FormField
-                id="phone"
+                id="phone_number"
                 type="tel"
                 label="Mobile Number"
                 placeholder="Enter your mobile number"
                 register={register}
-                error={errors.phone}
+                error={errors.phone_number}
               />
 
               <FormField

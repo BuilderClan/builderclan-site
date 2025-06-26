@@ -183,6 +183,7 @@
 .successMessage {
     text-align: center;
     animation: fadeIn 0.5s ease-out;
+
 }
 
 .successTitle {
@@ -190,6 +191,22 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.025em;
+}
+
+.successMessage p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
 /* Decorative elements */
