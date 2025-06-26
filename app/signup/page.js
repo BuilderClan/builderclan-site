@@ -11,29 +11,80 @@ import Success from "./pages/success";
 
 const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
+const VALIDATION_MESSAGES = {
+  name: {
+    min: "Name must be at least 2 characters",
+    pattern: "Name must contain only letters",
+  },
+  dob: "Date of birth must be in the past",
+  gender: "Please select a gender",
+  role: "Please select a role",
+  phone: {
+    min: "Phone number must be at least 10 digits",
+    pattern: "Phone number must contain only digits",
+  },
+  email: "Please enter a valid email address",
+};
+
 const signupSchema = z.object({
   name: z
     .string()
-    .min(2, { message: "Name must be at least 2 characters" })
-    .regex(/^[A-Za-z\s]+$/, { message: "Name must contain only letters" }),
+    .min(2, { message: VALIDATION_MESSAGES.name.min })
+    .regex(/^[A-Za-z\s]+$/, { message: VALIDATION_MESSAGES.name.pattern }),
   dob: z.string().refine((date) => new Date(date) < new Date(), {
-    message: "Date of birth must be in the past",
+    message: VALIDATION_MESSAGES.dob,
   }),
   gender: z.enum(["male", "female"], {
-    errorMap: () => ({ message: "Please select a gender" }),
+    errorMap: () => ({ message: VALIDATION_MESSAGES.gender }),
   }),
   role: z.enum(["student", "professional", "employer"], {
-    errorMap: () => ({ message: "Please select a role" }),
+    errorMap: () => ({ message: VALIDATION_MESSAGES.role }),
   }),
   phone_number: z
     .string()
-    .min(10, { message: "Phone number must be at least 10 digits" })
-    .regex(/^\d+$/, { message: "Phone number must contain only digits" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
+    .min(10, { message: VALIDATION_MESSAGES.phone.min })
+    .regex(/^\d+$/, { message: VALIDATION_MESSAGES.phone.pattern }),
+  email: z.string().email({ message: VALIDATION_MESSAGES.email }),
   referral_code: z.string().optional(),
 });
 
+const ERROR_MESSAGES = {
+  default: "We're having trouble processing your registration. Please try again.",
+  badRequest: "Please check your information and try again.",
+  conflict: "An account with this email already exists. Please use a different email.",
+  validation: "Some of your information is invalid. Please review and correct the highlighted fields.",
+  serverError: "Our servers are temporarily unavailable. Please try again in a few minutes.",
+  networkError: "Please check your internet connection and try again.",
+};
+
+const HTTP_STATUS = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  CONFLICT: 409,
+  VALIDATION_ERROR: 422,
+  SERVER_ERROR: 500,
+};
+
+const FORM_OPTIONS = {
+  gender: [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+  ],
+  role: [
+    { value: "student", label: "Student" },
+    { value: "professional", label: "Professional" },
+  ],
+};
+
+const BUTTON_TEXT = {
+  loading: "Creating your account...",
+  default: "Join BuilderClan",
+};
+
 function FormField({ id, type = "text", label, placeholder, register, error }) {
+  const inputClassName = `${styles.inputGlass} ${error ? styles.inputError : ""}`;
+  
   return (
     <div className={styles.formGroup}>
       <label htmlFor={id} className={styles.label}>
@@ -43,7 +94,7 @@ function FormField({ id, type = "text", label, placeholder, register, error }) {
         type={type}
         id={id}
         placeholder={placeholder}
-        className={`${styles.inputGlass} ${error ? styles.inputError : ""}`}
+        className={inputClassName}
         {...register(id)}
       />
       {error && <p className={styles.errorMessage}>{error.message}</p>}
@@ -51,32 +102,87 @@ function FormField({ id, type = "text", label, placeholder, register, error }) {
   );
 }
 
+function SelectField({ id, label, options, register, error }) {
+  const selectClassName = `${styles.select} ${error ? styles.inputError : ""}`;
+  
+  return (
+    <div className={styles.formGroup}>
+      <label htmlFor={id} className={styles.label}>
+        {label}
+      </label>
+      <select id={id} className={selectClassName} {...register(id)}>
+        <option value="">Select</option>
+        {options.map(({ value, label }) => (
+          <option key={value} value={value}>
+            {label}
+          </option>
+        ))}
+      </select>
+      {error && <p className={styles.errorMessage}>{error.message}</p>}
+    </div>
+  );
+}
+
+function BackgroundElements() {
+  return (
+    <div className={styles.container}>
+      <div className={`${styles.floatingOrb} ${styles.topRightOrb}`} />
+      <div className={`${styles.floatingOrb} ${styles.bottomLeftOrb}`} />
+    </div>
+  );
+}
+
+function getErrorMessage(error) {
+  const status = error.response?.status;
+  
+  if (status === HTTP_STATUS.BAD_REQUEST) return ERROR_MESSAGES.badRequest;
+  if (status === HTTP_STATUS.CONFLICT) return ERROR_MESSAGES.conflict;
+  if (status === HTTP_STATUS.VALIDATION_ERROR) return ERROR_MESSAGES.validation;
+  if (status >= HTTP_STATUS.SERVER_ERROR) return ERROR_MESSAGES.serverError;
+  
+  if (error.code === "NETWORK_ERROR" || error.message.includes("Network Error")) {
+    return ERROR_MESSAGES.networkError;
+  }
+
+  const serverMessage = error.response?.data?.message;
+  if (serverMessage && !serverMessage.includes("Error:") && !serverMessage.includes("Exception")) {
+    return serverMessage;
+  }
+
+  return ERROR_MESSAGES.default;
+}
+
+function extractReferralCode(pathname) {
+  const pathParts = pathname.split("/");
+  return pathParts.length > 2 && pathParts[2] ? pathParts[2] : "";
+}
+
+function isSuccessfulResponse(status) {
+  return status === HTTP_STATUS.OK || status === HTTP_STATUS.CREATED;
+}
+
 export default function RegistrationForm({ initialReferralCode = "" }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [formState, setFormState] = useState({
+    isSubmitting: false,
+    submitError: "",
+    submitSuccess: false,
+  });
   const [referralCode, setReferralCode] = useState(initialReferralCode);
 
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (!initialReferralCode) {
-      const pathParts = pathname.split("/");
-      if (pathParts.length > 2 && pathParts[2]) {
-        setReferralCode(pathParts[2]);
-      }
-    }
-  }, [pathname, initialReferralCode]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: zodResolver(signupSchema),
     defaultValues: { referral_code: referralCode },
   });
+
+  useEffect(() => {
+    if (!initialReferralCode) {
+      const extractedCode = extractReferralCode(pathname);
+      if (extractedCode) {
+        setReferralCode(extractedCode);
+      }
+    }
+  }, [pathname, initialReferralCode]);
 
   useEffect(() => {
     if (referralCode) {
@@ -85,15 +191,10 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
   }, [referralCode, reset]);
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    setSubmitError("");
+    setFormState({ isSubmitting: true, submitError: "", submitSuccess: false });
 
     try {
-      const formData = {
-        ...data,
-        referral_code: referralCode,
-      };
-
+      const formData = { ...data, referral_code: referralCode };
       const response = await axios.post(API_ENDPOINT, formData, {
         headers: {
           "Content-Type": "application/json",
@@ -101,27 +202,37 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
         },
       });
 
-      if (response.status === 200 || response.status === 201) {
-        setSubmitSuccess(true);
+      if (isSuccessfulResponse(response.status)) {
+        setFormState({ isSubmitting: false, submitError: "", submitSuccess: true });
         reset();
       } else {
         throw new Error("Registration failed");
       }
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.message || error.message || "Failed to register";
-      setSubmitError(errorMessage);
-    } finally {
-      setIsSubmitting(false);
+      setFormState({
+        isSubmitting: false,
+        submitError: getErrorMessage(error),
+        submitSuccess: false,
+      });
     }
   };
 
+  if (formState.submitSuccess) {
+    return (
+      <div className={styles.morphBg}>
+        <BackgroundElements />
+        <div className={styles.glassEffect}>
+          <div className={styles.gradientOverlay} />
+          <Success />
+        </div>
+        <div className={styles.bottomBorder} />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.morphBg}>
-      <div className={styles.container}>
-        <div className={`${styles.floatingOrb} ${styles.topRightOrb}`} />
-        <div className={`${styles.floatingOrb} ${styles.bottomLeftOrb}`} />
-      </div>
+      <BackgroundElements />
 
       <div className={styles.glassEffect}>
         <div className={styles.gradientOverlay} />
@@ -129,109 +240,79 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
           <h1 className={styles.title}>BuilderClan</h1>
           <p className={styles.subtitle}>Join our exclusive community</p>
 
-          {submitSuccess ? (
-            <Success />
-          ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-              {referralCode && (
-                <div className={styles.referralInfo}>
-                  <input
-                    type="hidden"
-                    id="referral_code"
-                    {...register("referral_code")}
-                    value={referralCode}
-                  />
-                </div>
-              )}
-
-              <FormField
-                id="name"
-                label="Name"
-                placeholder="Enter your name"
-                register={register}
-                error={errors.name}
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            {referralCode && (
+              <input
+                type="hidden"
+                {...register("referral_code")}
+                value={referralCode}
               />
+            )}
 
-              <FormField
-                id="email"
-                type="email"
-                label="Email"
-                placeholder="Enter your email"
-                register={register}
-                error={errors.email}
-              />
+            <FormField
+              id="name"
+              label="Name"
+              placeholder="Enter your name"
+              register={register}
+              error={errors.name}
+            />
 
-              <FormField
-                id="phone_number"
-                type="tel"
-                label="Mobile Number"
-                placeholder="Enter your mobile number"
-                register={register}
-                error={errors.phone_number}
-              />
+            <FormField
+              id="email"
+              type="email"
+              label="Email"
+              placeholder="Enter your email"
+              register={register}
+              error={errors.email}
+            />
 
-              <FormField
-                id="dob"
-                type="date"
-                label="Date of Birth"
-                register={register}
-                error={errors.dob}
-              />
+            <FormField
+              id="phone_number"
+              type="tel"
+              label="Mobile Number"
+              placeholder="Enter your mobile number"
+              register={register}
+              error={errors.phone_number}
+            />
 
-              <div className={styles.formGroup}>
-                <label htmlFor="gender" className={styles.label}>
-                  Gender
-                </label>
-                <select
-                  id="gender"
-                  className={`${styles.select} ${
-                    errors.gender ? styles.inputError : ""
-                  }`}
-                  {...register("gender")}
-                >
-                  <option value="">Select</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-                {errors.gender && (
-                  <p className={styles.errorMessage}>{errors.gender.message}</p>
-                )}
+            <FormField
+              id="dob"
+              type="date"
+              label="Date of Birth"
+              register={register}
+              error={errors.dob}
+            />
+
+            <SelectField
+              id="gender"
+              label="Gender"
+              options={FORM_OPTIONS.gender}
+              register={register}
+              error={errors.gender}
+            />
+
+            <SelectField
+              id="role"
+              label="Role"
+              options={FORM_OPTIONS.role}
+              register={register}
+              error={errors.role}
+            />
+
+            {formState.submitError && (
+              <div className={styles.errorAlert}>
+                <strong>Registration Failed:</strong> {formState.submitError}
               </div>
+            )}
 
-              <div className={styles.formGroup}>
-                <label htmlFor="role" className={styles.label}>
-                  Role
-                </label>
-                <select
-                  id="role"
-                  className={`${styles.select} ${
-                    errors.role ? styles.inputError : ""
-                  }`}
-                  {...register("role")}
-                >
-                  <option value="">Select</option>
-                  <option value="student">Student</option>
-                  <option value="professional">Professional</option>
-                  <option value="employer">Employer</option>
-                </select>
-                {errors.role && (
-                  <p className={styles.errorMessage}>{errors.role.message}</p>
-                )}
-              </div>
-
-              {submitError && (
-                <div className={styles.errorAlert}>{submitError}</div>
-              )}
-
-              <button
-                type="submit"
-                className={styles.button}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Processing..." : "Join BuilderClan"}
-              </button>
-            </form>
-          )}
+            <button
+              type="submit"
+              className={styles.button}
+              disabled={formState.isSubmitting}
+            >
+              {formState.isSubmitting ? BUTTON_TEXT.loading : BUTTON_TEXT.default}
+            </button>
+          </form>
         </div>
       </div>
 
