@@ -12,9 +12,13 @@ import Success from "./pages/success";
 const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
 const VALIDATION_MESSAGES = {
-  name: {
-    min: "Name must be at least 2 characters",
-    pattern: "Name must contain only letters",
+  first_name: {
+    min: "First name must be at least 2 characters",
+    pattern: "First name must contain only letters",
+  },
+  last_name: {
+    min: "Last name must be at least 2 characters",
+    pattern: "Last name must contain only letters",
   },
   dob: "Date of birth must be in the past",
   gender: "Please select a gender",
@@ -27,10 +31,16 @@ const VALIDATION_MESSAGES = {
 };
 
 const signupSchema = z.object({
-  name: z
+  first_name: z
     .string()
-    .min(2, { message: VALIDATION_MESSAGES.name.min })
-    .regex(/^[A-Za-z\s]+$/, { message: VALIDATION_MESSAGES.name.pattern }),
+    .min(2, { message: VALIDATION_MESSAGES.first_name.min })
+    .regex(/^[A-Za-z\s]+$/, {
+      message: VALIDATION_MESSAGES.first_name.pattern,
+    }),
+  last_name: z
+    .string()
+    .min(2, { message: VALIDATION_MESSAGES.last_name.min })
+    .regex(/^[A-Za-z\s]+$/, { message: VALIDATION_MESSAGES.last_name.pattern }),
   dob: z.string().refine((date) => new Date(date) < new Date(), {
     message: VALIDATION_MESSAGES.dob,
   }),
@@ -49,11 +59,15 @@ const signupSchema = z.object({
 });
 
 const ERROR_MESSAGES = {
-  default: "We're having trouble processing your registration. Please try again.",
+  default:
+    "We're having trouble processing your registration. Please try again.",
   badRequest: "Please check your information and try again.",
-  conflict: "An account with this email already exists. Please use a different email.",
-  validation: "Some of your information is invalid. Please review and correct the highlighted fields.",
-  serverError: "Our servers are temporarily unavailable. Please try again in a few minutes.",
+  conflict:
+    "An account with this email already exists. Please use a different email.",
+  validation:
+    "Some of your information is invalid. Please review and correct the highlighted fields.",
+  serverError:
+    "Our servers are temporarily unavailable. Please try again in a few minutes.",
   networkError: "Please check your internet connection and try again.",
 };
 
@@ -83,8 +97,10 @@ const BUTTON_TEXT = {
 };
 
 function FormField({ id, type = "text", label, placeholder, register, error }) {
-  const inputClassName = `${styles.inputGlass} ${error ? styles.inputError : ""}`;
-  
+  const inputClassName = `${styles.inputGlass} ${
+    error ? styles.inputError : ""
+  }`;
+
   return (
     <div className={styles.formGroup}>
       <label htmlFor={id} className={styles.label}>
@@ -104,7 +120,7 @@ function FormField({ id, type = "text", label, placeholder, register, error }) {
 
 function SelectField({ id, label, options, register, error }) {
   const selectClassName = `${styles.select} ${error ? styles.inputError : ""}`;
-  
+
   return (
     <div className={styles.formGroup}>
       <label htmlFor={id} className={styles.label}>
@@ -134,18 +150,25 @@ function BackgroundElements() {
 
 function getErrorMessage(error) {
   const status = error.response?.status;
-  
+
   if (status === HTTP_STATUS.BAD_REQUEST) return ERROR_MESSAGES.badRequest;
   if (status === HTTP_STATUS.CONFLICT) return ERROR_MESSAGES.conflict;
   if (status === HTTP_STATUS.VALIDATION_ERROR) return ERROR_MESSAGES.validation;
   if (status >= HTTP_STATUS.SERVER_ERROR) return ERROR_MESSAGES.serverError;
-  
-  if (error.code === "NETWORK_ERROR" || error.message.includes("Network Error")) {
+
+  if (
+    error.code === "NETWORK_ERROR" ||
+    error.message.includes("Network Error")
+  ) {
     return ERROR_MESSAGES.networkError;
   }
 
   const serverMessage = error.response?.data?.message;
-  if (serverMessage && !serverMessage.includes("Error:") && !serverMessage.includes("Exception")) {
+  if (
+    serverMessage &&
+    !serverMessage.includes("Error:") &&
+    !serverMessage.includes("Exception")
+  ) {
     return serverMessage;
   }
 
@@ -170,7 +193,12 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
   const [referralCode, setReferralCode] = useState(initialReferralCode);
 
   const pathname = usePathname();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
     resolver: zodResolver(signupSchema),
     defaultValues: { referral_code: referralCode },
   });
@@ -203,7 +231,11 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
       });
 
       if (isSuccessfulResponse(response.status)) {
-        setFormState({ isSubmitting: false, submitError: "", submitSuccess: true });
+        setFormState({
+          isSubmitting: false,
+          submitError: "",
+          submitSuccess: true,
+        });
         reset();
       } else {
         throw new Error("Registration failed");
@@ -250,11 +282,19 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
             )}
 
             <FormField
-              id="name"
-              label="Name"
-              placeholder="Enter your name"
+              id="first_name"
+              label="First Name"
+              placeholder="Enter your first name"
               register={register}
-              error={errors.name}
+              error={errors.first_name}
+            />
+
+            <FormField
+              id="last_name"
+              label="Last Name"
+              placeholder="Enter your last name"
+              register={register}
+              error={errors.last_name}
             />
 
             <FormField
@@ -310,7 +350,9 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               className={styles.button}
               disabled={formState.isSubmitting}
             >
-              {formState.isSubmitting ? BUTTON_TEXT.loading : BUTTON_TEXT.default}
+              {formState.isSubmitting
+                ? BUTTON_TEXT.loading
+                : BUTTON_TEXT.default}
             </button>
           </form>
         </div>
