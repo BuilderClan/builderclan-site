@@ -281,39 +281,43 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               />
             )}
 
-            <FormField
-              id="first_name"
-              label="First Name"
-              placeholder="Enter your first name"
-              register={register}
-              error={errors.first_name}
-            />
+            <div className={styles.formRow}>
+              <FormField
+                id="first_name"
+                label="First Name"
+                placeholder="Enter your first name"
+                register={register}
+                error={errors.first_name}
+              />
 
-            <FormField
-              id="last_name"
-              label="Last Name"
-              placeholder="Enter your last name"
-              register={register}
-              error={errors.last_name}
-            />
+              <FormField
+                id="last_name"
+                label="Last Name"
+                placeholder="Enter your last name"
+                register={register}
+                error={errors.last_name}
+              />
+            </div>
 
-            <FormField
-              id="email"
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              register={register}
-              error={errors.email}
-            />
+            <div className={styles.formRow}>
+              <FormField
+                id="email"
+                type="email"
+                label="Email"
+                placeholder="Enter your email"
+                register={register}
+                error={errors.email}
+              />
 
-            <FormField
-              id="phone_number"
-              type="tel"
-              label="Mobile Number"
-              placeholder="Enter your mobile number"
-              register={register}
-              error={errors.phone_number}
-            />
+              <FormField
+                id="phone_number"
+                type="tel"
+                label="Mobile Number"
+                placeholder="Enter your mobile number"
+                register={register}
+                error={errors.phone_number}
+              />
+            </div>
 
             <FormField
               id="dob"
@@ -323,21 +327,23 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               error={errors.dob}
             />
 
-            <SelectField
-              id="gender"
-              label="Gender"
-              options={FORM_OPTIONS.gender}
-              register={register}
-              error={errors.gender}
-            />
+            <div className={styles.formRow}>
+              <SelectField
+                id="gender"
+                label="Gender"
+                options={FORM_OPTIONS.gender}
+                register={register}
+                error={errors.gender}
+              />
 
-            <SelectField
-              id="role"
-              label="Role"
-              options={FORM_OPTIONS.role}
-              register={register}
-              error={errors.role}
-            />
+              <SelectField
+                id="role"
+                label="Role"
+                options={FORM_OPTIONS.role}
+                register={register}
+                error={errors.role}
+              />
+            </div>
 
             {formState.submitError && (
               <div className={styles.errorAlert}>
