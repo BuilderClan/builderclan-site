@@ -1,18 +1,5 @@
-:root {
-    --color-primary: #3ddd95;
-    --color-background: #1a1a1a;
-    --color-white: #ffffff;
-    --color-error: #ff6b6b;
-    --color-text-muted: rgba(255, 255, 255, 0.8);
-    --color-border: rgba(255, 255, 255, 0.1);
-    --color-glass-bg: rgba(255, 255, 255, 0.03);
-    --border-radius: 0.75rem;
-    --border-radius-lg: 1.5rem;
-    --transition: all 0.3s ease;
-}
-
 .morphBg {
-    background: var(--color-background);
+    background: #1a1a1a;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -20,7 +7,7 @@
     padding: 1rem;
     position: relative;
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-white);
+    color: #ffffff;
 }
 
 .container {
@@ -37,12 +24,12 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     padding: 1.5rem;
-    border-radius: var(--border-radius-lg);
+    border-radius: 1.5rem;
     width: 100%;
     max-width: 36rem;
     position: relative;
     z-index: 10;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .glassEffect:hover {
@@ -54,7 +41,7 @@
     inset: 0;
     background: linear-gradient(to right, rgba(61, 221, 149, 0.1), transparent);
     opacity: 0.3;
-    border-radius: var(--border-radius-lg);
+    border-radius: 1.5rem;
     pointer-events: none;
 }
 
@@ -63,14 +50,14 @@
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
-    color: var(--color-primary);
+    color: #3ddd95;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.025em;
 }
 
 .subtitle {
     text-align: center;
-    color: var(--color-primary);
+    color: #3ddd95;
     margin-bottom: 1.5rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -89,7 +76,7 @@
 }
 
 .formGroup {
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .formGroup:hover {
@@ -100,7 +87,7 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-primary);
+    color: #3ddd95;
     margin-bottom: 0.5rem;
     text-shadow: 0 0 5px rgba(61, 221, 149, 0.3);
 }
@@ -109,13 +96,13 @@
 .select {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    background: var(--color-glass-bg);
-    border: 1px solid var(--color-border);
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
     width: 100%;
     padding: 0.75rem 1rem;
-    border-radius: var(--border-radius);
-    color: var(--color-white);
+    border-radius: 0.75rem;
+    color: #ffffff;
     font-family: inherit;
 }
 
@@ -148,40 +135,40 @@
 }
 
 .select option {
-    background-color: var(--color-background);
-    color: var(--color-white);
+    background-color: #1a1a1a;
+    color: #ffffff;
     padding: 0.5rem;
 }
 
 .select option:hover,
 .select option:focus {
     background-color: rgba(61, 221, 149, 0.1);
-    color: var(--color-primary);
+    color: #3ddd95;
 }
 
 .button {
     width: 100%;
     padding: 1rem 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: 0.75rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    color: var(--color-background);
-    background: linear-gradient(to right, var(--color-primary), rgba(61, 221, 149, 0.8));
-    transition: var(--transition);
+    color: #1a1a1a;
+    background: linear-gradient(to right, #3ddd95, rgba(61, 221, 149, 0.8));
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
     margin-top: 0.5rem;
 }
 
 .button:hover:not(:disabled) {
-    background: linear-gradient(to right, rgba(61, 221, 149, 0.9), var(--color-primary));
+    background: linear-gradient(to right, rgba(61, 221, 149, 0.9), #3ddd95);
     transform: scale(1.02);
     box-shadow: 0 10px 15px -3px rgba(61, 221, 149, 0.2);
 }
 
 .button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05), 0 0 0 4px var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05), 0 0 0 4px #3ddd95;
 }
 
 .button:disabled {
@@ -191,12 +178,12 @@
 }
 
 .inputError {
-    border-color: var(--color-error) !important;
+    border-color: #ff6b6b !important;
     box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2) !important;
 }
 
 .errorMessage {
-    color: var(--color-error);
+    color: #ff6b6b;
     font-size: 0.75rem;
     margin-top: 0.25rem;
     font-weight: 500;
@@ -205,9 +192,9 @@
 .errorAlert {
     background-color: rgba(255, 107, 107, 0.1);
     border: 1px solid rgba(255, 107, 107, 0.3);
-    color: var(--color-error);
+    color: #ff6b6b;
     padding: 0.75rem;
-    border-radius: var(--border-radius);
+    border-radius: 0.75rem;
     margin-bottom: 1rem;
     text-align: center;
     font-weight: 500;
@@ -219,7 +206,7 @@
 }
 
 .successTitle {
-    color: var(--color-primary);
+    color: #3ddd95;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -228,7 +215,7 @@
 }
 
 .successMessage p {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
     margin-bottom: 2rem;
     font-family: 'Montserrat', sans-serif;
@@ -247,7 +234,7 @@
     width: 24rem;
     height: 24rem;
     border-radius: 50%;
-    background-color: var(--color-primary);
+    background-color: #3ddd95;
     opacity: 0.05;
     filter: blur(24px);
     will-change: transform;
