@@ -8,6 +8,15 @@ import axios from "axios";
 import { usePathname } from "next/navigation";
 import styles from "./signup.module.css";
 import Success from "./pages/success";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
@@ -97,20 +106,16 @@ const BUTTON_TEXT = {
 };
 
 function FormField({ id, type = "text", label, placeholder, register, error }) {
-  const inputClassName = `${styles.inputGlass} ${
-    error ? styles.inputError : ""
-  }`;
-
   return (
     <div className={styles.formGroup}>
-      <label htmlFor={id} className={styles.label}>
+      <Label htmlFor={id} className={styles.label}>
         {label}
-      </label>
-      <input
+      </Label>
+      <Input
         type={type}
         id={id}
         placeholder={placeholder}
-        className={inputClassName}
+        className={`${styles.inputGlass} ${error ? styles.inputError : ""}`}
         {...register(id)}
       />
       {error && <p className={styles.errorMessage}>{error.message}</p>}
@@ -118,22 +123,50 @@ function FormField({ id, type = "text", label, placeholder, register, error }) {
   );
 }
 
-function SelectField({ id, label, options, register, error }) {
-  const selectClassName = `${styles.select} ${error ? styles.inputError : ""}`;
+function SelectField({ id, label, options, register, error, setValue, watch }) {
+  const value = watch(id);
 
   return (
     <div className={styles.formGroup}>
-      <label htmlFor={id} className={styles.label}>
+      <Label htmlFor={id} className={styles.label}>
         {label}
-      </label>
-      <select id={id} className={selectClassName} {...register(id)}>
-        <option value="">Select</option>
-        {options.map(({ value, label }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
+      </Label>
+      <Select
+        value={value}
+        onValueChange={(newValue) => setValue(id, newValue)}
+      >
+        <SelectTrigger
+          className={`${styles.select} ${error ? styles.inputError : ""}`}
+          style={{
+            backgroundColor: "#1a1a1a",
+            borderColor: "#3ddd95",
+            color: "white",
+          }}
+        >
+          <SelectValue placeholder="Select" style={{ color: "white" }} />
+        </SelectTrigger>
+        <SelectContent
+          className={styles.selectContent}
+          style={{
+            backgroundColor: "#1a1a1a",
+            borderColor: "#3ddd95",
+          }}
+        >
+          {options.map(({ value, label }) => (
+            <SelectItem
+              key={value}
+              value={value}
+              className={styles.selectItem}
+              style={{
+                backgroundColor: "#1a1a1a",
+                color: "white",
+              }}
+            >
+              {label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
       {error && <p className={styles.errorMessage}>{error.message}</p>}
     </div>
   );
@@ -198,6 +231,8 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
+    watch,
   } = useForm({
     resolver: zodResolver(signupSchema),
     defaultValues: { referral_code: referralCode },
@@ -285,7 +320,7 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               <FormField
                 id="first_name"
                 label="First Name"
-                placeholder="Enter your first name"
+                placeholder="John"
                 register={register}
                 error={errors.first_name}
               />
@@ -293,7 +328,7 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
               <FormField
                 id="last_name"
                 label="Last Name"
-                placeholder="Enter your last name"
+                placeholder="Doe"
                 register={register}
                 error={errors.last_name}
               />
@@ -304,7 +339,7 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
                 id="email"
                 type="email"
                 label="Email"
-                placeholder="Enter your email"
+                placeholder="john@example.com"
                 register={register}
                 error={errors.email}
               />
@@ -313,7 +348,7 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
                 id="phone_number"
                 type="tel"
                 label="Mobile Number"
-                placeholder="Enter your mobile number"
+                placeholder="+91 **********"
                 register={register}
                 error={errors.phone_number}
               />
@@ -334,6 +369,8 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
                 options={FORM_OPTIONS.gender}
                 register={register}
                 error={errors.gender}
+                setValue={setValue}
+                watch={watch}
               />
 
               <SelectField
@@ -342,6 +379,8 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
                 options={FORM_OPTIONS.role}
                 register={register}
                 error={errors.role}
+                setValue={setValue}
+                watch={watch}
               />
             </div>
 
