@@ -26,7 +26,7 @@ const VALIDATION_MESSAGES = {
     pattern: "First name must contain only letters",
   },
   last_name: {
-    min: "Last name must be at least 2 characters",
+    min: "Last name must be at least 1 characters",
     pattern: "Last name must contain only letters",
   },
   dob: "Date of birth must be in the past",
@@ -48,7 +48,7 @@ const signupSchema = z.object({
     }),
   last_name: z
     .string()
-    .min(2, { message: VALIDATION_MESSAGES.last_name.min })
+    .min(1, { message: VALIDATION_MESSAGES.last_name.min })
     .regex(/^[A-Za-z\s]+$/, { message: VALIDATION_MESSAGES.last_name.pattern }),
   dob: z.string().refine((date) => new Date(date) < new Date(), {
     message: VALIDATION_MESSAGES.dob,
