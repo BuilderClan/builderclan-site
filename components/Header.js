@@ -98,17 +98,17 @@ export default function Header() {
             >
               About
             </Link>
-            <Link
-              href="#opportunity"
+            {/* <Link
+              href="#events"
               className={
-                activeLink === "opportunity"
+                activeLink === "events"
                   ? `${isOpen ? "active-link-color" : "menu-link-active"}`
                   : ""
               }
               onClick={() => setIsOpen(false)}
             >
-              Opportunity
-            </Link>
+              Events
+            </Link> */}
             <Link
               href="/careers"
               className={

@@ -1,20 +1,15 @@
+import Image from "next/image";
+import Link from "next/link";
 export default function Careers() {
   return (
-    <div id="careers" style={{ position: "relative", height: "100dvh", overflow: "auto" }}>
-      <iframe
-        src="https://app.formbricks.com/s/cmc285f68b9ztu201b40ow2id"
-        title="Tech Team Hiring Call"
-        frameBorder="0"
-        style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
-          border: 0,
-        }}
-      />
+  <div id="careers" className="min-h-screen flex flex-col justify-center items-center">
+    <Image src="https://www.svgrepo.com/show/426192/cogs-settings.svg" alt="Logo" width={100} height={100} className="mb-8 h-40"/>
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#3ddd95] dark:text-white mb-4">Site is under maintenance</h1>
+    <p className="text-center text-white dark:text-gray-300 text-lg md:text-xl lg:text-2xl mb-8">We're working hard to improve the user experience. Stay tuned!</p>
+    <div className="flex space-x-4">
+      <Link href="/" className=" text-black bg-[#3ddd95] font-bold py-3 px-6 rounded dark:text-white dark:border-white">Go Home</Link>
     </div>
+  </div>
   );
 }
 
