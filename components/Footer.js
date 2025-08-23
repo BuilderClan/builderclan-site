@@ -116,13 +116,18 @@ export default function Footer() {
       </div>
       <div className="py-10 contact flex flex-col gap-2 md:gap-0">
         <motion.div
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 10,
+            duration: 0.5,
+            delay: 0.1,
+          }}
           whileInView={{
             opacity: [0, 1],
             x: [-10, 0],
           }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Link
             href="mailto:main.builderclan@gmail.com"
@@ -151,13 +156,18 @@ export default function Footer() {
         </motion.div>
         <motion.div
           className="flex items-center gap-2"
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 10,
+            duration: 0.5,
+            delay: 0.2,
+          }}
           whileInView={{
             opacity: [0, 1],
             x: [-10, 0],
           }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <motion.div
             whileHover={{ rotate: 10 }}
