@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,15 +15,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@public/*": [
-        "./public/*"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@public/*": ["./public/*"]
     },
     "plugins": [
       {
@@ -40,10 +30,8 @@
     "**/*.jsx",
     ".next/types/**/*.js",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.js"
-  ]
+    ".next/types/**/*.ts",
+    "app/layout.tsx"
+, "app/careers/page.tsx", "app/eduquest/guide/page.tsx", "app/eduquest/register/page.tsx", "app/page.tsx", "components/BackToTop.tsx", "components/Button.tsx", "components/Contact.tsx", "components/CTA.tsx", "components/Faq.tsx", "components/Footer.tsx", "components/Header.tsx", "components/Home.tsx", "components/Opportunity.tsx", "lib/utils.ts"  ],
+  "exclude": ["node_modules", "**/*.js"]
 }

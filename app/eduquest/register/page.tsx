@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "EduQuest Registration - Builder Clan",
   description:
     "Register for BuilderClan's EduQuest program. Join our educational journey in technology and innovation.",

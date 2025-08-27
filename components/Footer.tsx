@@ -197,7 +197,6 @@ export default function Footer() {
                 icon: (
                   <Instagram
                     color="black"
-                    alt="instagram"
                     width={20}
                     height={20}
                   />

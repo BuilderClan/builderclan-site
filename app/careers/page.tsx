@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Careers - Builder Clan",
   description:
     "Join BuilderClan and be part of our innovative tech community. Explore career opportunities and growth possibilities.",

@@ -165,7 +165,7 @@ export default function HomeSection() {
                   content="Get Started"
                   href="#joinclan"
                   active
-                  onClick={handleScroll}
+
                 />
               </motion.div>
             </div>

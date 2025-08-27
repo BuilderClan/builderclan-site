@@ -1,8 +1,7 @@
-const Button = ({ content, href, active, onClick }) => {
+const Button = ({ content, href, active }) => {
   return (
     <a
       href={href}
-      onClick={onClick}
       className={`text-sm lg:text-base px-6 py-3 rounded-[82px] font-normal transition-all duration-300 ${
         active
           ? "btn-builder-active hover:opacity-90"
