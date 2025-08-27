@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "EduQuest Registration - Builder Clan",
+  description:
+    "Register for BuilderClan's EduQuest program. Join our educational journey in technology and innovation.",
+  alternates: {
+    canonical: "https://builderclan.org/eduquest/register",
+  },
+};
+
 export default function EduQuestReg() {
   return (
     <div

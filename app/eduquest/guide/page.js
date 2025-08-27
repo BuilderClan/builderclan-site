@@ -2,6 +2,15 @@
 
 import { useEffect } from "react";
 
+export const metadata = {
+  title: "EduQuest Guide - Builder Clan",
+  description:
+    "Comprehensive guide for BuilderClan's EduQuest hackathon. Learn about our 24-hour game-based learning experience.",
+  alternates: {
+    canonical: "https://builderclan.org/eduquest/guide",
+  },
+};
+
 export default function Guide() {
   useEffect(() => {
     window.location.href =
