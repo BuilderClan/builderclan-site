@@ -28,18 +28,18 @@ const nextConfig = {
       // Registration redirects
       {
         source: "/careers",
-        destination: "https://forms.builderclan.org/careers", // Replace with your actual registration form URL
+        destination: "https://builderclan.org/careers", // Replace with your actual registration form URL
         permanent: false,
       },
       {
         source: "/eduquest/register",
-        destination: "https://forms.builderclan.org/eduquest", // Replace with your actual registration form URL
+        destination: "https://builderclan.org/eduquest/register", // Replace with your actual registration form URL
         permanent: false,
       },
       // Guide redirect to Notion
       {
         source: "/eduquest/guide",
-        destination: "https://builderclan.notion.site/guide", // Replace with your actual Notion page URL
+        destination: "https://builderclan.org/eduquest/guide", // Replace with your actual Notion page URL
         permanent: false,
       },
     ];
