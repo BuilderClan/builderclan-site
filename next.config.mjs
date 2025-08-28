@@ -2,18 +2,22 @@
 const nextConfig = {
   async redirects() {
     return [
-      // Domain redirects
       {
-        source: "/",
-        has: [
-          {
-            type: "host",
-            value: "www.builderclan.org",
-          },
-        ],
-        destination: "https://builderclan.org",
-        permanent: true,
+        source: "/careers",
+        destination: "https://builderclan.org/careers",
+        permanent: false,
       },
+      {
+        source: "/eduquest/register",
+        destination: "https://app.formbricks.com/s/x7km1hi7s9gn39eyokv91qxk", // replace with actual form URL
+        permanent: false,
+      },
+      {
+        source: "/eduquest/guide",
+        destination: "https://www.notion.so/builderclan/EduQuest-The-24-Hour-Game-Based-Learning-Hackathon-2427f33836f080029c2fc61e8cc091b1", // replace with actual Notion page
+        permanent: false,
+      },
+
       {
         source: "/:path*",
         has: [
@@ -25,25 +29,9 @@ const nextConfig = {
         destination: "https://builderclan.org/:path*",
         permanent: true,
       },
-      // Registration redirects
-      {
-        source: "/careers",
-        destination: "https://builderclan.org/careers", // Replace with your actual registration form URL
-        permanent: false,
-      },
-      {
-        source: "/eduquest/register",
-        destination: "https://builderclan.org/eduquest/register", // Replace with your actual registration form URL
-        permanent: false,
-      },
-      // Guide redirect to Notion
-      {
-        source: "/eduquest/guide",
-        destination: "https://builderclan.org/eduquest/guide", // Replace with your actual Notion page URL
-        permanent: false,
-      },
     ];
   },
 };
 
 export default nextConfig;
+
