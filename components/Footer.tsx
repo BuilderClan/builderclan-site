@@ -193,7 +193,7 @@ export default function Footer() {
             {[
               {
                 platform: "instagram",
-                href: "https://www.instagram.com/builder.clan/",
+                href: "https://www.instagram.com/thebuilderclan/",
                 icon: (
                   <Instagram
                     color="black"
@@ -247,8 +247,6 @@ export default function Footer() {
                   className="px-4 md:px-6 py-2 md:py-3 text-white social-icon flex items-center justify-center rounded-lg relative overflow-hidden"
                 >
                   {social.icon}
-
-                  {/* Hover animation for social icons */}
                   <motion.div
                     className="absolute inset-0 bg-primary/10"
                     initial={{ opacity: 0 }}
