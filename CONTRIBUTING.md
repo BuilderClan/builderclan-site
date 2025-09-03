@@ -169,9 +169,8 @@ Even small contributions are valuable!
 
 If you need help, you can:
 
-- Open a [GitHub Discussion](../../discussions)
-- Ask in issues with the label `question`
-- Contact the BuilderClan maintainers at: **\hello@builder-clan.org**
+- Open a [GitHub Issue](https://github.com/BuilderClan/builderclan-site/issues)
+- Contact the BuilderClan site maintainers at: [hello@builder-clan.org](mailto:hello@builder-clan.org)
 
 ---
 
