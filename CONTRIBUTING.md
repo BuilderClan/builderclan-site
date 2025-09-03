@@ -11,7 +11,7 @@ This document will guide you through the process.
 
 You can contribute in several ways:
 
-- **Report bugs** via [GitHub Issues](../../issues).
+- **Report bugs** via [GitHub Issues](https://github.com/BuilderClan/builderclan-site/issues).
 - **Suggest features** or improvements.
 - **Fix bugs** and open Pull Requests.
 - **Improve documentation** (README, wiki, inline docs).
@@ -38,7 +38,7 @@ You can contribute in several ways:
 4. **Install dependencies** (if applicable):
 
    ```bash
-   npm install   # for frontend
+   npm install
    ```
 
 5. **Make your changes** and commit them.
@@ -68,8 +68,6 @@ Examples:
 ---
 
 ## ✨ Commit Messages
-
-Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
 type(scope): short description
@@ -138,12 +136,10 @@ When reporting an issue:
 
 ```
 builderclan-site/
-├── frontend/       # React / Astro / Tailwind code
-├── backend/        # Flask / FastAPI / Django code
-├── static/         # Static assets
-├── templates/      # HTML templates
-├── docs/           # Documentation
-└── tests/          # Automated tests
+├── app/
+├── components/     
+├── lib/  
+├── public/        
 ```
 
 ---
@@ -163,7 +159,6 @@ builderclan-site/
 Not sure where to start?
 
 - Fix a typo in the docs.
-- Update the README with clearer setup instructions.
 - Try solving a **good first issue**.
 
 Even small contributions are valuable!
@@ -176,7 +171,7 @@ If you need help, you can:
 
 - Open a [GitHub Discussion](../../discussions)
 - Ask in issues with the label `question`
-- Contact the BuilderClan maintainers at: **\[add your email here]**
+- Contact the BuilderClan maintainers at: **\hello@builder-clan.org**
 
 ---
 
