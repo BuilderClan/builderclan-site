@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram } from "lucide-react";
+import { Github, Instagram, LetterText, Linkedin, Mail, MapPin } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -147,7 +147,7 @@ export default function Footer() {
                 },
               }}
             >
-              <Image src="/Email.svg" alt="email" width={20} height={20} />
+              <Mail className="text-[#caff33]" />
             </motion.div>
             <span className="text-sm md:text-base">
               main.builderclan@gmail.com
@@ -182,7 +182,7 @@ export default function Footer() {
               },
             }}
           >
-            <Image src="/Location.svg" alt="location" width={20} height={20} />
+            <MapPin className="text-[#caff33]" />
           </motion.div>
           <span className="text-sm md:text-base">Somewhere in the world</span>
         </motion.div>
@@ -194,37 +194,17 @@ export default function Footer() {
               {
                 platform: "instagram",
                 href: "https://www.instagram.com/thebuilderclan/",
-                icon: (
-                  <Instagram
-                    color="black"
-                    width={20}
-                    height={20}
-                  />
-                ),
+                icon: <Instagram color="black" width={20} height={20} />,
               },
               {
                 platform: "github",
                 href: "https://github.com/BuilderClan",
-                icon: (
-                  <Image
-                    src="/Github.svg"
-                    alt="github"
-                    width={20}
-                    height={20}
-                  />
-                ),
+                icon: <Github color="black" width={20} height={20} />,
               },
               {
                 platform: "linkedin",
                 href: "https://www.linkedin.com/company/builderclan/",
-                icon: (
-                  <Image
-                    src="/LinkedIn.svg"
-                    alt="linkedin"
-                    width={20}
-                    height={20}
-                  />
-                ),
+                icon: <Linkedin color="black" width={20} height={20} />,
               },
             ].map((social, index) => (
               <motion.div

@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { Arrow } from "@radix-ui/react-select";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ContactSection() {
   const [activeTab, setActiveTab] = useState("general");
@@ -102,12 +104,7 @@ export default function ContactSection() {
                 <div key={index} className="flex contact-card cursor-pointer">
                   <div className="w-full flex justify-between items-center mb-6">
                     <h3>{item.title}</h3>
-                    <Image
-                      src={"/Arrow.svg"}
-                      alt="arrow"
-                      width={20}
-                      height={20}
-                    />
+                    <ArrowUpRight className="text-[#caff33]" />
                   </div>
                   <p>{item.text}</p>
                 </div>

@@ -16,21 +16,6 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleScroll = (e) => {
-    e.preventDefault();
-    const element = document.querySelector("#joinclan");
-    const offset = 50;
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const heroTextVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({

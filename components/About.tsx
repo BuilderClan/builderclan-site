@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Crosshair, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
@@ -58,6 +58,7 @@ export default function AboutSection() {
             {`At BuilderClan, we believe in building solutions that matter. Whether you're a coder, a designer, or a tech enthusiast, you're part of a community that fosters creativity, learning, and growth.`}
           </motion.div>
         </motion.div>
+
         <div className="section-content">
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-4">
             <motion.div
@@ -82,12 +83,7 @@ export default function AboutSection() {
                   variants={iconMotion}
                 >
                   <div className="icon-inner-wrapper">
-                    <Image
-                      src={`/Mission.svg`}
-                      alt="mission"
-                      width={52}
-                      height={38}
-                    />
+                    <Crosshair className="text-[#caff33]" />
                   </div>
                 </motion.div>
                 <motion.div
@@ -105,6 +101,7 @@ export default function AboutSection() {
                 </motion.div>
               </motion.div>
             </motion.div>
+
             <motion.div
               className="col-span-12 lg:col-span-6 flex justify-center"
               initial="hidden"
@@ -128,12 +125,7 @@ export default function AboutSection() {
                   variants={iconMotion}
                 >
                   <div className="icon-inner-wrapper">
-                    <Image
-                      src={`/vision.svg`}
-                      alt="vision"
-                      width={34}
-                      height={32}
-                    />
+                    <Eye className="w-34 h-32 text-[#caff33]" />
                   </div>
                 </motion.div>
                 <motion.div

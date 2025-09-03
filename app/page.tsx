@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import BackToTop from "@components/BackToTop";

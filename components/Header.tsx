@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Button from "./Button";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -64,7 +65,7 @@ export default function Header() {
       <div className="header-builder relative">
         {/* Logo Section */}
         <div className="pr-[28px] pl-2 py-[15px]">
-          <Image src={`/LogoShort.png`} alt="logo" width={46} height={34} />
+          <Image src="/LogoShort.png" alt="logo" width={46} height={34} />
         </div>
 
         {/* Navigation Links */}
@@ -134,23 +135,13 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Buttons Section (Desktop) */}
-        {/* <div className="hidden lg:flex">
-          <Button content="Sign Up" />
-          <Button content="Login" active />
-        </div> */}
-
         {/* Hamburger Menu (Mobile) */}
         <div className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <div
-            className={`flex flex-col gap-1.5 menu-bar-icon ${
-              isOpen ? "active" : ""
-            }`}
-          >
-            <div className={`menu-bar`}></div>
-            <div className={`menu-bar`}></div>
-            <div className={`menu-bar`}></div>
-          </div>
+          {isOpen ? (
+            <X className="w-7 h-7 text-[#caff33]  " />
+          ) : (
+            <Menu className="w-7 h-7 text-[#caff33]  " />
+          )}
         </div>
       </div>
     </div>

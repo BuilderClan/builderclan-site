@@ -28,7 +28,7 @@ export default function Careers() {
         Site is under maintenance
       </h1>
       <p className="text-center text-white dark:text-gray-300 text-lg md:text-xl lg:text-2xl mb-8">
-        We're working hard to improve the user experience. Stay tuned!
+        We are working hard to improve the user experience. Stay tuned!
       </p>
       <div className="flex space-x-4">
         <Link

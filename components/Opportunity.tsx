@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Globe, Lightbulb, Settings, UsersRound } from "lucide-react";
 
 export default function OpportunitySection() {
   const cardVariants = {
@@ -28,7 +29,7 @@ export default function OpportunitySection() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="section-heading">Opportunity</h1>
-          <div className="section-sub-text">{` What We Do`}</div>
+          <div className="section-sub-text">What We Do</div>
         </motion.div>
         <div className="opportunity-content p-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
@@ -54,12 +55,7 @@ export default function OpportunitySection() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="icon-inner-wrapper ">
-                    <Image
-                      src={`/Community.svg`}
-                      alt="mission"
-                      width={36}
-                      height={36}
-                    />
+                    <UsersRound className="text-[#caff33]" />
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
@@ -90,12 +86,7 @@ export default function OpportunitySection() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="icon-inner-wrapper ">
-                    <Image
-                      src={`/Workshops.svg`}
-                      alt="mission"
-                      width={39}
-                      height={36}
-                    />
+                    <Settings className="text-[#caff33]" />
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
@@ -126,12 +117,7 @@ export default function OpportunitySection() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="icon-inner-wrapper ">
-                    <Image
-                      src={`/Innovate.svg`}
-                      alt="mission"
-                      width={39}
-                      height={36}
-                    />
+                    <Lightbulb className="text-[#caff33]" />
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
@@ -162,12 +148,7 @@ export default function OpportunitySection() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="icon-inner-wrapper ">
-                    <Image
-                      src={`/Network.svg`}
-                      alt="mission"
-                      width={57}
-                      height={52}
-                    />
+                    <Globe className="text-[#caff33]" />
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">

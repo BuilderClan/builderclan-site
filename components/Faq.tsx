@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -155,7 +155,7 @@ export default function FaqSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {`Still you have any questions? Contact our Team via main.builderclan@gmail.com`}
+            Still you have any questions? Contact our Team via main.builderclan@gmail.com
           </motion.div>
         </motion.div>
         <div className="faq-wrapper relative">
@@ -220,7 +220,7 @@ export default function FaqSection() {
               scale: { duration: 0.2 },
             }}
           >
-            <span>{!showAll ? `Show more` : `Show less`}</span>
+            <span>{!showAll ? "Show more" : "Show less"}</span>
             <motion.div
               animate={{
                 rotate: showAll ? 180 : 0,
@@ -235,12 +235,7 @@ export default function FaqSection() {
                 },
               }}
             >
-              <Image
-                src={`/ArrowDown.svg`}
-                alt="arrow"
-                width={18}
-                height={18}
-              />
+              <ChevronDown />
             </motion.div>
           </motion.button>
         </div>

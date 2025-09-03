@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { MoveUp } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -27,7 +27,7 @@ export default function BackToTop() {
     <Link
       className="back-to-top fixed bottom-10 right-10 cursor-pointer"
       href="#home">
-      <Image src={`/Arrowup.svg`} alt="up-arrow" width={23} height={30} />
+      <MoveUp className="w-23 h-30 text-black" />
     </Link>
   );
 }

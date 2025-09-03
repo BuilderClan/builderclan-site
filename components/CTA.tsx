@@ -92,7 +92,7 @@ export default function CTA() {
               transition={{ delay: 0.3, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              {`Visit our website.`}
+              Visit our website.
             </motion.div>
           </motion.div>
           <motion.div
