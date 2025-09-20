@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compress: true,
+  images: {
+    domains: ["github.com"],
+  },
   async redirects() {
     return [
       {

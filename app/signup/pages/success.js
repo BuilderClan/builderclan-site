@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../signup.module.css";
+import styles from "./signup.module.css";
 
 const DISCORD_APP_URL = process.env.NEXT_PUBLIC_DISCORD_APP_URL;
 const DISCORD_WEB_URL = process.env.NEXT_PUBLIC_DISCORD_WEB_URL;

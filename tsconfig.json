@@ -31,7 +31,21 @@
     ".next/types/**/*.js",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "app/layout.tsx"
-, "app/careers/page.tsx", "app/eduquest/guide/page.tsx", "app/eduquest/register/page.tsx", "app/page.tsx", "components/BackToTop.tsx", "components/Button.tsx", "components/Contact.tsx", "components/CTA.tsx", "components/Faq.tsx", "components/Footer.tsx", "components/Header.tsx", "components/Home.tsx", "components/Opportunity.tsx", "lib/utils.ts"  ],
+    "app/layout.tsx",
+    "app/careers/page.tsx",
+    "app/eduquest/guide/page.tsx",
+    "app/eduquest/register/page.tsx",
+    "app/page.tsx",
+    "components/BackToTop.tsx",
+    "components/Button.tsx",
+    "components/Contact.tsx",
+    "components/CTA.tsx",
+    "components/Faq.tsx",
+    "components/Footer.tsx",
+    "components/Header.tsx",
+    "components/Home.tsx",
+    "components/Opportunity.tsx",
+    "lib/utils.ts"
+, "components/ui/input.jsx"  ],
   "exclude": ["node_modules", "**/*.js"]
 }

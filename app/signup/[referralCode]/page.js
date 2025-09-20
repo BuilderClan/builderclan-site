@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import RegistrationForm from "../page";
+import RegistrationForm from "../pages/form";
 
 export default function Signup() {
   const params = useParams();
