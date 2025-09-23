@@ -2,7 +2,7 @@
 const nextConfig = {
   compress: true,
   images: {
-    domains: ["github.com"],
+    remotePatterns: ["github.com"],
   },
   async redirects() {
     return [
