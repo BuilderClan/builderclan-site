@@ -2,8 +2,15 @@
 const nextConfig = {
   compress: true,
   images: {
-    remotePatterns: ["github.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "github.com",
+        pathname: "/*.png",
+      },
+    ],
   },
+
   async redirects() {
     return [
       {
