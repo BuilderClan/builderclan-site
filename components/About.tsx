@@ -4,7 +4,7 @@ import { Crosshair, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
-  const cardVariants = {
+  const cardVariants: any = {
     hidden: { opacity: 0, y: 50, boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)" },
     visible: {
       opacity: 1,
@@ -12,12 +12,12 @@ export default function AboutSection() {
       boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.1)",
       transition: {
         duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeInOut",
       },
     },
   };
 
-  const iconMotion = {
+  const iconMotion: any = {
     rest: { scale: 1, rotate: 0 },
     hover: {
       scale: 1.2,

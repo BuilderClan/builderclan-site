@@ -82,7 +82,7 @@ export default function FaqSection() {
     setShowAll(!showAll);
   };
 
-  const faqVariants = {
+  const faqVariants: any = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: (i) => ({
       opacity: 1,
@@ -108,14 +108,14 @@ export default function FaqSection() {
     },
   };
 
-  const titleVariants = {
+  const titleVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeInOut",
       },
     },
   };

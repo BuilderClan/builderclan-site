@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { Globe, Lightbulb, Settings, UsersRound } from "lucide-react";
 
 export default function OpportunitySection() {
-  const cardVariants = {
+  const cardVariants: any = {
     hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
+    visible: (i: any) => ({
       opacity: 1,
       y: 0,
       transition: {

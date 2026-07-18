@@ -67,7 +67,7 @@ export default function Header() {
         }`}
       >
         {/* Logo Brand */}
-        <Link href="#home" className="flex items-center gap-2.5 group">
+        <Link href="#home" className="flex items-center group">
           <Image
             src="/LogoShort.png"
             alt="BuilderClan Logo"
@@ -77,9 +77,6 @@ export default function Header() {
             style={{ width: "auto", height: "auto" }}
             className="w-7 sm:w-8 h-auto transition-transform group-hover:scale-105"
           />
-          <span className="font-bold text-white text-base sm:text-lg tracking-tight group-hover:text-[#caff33] transition-colors">
-            BuilderClan
-          </span>
         </Link>
 
         {/* Desktop Navigation Links */}

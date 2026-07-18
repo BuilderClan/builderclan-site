@@ -242,6 +242,7 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
     if (!initialReferralCode) {
       const extractedCode = extractReferralCode(pathname);
       if (extractedCode) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setReferralCode(extractedCode);
       }
     }
