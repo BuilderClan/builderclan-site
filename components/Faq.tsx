@@ -1,244 +1,182 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, HelpCircle, Sparkles, Mail } from "lucide-react";
 
 const faqs = [
   {
     question: "What is BuilderClan?",
     answer:
-      "BuilderClan is a tech community where innovators, developers, and enthusiasts come together to collaborate, learn, and build impactful projects.",
+      "BuilderClan is a tech community where innovators, developers, and creators come together to collaborate, learn, and build impactful open-source software.",
   },
   {
     question: "Who can join BuilderClan?",
     answer:
-      "Anyone passionate about technology, innovation, or collaboration can join. Whether you're a beginner or an expert, there's a place for you here!",
+      "Anyone passionate about technology, programming, design, or innovation! Whether you're a complete beginner or a senior engineer, there's a place for you here.",
   },
   {
     question: "How can I become a member?",
     answer:
-      "Get referred by an existing member and follow the signup process on our website. If you don’t know any members, feel free to reach out to us for more information.",
+      "You can join directly via our Discord community server or get referred by an existing member on our website signup portal.",
   },
   {
     question: "What activities does BuilderClan organize?",
     answer:
-      "We host open-source projects, hackathons and coding challenges, workshops, webinars, and community meetups, as well as networking opportunities and mentorship programs.",
+      "We host open-source projects, competitive hackathons, hands-on coding workshops, live webinars, code reviews, and global networking sessions.",
   },
   {
-    question: "How can I contribute to BuilderClan?",
+    question: "Is there any membership fee?",
     answer:
-      "You can participate in open-source projects, share knowledge through posts or workshops, and help moderate discussions and mentor others.",
+      "No! Joining BuilderClan is completely free. All core community activities, projects, and discussions are open to everyone.",
   },
   {
-    question: "Are there any rules for the community?",
+    question: "How can I contribute to community projects?",
     answer:
-      "Yes, we have a set of community rules to ensure a respectful and collaborative environment. You can find them on our website.",
+      "Keep an eye on our project announcements in Discord or GitHub. Once a project opens up, you can submit pull requests, report issues, or join project teams.",
   },
   {
-    question: "How can I report issues or inappropriate behavior?",
+    question: "Can I promote my own open-source projects?",
     answer:
-      "If you encounter any violations of our rules, please report them to the moderators through our contact form or email at contact@builderclan.com.",
-  },
-  {
-    question: "Is there a membership fee?",
-    answer:
-      "No, joining BuilderClan is free! Some premium events or workshops may have a fee, but general membership is completely free.",
-  },
-  {
-    question: "Can I promote my projects or services in the community?",
-    answer:
-      "Yes, but please ensure your promotions are relevant and non-spammy. Use designated channels for project showcases.",
-  },
-  {
-    question: "How do I collaborate on community projects?",
-    answer:
-      "Keep an eye on announcements for project opportunities. Once a project is announced, you can apply to join the team or contribute through GitHub.",
+      "Yes! We encourage members to showcase their projects in designated community channels to receive feedback, contributors, and support.",
   },
   {
     question: "How do I contact the BuilderClan team?",
     answer:
-      "You can reach us at main.builderclan@gmail.com or use the contact form on our website.",
+      "You can email us directly at main.builderclan@gmail.com or ask questions inside our official Discord server.",
   },
 ];
 
 export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [showAll, setShowAll] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const controls = useAnimationControls();
 
-  useEffect(() => {
-    controls.start({
-      y: [0, -10, 0],
-      transition: { duration: 2, repeat: Number.POSITIVE_INFINITY },
-    });
-  }, [controls]);
-
-  const handleToggle = () => {
-    if (showAll) {
-      const faqSection = document.getElementById("faq");
-      faqSection?.scrollIntoView({ behavior: "smooth" });
-    }
-    setShowAll(!showAll);
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
-  const faqVariants: any = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-    hover: {
-      scale: 1.03,
-      boxShadow: "0px 10px 30px rgba(202, 255, 51, 0.1)",
-      y: -5,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 15,
-      },
-    },
-  };
-
-  const titleVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeInOut",
-      },
-    },
-  };
+  const displayedFaqs = showAll ? faqs : faqs.slice(0, 6);
 
   return (
-    <section className="section" id="faq">
-      <div className="container mx-auto">
+    <section className="py-24 relative overflow-hidden bg-[#161616]" id="faq">
+      {/* Ambient Lighting Glow */}
+      <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-t from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-40" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Section Header */}
         <motion.div
-          className="mb-20"
-          initial="hidden"
-          whileInView="visible"
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          variants={titleVariants}
+          transition={{ duration: 0.6 }}
         >
-          <motion.h1
-            className="section-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Frequently{" "}
-            <motion.span
-              className="text-white"
-              initial={{ opacity: 0, y: 5 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Asked Questions
-            </motion.span>
-          </motion.h1>
-          <motion.div
-            className="section-sub-text"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            Still you have any questions? Contact our Team via main.builderclan@gmail.com
-          </motion.div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>HAVE QUESTIONS?</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Frequently Asked <span className="text-[#caff33]">Questions</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
+            Everything you need to know about BuilderClan, community projects, and how to get involved.
+          </p>
         </motion.div>
-        <div className="faq-wrapper relative">
-          <AnimatePresence mode="wait">
-            <div className={`faq-content ${showAll ? "show" : ""}`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {faqs.slice(0, showAll ? faqs.length : 4).map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    className="p-10 faq-card backdrop-blur-sm"
-                    custom={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    whileHover="hover"
-                    viewport={{ once: true, amount: 0.1 }}
-                    variants={faqVariants}
-                    onHoverStart={() => setHoveredCard(index)}
-                    onHoverEnd={() => setHoveredCard(null)}
-                  >
-                    <motion.div
-                      className="pb-4 faq-question font-semibold"
-                      initial={{ color: "#caff33" }}
-                      animate={
-                        hoveredCard === index
-                          ? {
-                              color: ["#caff33", "#a5cc29", "#caff33"],
-                              transition: {
-                                duration: 1.5,
-                                repeat: Number.POSITIVE_INFINITY,
-                              },
-                            }
-                          : { color: "#caff33" }
-                      }
-                    >
+
+        {/* Accordion List */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {displayedFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "bg-[#1c1c1c]/95 border-[#caff33]/50 shadow-[0_0_20px_rgba(202,255,51,0.08)]"
+                    : "bg-[#181818] border-[#262626] hover:border-[#333333]"
+                }`}
+              >
+                {/* Question Header Bar */}
+                <button
+                  onClick={() => toggleAccordion(index)}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left font-semibold text-base sm:text-lg transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <HelpCircle className={`w-5 h-5 shrink-0 transition-colors ${isOpen ? "text-[#caff33]" : "text-[#71717a]"}`} />
+                    <span className={isOpen ? "text-white font-bold" : "text-[#d4d4d8]"}>
                       {faq.question}
-                    </motion.div>
-                    <motion.div
-                      className="pt-4 faq-answer"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1 }}
-                    >
-                      {faq.answer}
-                    </motion.div>
+                    </span>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="p-1 rounded-full bg-[#222222] border border-[#262626] text-[#caff33] shrink-0"
+                  >
+                    <ChevronDown className="w-4 h-4" />
                   </motion.div>
-                ))}
-              </div>
-            </div>
-          </AnimatePresence>
-          <motion.button
-            className="flex gap-1 items-center faq-load-btn max-w-[160px] mx-auto w-full justify-center z-10 relative mt-10"
-            onClick={handleToggle}
-            whileHover={{
-              scale: 1.1,
-              boxShadow: "0px 5px 15px rgba(202, 255, 51, 0.15)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.6 },
-              y: { duration: 0.5, delay: 0.6 },
-              scale: { duration: 0.2 },
-            }}
-          >
-            <span>{!showAll ? "Show more" : "Show less"}</span>
-            <motion.div
-              animate={{
-                rotate: showAll ? 180 : 0,
-                y: showAll ? 0 : [0, 5, 0],
-              }}
-              transition={{
-                rotate: { duration: 0.3 },
-                y: {
-                  duration: 1.5,
-                  repeat: !showAll ? Number.POSITIVE_INFINITY : 0,
-                  repeatType: "reverse",
-                },
-              }}
-            >
-              <ChevronDown />
-            </motion.div>
-          </motion.button>
+                </button>
+
+                {/* Animated Expandable Answer Content */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#262626]/50 mt-1">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Show More / Show Less Toggle Button */}
+        {faqs.length > 6 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#222222] hover:bg-[#282828] border border-[#262626] text-xs font-semibold text-white transition-all shadow-md hover:border-[#caff33]/40"
+            >
+              <span>{showAll ? "Show Fewer Questions" : "Show All Questions"}</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-[#caff33] transition-transform ${showAll ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
+
+        {/* Still Have Questions Sub-card */}
+        <motion.div
+          className="mt-16 max-w-2xl mx-auto rounded-2xl bg-[#1c1c1c] border border-[#262626] p-6 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="text-left">
+            <h4 className="text-base font-bold text-white mb-1">Still have questions?</h4>
+            <p className="text-xs text-[#a1a1aa]">Can’t find the answer you’re looking for? Reach out to our team.</p>
+          </div>
+          <a
+            href="mailto:main.builderclan@gmail.com"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-xs font-semibold shrink-0 transition-all shadow-md"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            <span>Contact Team</span>
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );
