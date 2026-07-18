@@ -65,7 +65,7 @@ export default function Header() {
       <div className="header-builder relative backdrop-blur-md bg-[#1c1c1c]/85 border border-[#262626] shadow-xl">
         {/* Logo Section */}
         <div className="pr-[28px] pl-2 py-[15px]">
-          <Image src="/LogoShort.png" alt="logo" width={46} height={34} />
+          <Image src="/LogoShort.png" alt="logo" width={46} height={34} style={{ width: "auto", height: "auto" }} />
         </div>
 
         {/* Navigation Links */}

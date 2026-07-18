@@ -41,11 +41,11 @@ export default function HomeSection() {
       <div className="container mx-auto px-4 h-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12 items-center h-full">
           
-          {/* Left Text & CTA Content (7 Cols) */}
+          {/* Left Text & CTA Content (7 Cols) - Clean, Breathable, Uncluttered */}
           <div className="col-span-12 lg:col-span-7 lg:mb-0 mb-12">
             <div className="flex flex-col justify-center h-full px-2">
               
-              {/* Top Trust Pill Badge */}
+              {/* Single Clean Top Pill Badge */}
               <motion.div
                 className="mb-6 flex items-center"
                 custom={0}
@@ -53,16 +53,13 @@ export default function HomeSection() {
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-white shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c]/90 border border-[#262626] text-xs font-medium text-white shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 text-[#caff33]" />
-                  <span>Together, let's build something extraordinary!</span>
-                  <span className="ml-1 px-2 py-0.5 text-[11px] font-semibold rounded-full bg-[#caff33]/20 text-[#caff33] border border-[#caff33]/30">
-                    500+ Members
-                  </span>
+                  <span>Welcome to BuilderClan</span>
                 </div>
               </motion.div>
 
-              {/* Main Headline */}
+              {/* Clean Streamlined Headline */}
               <motion.div
                 className="mb-6"
                 custom={1}
@@ -71,25 +68,22 @@ export default function HomeSection() {
                 variants={heroTextVariants}
               >
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-                  Welcome to <span className="text-[#caff33]">BuilderClan</span>
-                  <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#d4d4d8] mt-3">
-                    The Tech Community where
-                  </span>
-                  <span className="block text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#caff33] drop-shadow-[0_0_15px_rgba(202,255,51,0.25)] mt-1">
-                    Innovation meets Collaboration!
+                  Where Innovation Meets{" "}
+                  <span className="text-[#caff33] drop-shadow-[0_0_20px_rgba(202,255,51,0.3)]">
+                    Collaboration.
                   </span>
                 </h1>
               </motion.div>
 
-              {/* Subtitle Paragraph */}
+              {/* Short & Breathable Subtitle (2 Lines Max) */}
               <motion.p
-                className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mb-8 max-w-xl"
+                className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mb-8 max-w-lg"
                 custom={2}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                Join a dynamic community of coders, designers, and visionaries. Collaborate on real-world open-source projects, sharpen your tech skills, and turn ideas into reality.
+                A thriving tech community for coders, designers, and visionaries building impactful open-source solutions together.
               </motion.p>
 
               {/* Action Buttons */}
@@ -142,6 +136,7 @@ export default function HomeSection() {
                 width={320}
                 height={320}
                 priority
+                style={{ width: "auto", height: "auto" }}
                 className="w-56 sm:w-64 md:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
               />
             </motion.div>
