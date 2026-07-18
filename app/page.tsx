@@ -16,7 +16,7 @@ const CTA = lazy(() => import("@components/CTA"));
 export default function Home() {
   return (
     <>
-      <div className="fixed w-full top-0 left-0 z-50">
+      <div className="fixed w-full top-3 sm:top-0 left-0 z-50">
         <Header />
       </div>
       <AnimatePresence mode="wait">

@@ -58,7 +58,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="pt-6 sm:pt-7 px-4 container mx-auto max-w-6xl">
+    <div className="pt-4 sm:pt-7 px-4 container mx-auto max-w-6xl">
       <div
         className={`rounded-full transition-all duration-300 backdrop-blur-xl border px-4 sm:px-6 py-3 flex items-center justify-between shadow-2xl ${
           scrolled
@@ -67,7 +67,7 @@ export default function Header() {
         }`}
       >
         {/* Logo Brand */}
-        <Link href="#home" className="flex items-center gap-2.5 group">
+        <Link href="#home" className="flex items-center group">
           <Image
             src="/LogoShort.png"
             alt="BuilderClan Logo"
@@ -75,11 +75,8 @@ export default function Header() {
             height={26}
             priority
             style={{ width: "auto", height: "auto" }}
-            className="w-7 sm:w-8 h-auto transition-transform group-hover:scale-105"
+            className="transition-transform group-hover:scale-105"
           />
-          <span className="font-bold text-white text-base sm:text-lg tracking-tight group-hover:text-[#caff33] transition-colors">
-            BuilderClan
-          </span>
         </Link>
 
         {/* Desktop Navigation Links */}

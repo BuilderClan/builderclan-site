@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="section px-4 py-12" id="joinclan">
+    <section className="section px-4 py-12 bg-[#141414]" id="joinclan">
       <div className="container mx-auto">
         <div className="relative rounded-2xl bg-[#1c1c1c] border border-[#262626] p-8 sm:p-10 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
           

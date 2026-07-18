@@ -17,7 +17,7 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const heroTextVariants = {
+  const heroTextVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
@@ -25,14 +25,14 @@ export default function HomeSection() {
       transition: {
         delay: i * 0.12,
         duration: 0.7,
-        ease: [0.215, 0.61, 0.355, 1],
+        ease: "easeInOut",
       },
     }),
   };
 
   return (
     <section
-      className="min-h-[calc(100vh-93px)] flex items-center justify-center pt-8 pb-12 relative overflow-hidden"
+      className="min-h-[calc(100vh-93px)] flex items-center justify-center pt-8 pb-12 relative overflow-hidden bg-[#141414]"
       id="home"
     >
       {/* Ambient Radial Lighting Glow */}
