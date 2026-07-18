@@ -49,7 +49,7 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col items-start gap-4">
             <Link href="#home" className="flex items-center gap-3 group">
               <div className="p-2 rounded-xl bg-[#1c1c1c] border border-[#262626] group-hover:border-[#caff33]/50 transition-colors">
-                <Image src="/LogoShort.png" alt="BuilderClan Logo" width={32} height={26} style={{ width: "auto", height: "auto" }} className="w-8 h-auto" />
+                <Image src="/LogoShort.png" alt="BuilderClan Logo" width={32} height={26} style={{ width: "auto", height: "auto" }} />
               </div>
               <span className="text-xl font-bold text-white tracking-tight group-hover:text-[#caff33] transition-colors">
                 BuilderClan
