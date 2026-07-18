@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from "lucide-react";
+import { Plus, Minus, Sparkles, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -48,91 +48,87 @@ const faqs = [
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [showAll, setShowAll] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const displayedFaqs = showAll ? faqs : faqs.slice(0, 6);
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section className="py-24 relative overflow-hidden bg-[#141414]" id="faq">
-      {/* Ambient Lighting Glow */}
-      <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-t from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-40" />
+      {/* Ambient glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-gradient-to-t from-[#caff33]/6 via-transparent to-transparent pointer-events-none blur-3xl" />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Section Header */}
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl">
+
+        {/* Header */}
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="mb-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-6 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>HAVE QUESTIONS?</span>
           </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
             Frequently Asked <span className="text-[#caff33]">Questions</span>
           </h2>
-
-          <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
+          <p className="text-base text-[#a1a1aa] max-w-xl mx-auto leading-relaxed">
             Everything you need to know about BuilderClan, community projects, and how to get involved.
           </p>
         </motion.div>
 
-        {/* Accordion List */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          {displayedFaqs.map((faq, index) => {
-            const isOpen = openIndex === index;
+        {/* FAQ List */}
+        <div className="divide-y divide-[#262626]">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            const num = String(i + 1).padStart(2, "0");
             return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
-                    ? "bg-[#1c1c1c]/95 border-[#caff33]/50 shadow-[0_0_20px_rgba(202,255,51,0.08)]"
-                    : "bg-[#181818] border-[#262626] hover:border-[#333333]"
-                }`}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
               >
-                {/* Question Header Bar */}
                 <button
-                  onClick={() => toggleAccordion(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left font-semibold text-base sm:text-lg transition-colors"
+                  onClick={() => toggle(i)}
+                  className="w-full py-7 flex items-start gap-6 text-left group"
                 >
-                  <div className="flex items-center gap-3">
-                    <HelpCircle className={`w-5 h-5 shrink-0 transition-colors ${isOpen ? "text-[#caff33]" : "text-[#71717a]"}`} />
-                    <span className={isOpen ? "text-white font-bold" : "text-[#d4d4d8]"}>
-                      {faq.question}
-                    </span>
+                  {/* Number */}
+                  <span className={`text-sm font-mono font-bold shrink-0 mt-0.5 transition-colors duration-200 ${isOpen ? "text-[#caff33]" : "text-[#3f3f46] group-hover:text-[#52525b]"}`}>
+                    {num}.
+                  </span>
+
+                  {/* Question */}
+                  <span className={`flex-1 text-base sm:text-lg font-semibold leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-[#a1a1aa] group-hover:text-[#d4d4d8]"}`}>
+                    {faq.question}
+                  </span>
+
+                  {/* Icon */}
+                  <div className={`shrink-0 mt-0.5 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                    isOpen
+                      ? "bg-[#caff33] border-[#caff33] text-[#1c1c1c]"
+                      : "border-[#333333] text-[#71717a] group-hover:border-[#444444]"
+                  }`}>
+                    {isOpen
+                      ? <Minus className="w-3.5 h-3.5" />
+                      : <Plus className="w-3.5 h-3.5" />
+                    }
                   </div>
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="p-1 rounded-full bg-[#222222] border border-[#262626] text-[#caff33] shrink-0"
-                  >
-                    <ChevronDown className="w-4 h-4" />
-                  </motion.div>
                 </button>
 
-                {/* Animated Expandable Answer Content */}
+                {/* Answer */}
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.28, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#a1a1aa] leading-relaxed border-t border-[#262626]/50 mt-1">
+                      <div className="pb-7 pl-11 pr-10 text-[#a1a1aa] text-sm sm:text-base leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -143,22 +139,9 @@ export default function FaqSection() {
           })}
         </div>
 
-        {/* Show More / Show Less Toggle Button */}
-        {faqs.length > 6 && (
-          <div className="mt-10 text-center">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#222222] hover:bg-[#282828] border border-[#262626] text-xs font-semibold text-white transition-all shadow-md hover:border-[#caff33]/40"
-            >
-              <span>{showAll ? "Show Fewer Questions" : "Show All Questions"}</span>
-              <ChevronDown className={`w-3.5 h-3.5 text-[#caff33] transition-transform ${showAll ? "rotate-180" : ""}`} />
-            </button>
-          </div>
-        )}
-
         {/* Still Have Questions */}
         <motion.div
-          className="mt-16 max-w-4xl mx-auto text-center py-6"
+          className="mt-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -170,7 +153,7 @@ export default function FaqSection() {
             </div>
             <div>
               <h4 className="text-xl font-bold text-white mb-1">Still have questions?</h4>
-              <p className="text-sm text-[#a1a1aa]">Can't find what you're looking for? We'd love to talk.</p>
+              <p className="text-sm text-[#a1a1aa]">Can&apos;t find what you&apos;re looking for? We&apos;d love to talk.</p>
             </div>
             <a
               href="mailto:main.builderclan@gmail.com"
