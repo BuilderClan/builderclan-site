@@ -37,8 +37,8 @@ export default function Header() {
     const sections = document.querySelectorAll("section");
     const options = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
+      rootMargin: "-20% 0px -40% 0px",
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -61,11 +61,11 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="container bg-color-main" style={{ paddingTop: "20px" }}>
-      <div className="header-builder relative">
+    <div className="container bg-transparent" style={{ paddingTop: "20px" }}>
+      <div className="header-builder relative backdrop-blur-md bg-[#1c1c1c]/85 border border-[#262626] shadow-xl">
         {/* Logo Section */}
         <div className="pr-[28px] pl-2 py-[15px]">
-          <Image src="/LogoShort.png" alt="logo" width={46} height={34} />
+          <Image src="/LogoShort.png" alt="logo" width={46} height={34} style={{ width: "auto", height: "auto" }} />
         </div>
 
         {/* Navigation Links */}

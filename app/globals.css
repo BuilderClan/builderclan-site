@@ -13,7 +13,7 @@
   --primary-color: #caff33;
   --text-color-gray: #e4e4e7;
   --text-white: #fff;
-  --text-gray: #b3b3b3;
+  --text-gray: #d4d4d8;
   --text-button-color: #1c1c1c;
   --bg-color-active: #262626;
   --border-color: #262626;
@@ -32,6 +32,8 @@ body {
   color: #fff;
   font-family: Lexend, sans-serif;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 hr {
@@ -131,15 +133,16 @@ hr {
 }
 
 .hero-catchphrase {
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   font-size: 14px;
   font-family: "Lexend", sans-serif;
-  padding: 8px;
+  padding: 8px 16px;
   background-color: var(--bg-color-active);
   width: fit-content;
   border-radius: 61px;
   line-height: 24px;
+  border: 1px solid var(--border-color);
 }
 
 .slider-custom-anim-left {
@@ -188,8 +191,8 @@ hr {
 
 .hero-sub-text {
   font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 26px;
   color: var(--text-color-gray);
 }
 
@@ -208,7 +211,7 @@ hr {
 .section-sub-text {
   color: var(--text-gray);
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 24px;
 }
 
