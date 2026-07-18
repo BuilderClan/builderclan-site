@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const siteUrl = "https://builderclan.org";
@@ -126,6 +127,7 @@ export default function RootLayout({
       <body className="antialiased">
         <main>{children}</main>
       </body>
+      <GoogleAnalytics gaId="G-Y5L2HBGQLW" />
     </html>
   );
 }
