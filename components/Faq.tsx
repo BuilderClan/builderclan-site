@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles, Mail } from "lucide-react";
+import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -156,25 +156,30 @@ export default function FaqSection() {
           </div>
         )}
 
-        {/* Still Have Questions Sub-card */}
+        {/* Still Have Questions */}
         <motion.div
-          className="mt-16 max-w-2xl mx-auto rounded-2xl bg-[#1c1c1c] border border-[#262626] p-6 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl"
+          className="mt-16 max-w-4xl mx-auto text-center py-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-left">
-            <h4 className="text-base font-bold text-white mb-1">Still have questions?</h4>
-            <p className="text-xs text-[#a1a1aa]">Can’t find the answer you’re looking for? Reach out to our team.</p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#1c1c1c] border border-[#262626] flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 text-[#caff33]" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold text-white mb-1">Still have questions?</h4>
+              <p className="text-sm text-[#a1a1aa]">Can't find what you're looking for? We'd love to talk.</p>
+            </div>
+            <a
+              href="mailto:main.builderclan@gmail.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-sm font-semibold transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Talk to us</span>
+            </a>
           </div>
-          <a
-            href="mailto:main.builderclan@gmail.com"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-xs font-semibold shrink-0 transition-all shadow-md"
-          >
-            <Mail className="w-3.5 h-3.5" />
-            <span>Contact Team</span>
-          </a>
         </motion.div>
 
       </div>
