@@ -45,7 +45,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#161616]" id="about">
+    <section className="py-24 relative overflow-hidden bg-[#141414]" id="about">
       {/* Background Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-96 bg-gradient-to-tr from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-40" />
 

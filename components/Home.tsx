@@ -32,7 +32,7 @@ export default function HomeSection() {
 
   return (
     <section
-      className="min-h-[calc(100vh-93px)] flex items-center justify-center pt-8 pb-12 relative overflow-hidden"
+      className="min-h-[calc(100vh-93px)] flex items-center justify-center pt-8 pb-12 relative overflow-hidden bg-[#141414]"
       id="home"
     >
       {/* Ambient Radial Lighting Glow */}

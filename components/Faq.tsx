@@ -58,7 +58,7 @@ export default function FaqSection() {
   const displayedFaqs = showAll ? faqs : faqs.slice(0, 6);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#161616]" id="faq">
+    <section className="py-24 relative overflow-hidden bg-[#141414]" id="faq">
       {/* Ambient Lighting Glow */}
       <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-t from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-40" />
 

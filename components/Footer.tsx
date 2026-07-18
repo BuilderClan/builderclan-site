@@ -40,9 +40,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#161616] border-t border-[#262626] text-[#d4d4d8] pt-16 pb-8 overflow-hidden">
-      {/* Ambient Radial Gradient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 bg-gradient-to-b from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-50" />
+    <footer className="relative bg-[#141414] text-[#d4d4d8] pt-12 pb-8 overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Top Grid Section */}

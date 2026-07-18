@@ -63,7 +63,7 @@ export default function OpportunitySection() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#161616]" id="opportunity">
+    <section className="py-24 relative overflow-hidden bg-[#141414]" id="opportunity">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 right-1/4 w-full max-w-5xl h-96 bg-gradient-to-br from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-40" />
 
