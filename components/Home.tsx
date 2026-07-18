@@ -51,11 +51,11 @@ export default function HomeSection() {
       id="home"
     >
       <div className="container mx-auto px-4 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 h-full pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 items-center h-full pb-16">
           <div className="col-span-12 lg:col-span-7 lg:mb-0 mb-10">
             <div className="flex flex-col justify-center h-full px-2">
               <motion.div
-                className="hero-catchphrase slider-custom-anim-left mb-4"
+                className="hero-catchphrase slider-custom-anim-left mb-6 flex items-center gap-2"
                 custom={0}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
@@ -73,33 +73,25 @@ export default function HomeSection() {
                 >
                   ✨
                 </motion.span>
-                {` Together, let's build something extraordinary! `}
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                    repeatDelay: 2,
-                  }}
-                >
-                  ✨
-                </motion.span>
+                <span>Together, let's build something extraordinary!</span>
+                <span className="ml-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-[#caff33]/20 text-[#caff33] border border-[#caff33]/30">
+                  Join 500+ Builders
+                </span>
               </motion.div>
               <motion.div
-                className="mb-3"
+                className="mb-4"
                 custom={1}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                <h1 className="hero-heading">
+                <h1 className="hero-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                   Welcome to BuilderClan
-                  <br className="hidden md:block" /> The Tech Community where
-                  <br />
+                  <span className="block text-white mt-1">
+                    The Tech Community where
+                  </span>
                   <motion.span
-                    className="gradient-text"
+                    className="gradient-text block mt-1"
                     animate={{
                       color: [
                         "rgba(202, 255, 51, 0.8)",
@@ -131,7 +123,7 @@ export default function HomeSection() {
                 </h1>
               </motion.div>
               <motion.div
-                className="hero-sub-text mb-10"
+                className="hero-sub-text mb-10 max-w-2xl"
                 custom={2}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
@@ -150,15 +142,14 @@ export default function HomeSection() {
                   content="Get Started"
                   href="#joinclan"
                   active
-
                 />
               </motion.div>
             </div>
           </div>
-          <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+          <div className="col-span-12 lg:col-span-5 flex justify-center items-center">
             <div className="flex flex-col justify-center items-center h-full px-2">
               <motion.div
-                className="hero-image"
+                className="hero-image p-4 bg-gradient-to-b from-[#262626] to-[#1c1c1c] shadow-2xl backdrop-blur-md"
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
                 variants={imageVariants}

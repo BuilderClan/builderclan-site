@@ -59,7 +59,10 @@ export default function OpportunitySection() {
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
-                  <h3 className="mb-4"> Community Projects</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">Community Projects</h3>
+                  <p className="text-sm text-[#d4d4d8] leading-relaxed">
+                    Collaborate on real-world open-source software, sharpen your skills, and build a standout developer portfolio.
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -90,7 +93,10 @@ export default function OpportunitySection() {
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
-                  <h3 className="mb-4">Workshops & Events</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">Workshops & Events</h3>
+                  <p className="text-sm text-[#d4d4d8] leading-relaxed">
+                    Gain practical tech skills with hands-on coding sessions, hackathons, and interactive technical deep-dives.
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -121,7 +127,10 @@ export default function OpportunitySection() {
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
-                  <h3 className="mb-4">Innovate</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">Innovate</h3>
+                  <p className="text-sm text-[#d4d4d8] leading-relaxed">
+                    Turn your creative ideas into production-ready apps with community mentorship and peer support.
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
@@ -152,7 +161,10 @@ export default function OpportunitySection() {
                   </div>
                 </motion.div>
                 <div className="about-card-content text-center">
-                  <h3 className="mb-4"> Networking</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">Networking</h3>
+                  <p className="text-sm text-[#d4d4d8] leading-relaxed">
+                    Connect with tech enthusiasts, industry engineers, and founders to grow your professional network.
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
