@@ -3,11 +3,24 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers - Builder Clan",
+  title: "Careers",
   description:
-    "Join BuilderClan and be part of our innovative tech community. Explore career opportunities and growth possibilities.",
+    "Join BuilderClan and be part of our innovative tech community. Explore career opportunities and growth possibilities with 500+ global builders.",
   alternates: {
     canonical: "https://builderclan.org/careers",
+  },
+  openGraph: {
+    title: "Careers | BuilderClan",
+    description:
+      "Join BuilderClan and be part of our innovative tech community. Explore career opportunities and growth possibilities with 500+ global builders.",
+    url: "https://builderclan.org/careers",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BuilderClan Careers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers | BuilderClan",
+    description: "Join BuilderClan — a global community of builders, developers, and creators.",
+    images: ["/og-image.png"],
   },
 };
 

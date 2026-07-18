@@ -54,6 +54,24 @@ export default function FaqSection() {
 
   return (
     <section className="py-24 relative overflow-hidden bg-[#141414]" id="faq">
+      {/* FAQPage JSON-LD for Google Rich Results & AI Search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       {/* Ambient glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-gradient-to-t from-[#caff33]/6 via-transparent to-transparent pointer-events-none blur-3xl" />
 

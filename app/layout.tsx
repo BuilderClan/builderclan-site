@@ -1,14 +1,110 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://builderclan.org";
+const siteName = "BuilderClan";
+const siteDescription =
+  "BuilderClan is a global tech community where innovators, developers, designers, and creators collaborate, learn, and build impactful open-source software. Join 500+ builders worldwide.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://builderclan.org"),
-  title: "Builder Clan",
-  description:
-    "BuilderClan: Where Innovation Meets Collaboration. Join a thriving tech community of coders, designers, and tech enthusiasts building impactful solutions. Foster creativity, learning, and growth with BuilderClan!",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "BuilderClan — Where Innovation Meets Collaboration",
+    template: "%s | BuilderClan",
+  },
+  description: siteDescription,
+  keywords: [
+    "BuilderClan",
+    "developer community",
+    "tech community",
+    "open source",
+    "hackathon",
+    "coding community",
+    "software developers",
+    "Discord tech community",
+    "collaborative coding",
+    "build in public",
+  ],
+  authors: [{ name: "BuilderClan", url: siteUrl }],
+  creator: "BuilderClan",
+  publisher: "BuilderClan",
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName,
+    title: "BuilderClan — Where Innovation Meets Collaboration",
+    description: siteDescription,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BuilderClan — Where Innovation Meets Collaboration",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BuilderClan — Where Innovation Meets Collaboration",
+    description: siteDescription,
+    images: ["/og-image.png"],
+    creator: "@builderclan",
+  },
+  icons: {
+    icon: "/builderLogo.svg",
+    shortcut: "/builderLogo.svg",
+  },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "BuilderClan",
+  url: siteUrl,
+  logo: `${siteUrl}/Logo.png`,
+  description: siteDescription,
+  email: "main.builderclan@gmail.com",
+  sameAs: [
+    "https://discord.gg/GFnBvjc5tj",
+    "https://github.com/BuilderClan",
+    "https://instagram.com/builderclan",
+    "https://linkedin.com/company/builderclan",
+  ],
+  foundingDate: "2024",
+  areaServed: "Worldwide",
+  knowsAbout: [
+    "Software Development",
+    "Open Source",
+    "Hackathons",
+    "Tech Community",
+    "Collaborative Coding",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "BuilderClan",
+  url: siteUrl,
+  description: siteDescription,
+  potentialAction: {
+    "@type": "JoinAction",
+    target: "https://discord.gg/GFnBvjc5tj",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -18,7 +114,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/builderLogo.svg" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body className="antialiased">
         <main>{children}</main>
@@ -26,3 +129,4 @@ export default function RootLayout({
     </html>
   );
 }
+
