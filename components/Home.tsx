@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Sparkles, Users, GitBranch, Terminal } from "lucide-react";
 
@@ -17,7 +17,7 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const heroTextVariants: any = {
+  const heroTextVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,

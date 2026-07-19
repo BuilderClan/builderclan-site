@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormRegister, UseFormSetValue, UseFormWatch, FieldError } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import axios from "axios";
 import { usePathname } from "next/navigation";
-import styles from "./signup.module.css";
-import Success from "./pages/success";
+import styles from "@/app/signup/signup.module.css";
+import Success from "@/components/signup/Success";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -18,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 
-const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
+const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL || "";
 
 const VALIDATION_MESSAGES = {
   first_name: {
@@ -67,16 +66,14 @@ const signupSchema = z.object({
   referral_code: z.string().optional(),
 });
 
+type SignupFormData = z.infer<typeof signupSchema>;
+
 const ERROR_MESSAGES = {
-  default:
-    "We're having trouble processing your registration. Please try again.",
+  default: "We're having trouble processing your registration. Please try again.",
   badRequest: "Please check your information and try again.",
-  conflict:
-    "An account with this email already exists. Please use a different email.",
-  validation:
-    "Some of your information is invalid. Please review and correct the highlighted fields.",
-  serverError:
-    "Our servers are temporarily unavailable. Please try again in a few minutes.",
+  conflict: "An account with this email already exists. Please use a different email.",
+  validation: "Some of your information is invalid. Please review and correct the highlighted fields.",
+  serverError: "Our servers are temporarily unavailable. Please try again in a few minutes.",
   networkError: "Please check your internet connection and try again.",
 };
 
@@ -105,7 +102,16 @@ const BUTTON_TEXT = {
   default: "Join BuilderClan",
 };
 
-function FormField({ id, type = "text", label, placeholder, register, error }) {
+interface FormFieldProps {
+  id: keyof SignupFormData;
+  type?: string;
+  label: string;
+  placeholder?: string;
+  register: UseFormRegister<SignupFormData>;
+  error?: FieldError;
+}
+
+function FormField({ id, type = "text", label, placeholder, register, error }: FormFieldProps) {
   return (
     <div className={styles.formGroup}>
       <Label htmlFor={id} className={styles.label}>
@@ -123,7 +129,17 @@ function FormField({ id, type = "text", label, placeholder, register, error }) {
   );
 }
 
-function SelectField({ id, label, options, register, error, setValue, watch }) {
+interface SelectFieldProps {
+  id: keyof SignupFormData;
+  label: string;
+  options: { value: string; label: string }[];
+  register: UseFormRegister<SignupFormData>;
+  error?: FieldError;
+  setValue: UseFormSetValue<SignupFormData>;
+  watch: UseFormWatch<SignupFormData>;
+}
+
+function SelectField({ id, label, options, error, setValue, watch }: SelectFieldProps) {
   const value = watch(id);
 
   return (
@@ -132,8 +148,8 @@ function SelectField({ id, label, options, register, error, setValue, watch }) {
         {label}
       </Label>
       <Select
-        value={value}
-        onValueChange={(newValue) => setValue(id, newValue)}
+        value={typeof value === "string" ? value : ""}
+        onValueChange={(newValue) => setValue(id, newValue as any, { shouldValidate: true })}
       >
         <SelectTrigger
           className={`${styles.select} ${error ? styles.inputError : ""}`}
@@ -152,17 +168,17 @@ function SelectField({ id, label, options, register, error, setValue, watch }) {
             borderColor: "#3ddd95",
           }}
         >
-          {options.map(({ value, label }) => (
+          {options.map(({ value: val, label: lbl }) => (
             <SelectItem
-              key={value}
-              value={value}
+              key={val}
+              value={val}
               className={styles.selectItem}
               style={{
                 backgroundColor: "#1a1a1a",
                 color: "white",
               }}
             >
-              {label}
+              {lbl}
             </SelectItem>
           ))}
         </SelectContent>
@@ -181,43 +197,24 @@ function BackgroundElements() {
   );
 }
 
-function getErrorMessage(error) {
-  const status = error.response?.status;
-
+function getErrorMessage(status?: number): string {
   if (status === HTTP_STATUS.BAD_REQUEST) return ERROR_MESSAGES.badRequest;
   if (status === HTTP_STATUS.CONFLICT) return ERROR_MESSAGES.conflict;
   if (status === HTTP_STATUS.VALIDATION_ERROR) return ERROR_MESSAGES.validation;
-  if (status >= HTTP_STATUS.SERVER_ERROR) return ERROR_MESSAGES.serverError;
-
-  if (
-    error.code === "NETWORK_ERROR" ||
-    error.message.includes("Network Error")
-  ) {
-    return ERROR_MESSAGES.networkError;
-  }
-
-  const serverMessage = error.response?.data?.message;
-  if (
-    serverMessage &&
-    !serverMessage.includes("Error:") &&
-    !serverMessage.includes("Exception")
-  ) {
-    return serverMessage;
-  }
-
+  if (status && status >= HTTP_STATUS.SERVER_ERROR) return ERROR_MESSAGES.serverError;
   return ERROR_MESSAGES.default;
 }
 
-function extractReferralCode(pathname) {
+function extractReferralCode(pathname: string): string {
   const pathParts = pathname.split("/");
   return pathParts.length > 2 && pathParts[2] ? pathParts[2] : "";
 }
 
-function isSuccessfulResponse(status) {
-  return status === HTTP_STATUS.OK || status === HTTP_STATUS.CREATED;
+export interface RegistrationFormProps {
+  initialReferralCode?: string;
 }
 
-export default function RegistrationForm({ initialReferralCode = "" }) {
+export function RegistrationForm({ initialReferralCode = "" }: RegistrationFormProps) {
   const [formState, setFormState] = useState({
     isSubmitting: false,
     submitError: "",
@@ -233,13 +230,13 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
     reset,
     setValue,
     watch,
-  } = useForm({
+  } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     defaultValues: { referral_code: referralCode },
   });
 
   useEffect(() => {
-    if (!initialReferralCode) {
+    if (!initialReferralCode && pathname) {
       const extractedCode = extractReferralCode(pathname);
       if (extractedCode) {
         setReferralCode(extractedCode);
@@ -249,23 +246,25 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
 
   useEffect(() => {
     if (referralCode) {
-      reset({ referral_code: referralCode });
+      reset((prevValues) => ({ ...prevValues, referral_code: referralCode }));
     }
   }, [referralCode, reset]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: SignupFormData) => {
     setFormState({ isSubmitting: true, submitError: "", submitSuccess: false });
 
     try {
       const formData = { ...data, referral_code: referralCode };
-      const response = await axios.post(API_ENDPOINT, formData, {
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
+        body: JSON.stringify(formData),
       });
 
-      if (isSuccessfulResponse(response.status)) {
+      if (response.ok || response.status === HTTP_STATUS.CREATED) {
         setFormState({
           isSubmitting: false,
           submitError: "",
@@ -273,12 +272,17 @@ export default function RegistrationForm({ initialReferralCode = "" }) {
         });
         reset();
       } else {
-        throw new Error("Registration failed");
+        const errorText = getErrorMessage(response.status);
+        setFormState({
+          isSubmitting: false,
+          submitError: errorText,
+          submitSuccess: false,
+        });
       }
-    } catch (error) {
+    } catch {
       setFormState({
         isSubmitting: false,
-        submitError: getErrorMessage(error),
+        submitError: ERROR_MESSAGES.networkError,
         submitSuccess: false,
       });
     }

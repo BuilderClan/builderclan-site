@@ -1,18 +1,22 @@
 "use client";
 
-import styles from "../signup.module.css";
+import styles from "@/app/signup/signup.module.css";
 
 const DISCORD_APP_URL = process.env.NEXT_PUBLIC_DISCORD_APP_URL;
 const DISCORD_WEB_URL = process.env.NEXT_PUBLIC_DISCORD_WEB_URL;
 
 export default function Success() {
-  const openDiscord = (event) => {
+  const openDiscord = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    window.open(DISCORD_APP_URL, "_self");
+    if (DISCORD_APP_URL) {
+      window.open(DISCORD_APP_URL, "_self");
+    }
 
     setTimeout(() => {
       if (!document.hasFocus()) return;
-      window.location.href = DISCORD_WEB_URL;
+      if (DISCORD_WEB_URL) {
+        window.location.href = DISCORD_WEB_URL;
+      }
     }, 1500);
   };
 
@@ -22,7 +26,7 @@ export default function Success() {
       <p>Thank you for joining BuilderClan.</p>
       <div className={styles.buttonGroup}>
         <a
-          href={DISCORD_WEB_URL}
+          href={DISCORD_WEB_URL || "https://discord.gg/GFnBvjc5tj"}
           onClick={openDiscord}
           className={styles.button}
         >

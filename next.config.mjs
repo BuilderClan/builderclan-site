@@ -3,11 +3,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/careers",
-        destination: "https://builderclan.org/careers",
-        permanent: false,
-      },
-      {
         source: "/:path*",
         has: [
           {
