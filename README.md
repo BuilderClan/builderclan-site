@@ -1,96 +1,172 @@
-# 🌐 BuilderClan Site
+# BuilderClan Site
 
-Welcome to the **BuilderClan Site**, the official open-source project for the BuilderClan community 🚀.  
-This repository powers our community website, built and maintained collaboratively by contributors.  
+**A home for people who love to build.**
 
-## Git Commands and Naming Etiquette
+The official open-source website for the [BuilderClan](https://builder-clan.org) community — a peer-to-peer tech community for hardware and software builders. This repository is built and maintained collaboratively by the community.
 
-To clone the project
+---
 
-```
-git clone https://github.com/your_username/ur_fork_of_builderclan_site.git
-```
+## What is BuilderClan?
 
-Do the necessary changes on the file and add the files.
+BuilderClan is a pure-tech, peer-to-peer community where people come together to build projects, learn, experiment, and grow. Whether you work on software, hardware, open-source, or product experiments — there is a place for you here. Beginner-friendly, community-first, and 100% free.
 
-```
-git add -A
-```
+---
 
-Commit the changes
+## Tech Stack
 
-```
-git commit -m "feat(): Implemented the feature"
-```
+| Technology | Purpose |
+|---|---|
+| [Next.js 15](https://nextjs.org/) (App Router) | Framework with Turbopack dev server |
+| [React 19](https://react.dev/) | UI rendering |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
+| [Framer Motion](https://www.framer.com/motion/) | Animations and transitions |
+| [Lucide React](https://lucide.dev/) | Icon library |
 
-Pull the changes from the main repo ( not applicable for the first push )
+---
 
-```
-git pull origin branch-name
-```
-
-Push the changes to the repo for the first time
+## Project Structure
 
 ```
-git push origin branch-name
+builderclan-site/
+├── app/
+│   ├── campus/          # Campus Chapters page
+│   ├── careers/         # Careers page
+│   ├── signup/          # Signup and referral pages
+│   ├── layout.tsx       # Root layout with SEO metadata
+│   ├── page.tsx         # Home page entry
+│   ├── globals.css      # Global styles
+│   ├── robots.ts        # robots.txt generation
+│   └── sitemap.ts       # sitemap.xml generation
+│
+├── components/
+│   ├── campus/          # Campus page components
+│   ├── signup/          # Signup flow components
+│   ├── ui/              # Shared UI primitives
+│   ├── Header.tsx       # Site navigation bar
+│   ├── Footer.tsx       # Site footer
+│   ├── Home.tsx         # Hero section
+│   ├── About.tsx        # About section
+│   ├── Opportunity.tsx  # Opportunities section
+│   ├── Faq.tsx          # FAQ section
+│   ├── Contact.tsx      # Contact section
+│   ├── CTA.tsx          # Call-to-action section
+│   └── BackToTop.tsx    # Back to top button
+│
+├── lib/                 # Utility helpers
+├── public/              # Static assets (images, icons)
+├── CONTRIBUTING.md      # Contributor guide
+├── CODE_OF_CONDUCT.md   # Community standards
+└── LICENSE              # MIT License
 ```
 
-Make sure you pull the changes from the repo and keep your branch updated.
+---
 
-## Running the Project Locally
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Home — hero, about, opportunities, FAQ, contact |
+| `/campus` | Campus Chapters directory and Campus Lead application |
+| `/careers` | Open roles and volunteer opportunities |
+| `/signup` | Community sign-up flow |
+
+---
+
+## Getting Started Locally
+
+### 1. Fork and clone the repo
+
+```bash
+git clone https://github.com/<your-username>/builderclan-site.git
+cd builderclan-site
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## Branch Strategy
+
+| Branch | Purpose |
+|---|---|
+| `main` | Production-ready source (protected) |
+| `dev` | Active development and integration |
+| `feat/<name>` | New features |
+| `fix/<name>` | Bug fixes |
+| `docs/<name>` | Documentation only |
+| `chore/<name>` | Config or build changes |
+
+> Always branch off from `dev`, not `main`.
+
+---
+
+## Commit Message Convention
 
 ```
-git clone https://github.com/BuilderClan/builderclan-site.git
+type(scope): short description
 ```
 
-The central repository holds three main branches with two branches having infinite lifetime(dev-server & production)
+| Type | When to use |
+|---|---|
+| `feat` | Adding a new feature |
+| `fix` | Fixing a bug |
+| `docs` | Documentation changes only |
+| `style` | Formatting, spacing, no logic change |
+| `refactor` | Code restructuring without feature/fix |
+| `chore` | Build, config, or tooling updates |
 
-- dev
+**Examples:**
 
-dev branch is open for collaboration and serves as the development environment where contributors can work on new features and bug fixes before they are merged into other branches.
+```bash
+feat(campus): add campus chapter directory search
+fix(navbar): resolve mobile menu close on route change
+docs(readme): update project structure section
+style(hero): improve heading spacing and typography
+```
 
-origin/production is the main branch where the source code of HEAD always reflects a production-ready state.
-
-## Commit message types
-
-- feat: (adds valuable new features or improvements that directly benefit and engage users.)
-
-    E.g. "feat(column): Added new feature.""
-
-- fix: ( resolve user-related issues, improving the software's reliability and providing a smoother user experience.)
-
-    E.g. "fix(case): Fixed case sensitivity issue in search functionality for accurate results."
-
-- docs: (making changes or updates to the documentation for better clarity and understanding.)
-
-    E.g. "docs(readme): Updated README file with installation instructions and usage examples."
-
-- style: ( focus on improving code appearance, such as formatting and fixing missing semicolons, without affecting functionality.)
-
-    E.g. "style(format): Corrected indentation and added missing semicolons for consistent code style."
-
-- refactor: (modifying the production code, such as renaming variables, to improve its structure and maintainability.)
-
-    E.g. "refactor(variables): Renamed variables for improved code clarity and maintainability."
-
-- test: (adding tests that were missing and improving existing tests, without changing the production code.)
-
-    E.g. "test(login): Added tests for user login functionality and refactored existing login tests."
-
-- chore: (updating build tasks and other non-production code aspects, without changing the actual software.)
-
-    E.g. "chore(grunt): Updated Grunt tasks for better task automation and build process efficiency."
+---
 
 ## Contributing
 
-Contributions are always welcome!
+Contributions of all sizes are welcome — from fixing a typo to building a whole new feature.
 
-See [contribution guide](https://github.com/BuilderClan/builderclan-site/blob/main/CONTRIBUTING.md) for ways to get started.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full contribution guide.
 
-## Maintainer
+Pull requests should target the **`dev`** branch.
 
-- If you are the maintainer of this project, you will be responsible for reviewing the pull request and merging them.
+---
 
-### Pull Request Flow
+## Community Guidelines
 
-The pull request from the developers can be received only on the **dev**(feature, bug-fix) branch.
+- Be respectful and inclusive — follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+- Ask questions freely by opening a [GitHub Issue](https://github.com/BuilderClan/builderclan-site/issues).
+- First-time contributors are always welcome — look for `good first issue` labels.
+
+---
+
+## Maintainers
+
+Maintained by the BuilderClan core team. Reach out at [hello@builder-clan.org](mailto:hello@builder-clan.org) or open an issue on GitHub.
+
+---
+
+> Built with love by the BuilderClan community. A home for people who love to build.
