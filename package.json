@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "biome format --write .",
+    "check": "biome check ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
