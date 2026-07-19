@@ -134,7 +134,7 @@ export default function CampusContent() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://discord.gg/GFnBvjc5tj"
+                  href="https://forms.gle/tBUDeHSj75sW7et69"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-bold text-sm transition-all shadow-[0_0_20px_rgba(202,255,51,0.3)]"
@@ -310,7 +310,7 @@ export default function CampusContent() {
                       Bring BuilderClan hackathons, mentorship, and open-source projects to your campus.
                     </p>
                     <a
-                      href="https://discord.gg/GFnBvjc5tj"
+                      href="https://forms.gle/tBUDeHSj75sW7et69"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1c1c1c] hover:bg-[#caff33] text-[#d4d4d8] hover:text-[#1c1c1c] border border-[#262626] hover:border-[#caff33] text-xs font-semibold transition-all"
@@ -422,7 +422,7 @@ export default function CampusContent() {
               </p>
 
               <a
-                href="https://discord.gg/GFnBvjc5tj"
+                href="https://forms.gle/tBUDeHSj75sW7et69"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-bold text-sm transition-all shadow-[0_0_25px_rgba(202,255,51,0.4)]"
