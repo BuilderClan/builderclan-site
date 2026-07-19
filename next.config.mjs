@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ["localhost:3000", "192.168.1.37:3000", "192.168.1.37"],
+  compress: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "github.com",
+        pathname: "/*.png",
+      },
+    ],
+  },
   async redirects() {
     return [
       {
