@@ -107,60 +107,181 @@ export default function CampusContent() {
       {/* Ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 bg-gradient-to-b from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl" />
 
-      <main className="mt-[93px] pb-24 relative z-10">
-        {/* Hero Banner Section */}
-        <section className="py-20 text-center relative">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-6 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>BUILDERCLAN ON CAMPUS • ANNUAL RECRUITMENT COHORT</span>
-              </div>
+      <main className="mt-[100px] sm:mt-[110px] pb-24 relative z-10">
+        {/* Hero Banner Section (2-Column Grid with Floating 3D Elements) */}
+        <section className="pt-16 sm:pt-24 pb-16 relative">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              {/* Left Column Text (7 Cols) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-7 text-left"
+              >
+                {/* Top Badge */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-6 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>BUILDERCLAN ON CAMPUS</span>
+                  <span className="text-[#383838]">•</span>
+                  <span className="text-[#a1a1aa] font-medium flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#caff33]" />
+                    Applications Open 1x / Year
+                  </span>
+                </div>
 
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-                A Home for Campus Builders to <span className="text-[#caff33]">Learn & Grow</span>
-              </h1>
+                {/* Main Headline */}
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+                  A Home for Campus Builders to <span className="text-[#caff33] drop-shadow-[0_0_20px_rgba(202,255,51,0.3)]">Learn & Grow</span>
+                </h1>
 
-              <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed mb-8">
-                BuilderClan Campus Leads represent the community on their university campus—spreading our vision, conducting hands-on events and hackathons, and building a supportive home for hardware & software creators.
-              </p>
+                {/* Subtitle */}
+                <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mb-8 max-w-xl">
+                  Campus Leads represent BuilderClan at their universities — organizing hardware labs, software projects, and hackathons while building a supportive tech community.
+                </p>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1c1c1c]/90 border border-[#caff33]/30 text-xs font-semibold text-[#caff33] mb-10">
-                <Calendar className="w-4 h-4" />
-                <span>Campus Lead applications open once per academic year</span>
-              </div>
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-4 mb-10">
+                  <a
+                    href="https://forms.gle/tBUDeHSj75sW7et69"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-extrabold text-sm transition-all shadow-[0_0_20px_rgba(202,255,51,0.3)] hover:shadow-[0_0_30px_rgba(202,255,51,0.5)]"
+                  >
+                    <Building2 className="w-4 h-4" />
+                    <span>Apply as Campus Lead</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="https://forms.gle/tBUDeHSj75sW7et69"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-bold text-sm transition-all shadow-[0_0_20px_rgba(202,255,51,0.3)]"
+                  <a
+                    href="#directory"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1c1c] hover:bg-[#262626] border border-[#262626] text-white font-semibold text-sm transition-all"
+                  >
+                    <span>Explore Chapters</span>
+                  </a>
+                </div>
+
+                {/* Inline 4-Column Feature Pills Grid (Peer Community perfectly aligned!) */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl pt-6 border-t border-[#262626]/80">
+                  {[
+                    { icon: Rocket, label: "Hardware Labs" },
+                    { icon: Zap, label: "Hackathons" },
+                    { icon: ShieldCheck, label: "Mentorship" },
+                    { icon: Users, label: "Peer Community" },
+                  ].map((pill) => {
+                    const Icon = pill.icon;
+                    return (
+                      <div
+                        key={pill.label}
+                        className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-[#1c1c1c]/80 border border-[#262626] text-xs font-semibold text-[#d4d4d8] shadow-sm text-center"
+                      >
+                        <Icon className="w-3.5 h-3.5 text-[#caff33] shrink-0" />
+                        <span className="truncate">{pill.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+
+              {/* Right Column: 3D Interactive Floating Visual Elements (5 Cols) */}
+              <div className="lg:col-span-5 relative flex items-center justify-center min-h-[380px] sm:min-h-[400px] py-6 [perspective:1000px]">
+                
+                {/* Radial Glow Lighting Halo */}
+                <div className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#caff33]/20 via-[#a5cc29]/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
+
+                {/* Center 3D Floating Campus Emblem / Logo */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: [-10, 10, -10],
+                    rotateY: [-10, 10, -10],
+                    rotateX: [6, -6, 6],
+                  }}
+                  transition={{
+                    opacity: { duration: 0.6 },
+                    scale: { duration: 0.8 },
+                    y: { duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                    rotateY: { duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                    rotateX: { duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                  }}
+                  whileHover={{ scale: 1.08, rotateY: 0, rotateX: 0 }}
+                  className="relative z-20 p-8 rounded-full bg-gradient-to-b from-[#1c1c1c] via-[#181818] to-[#141414] border-2 border-[#caff33]/40 hover:border-[#caff33] shadow-[-20px_20px_60px_rgba(0,0,0,0.8)] hover:shadow-[0_0_50px_rgba(202,255,51,0.3)] transition-all cursor-pointer flex items-center justify-center"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
-                  <Building2 className="w-4 h-4" />
-                  <span>Apply as Campus Lead</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+                  <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#caff33]/10 border border-[#caff33]/30 flex items-center justify-center text-[#caff33] shadow-inner">
+                    <GraduationCap className="w-14 h-14 sm:w-18 sm:h-18 drop-shadow-[0_0_15px_rgba(202,255,51,0.5)]" />
+                  </div>
+                </motion.div>
 
-                <a
-                  href="#directory"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#1c1c1c] hover:bg-[#262626] border border-[#262626] text-white font-semibold text-sm transition-all"
+                {/* Floating 3D Micro-Badge 1: Top-Right (Hardware & Software) */}
+                <motion.div
+                  className="absolute top-2 right-0 sm:right-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: [-8, 8, -8],
+                    rotateZ: [-2, 2, -2],
+                  }}
+                  transition={{
+                    opacity: { duration: 0.6, delay: 0.3 },
+                    y: { duration: 4.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                    rotateZ: { duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                  }}
+                  whileHover={{ scale: 1.08 }}
                 >
-                  <span>Explore Chapters</span>
-                </a>
+                  <div className="p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30">
+                    <Rocket className="w-4 h-4 text-[#caff33]" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-extrabold text-white">Hardware & Software</div>
+                    <div className="text-[11px] text-[#a1a1aa]">Labs & Open Source</div>
+                  </div>
+                </motion.div>
+
+                {/* Floating 3D Micro-Badge 2: Bottom-Left (Annual Cohort 1x / Year) */}
+                <motion.div
+                  className="absolute bottom-2 left-0 sm:left-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: [8, -8, 8],
+                    rotateZ: [2, -2, 2],
+                  }}
+                  transition={{
+                    opacity: { duration: 0.6, delay: 0.5 },
+                    y: { duration: 5.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.4 },
+                    rotateZ: { duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                  }}
+                  whileHover={{ scale: 1.08 }}
+                >
+                  <div className="p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30">
+                    <Calendar className="w-4 h-4 text-[#caff33]" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-extrabold text-white">Annual Application</div>
+                    <div className="text-[11px] text-[#caff33] font-semibold flex items-center gap-1">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#caff33] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#caff33]"></span>
+                      </span>
+                      1x / Academic Year
+                    </div>
+                  </div>
+                </motion.div>
+
               </div>
-            </motion.div>
+
+            </div>
 
             {/* Impact Metrics Grid */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-5xl mx-auto"
             >
               {[
                 { label: "Founding Chapter", val: "1 (AISAT)" },
