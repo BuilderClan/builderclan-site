@@ -57,7 +57,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-[#a1a1aa] max-w-sm leading-relaxed">
-              Where innovation meets collaboration. Join a global community of coders, designers, and tech visionaries building impactful open-source solutions.
+              A home for people who love to build. Connect with hardware & software builders, experiment together, and grow in a welcoming community.
             </p>
             <div className="flex flex-wrap items-center gap-3 mt-2">
               <a
