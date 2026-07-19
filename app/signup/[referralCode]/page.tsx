@@ -1,11 +1,11 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import RegistrationForm from "../pages/form";
+import { RegistrationForm } from "@/components/signup/RegistrationForm";
 
 export default function Signup() {
   const params = useParams();
-  const referralCode = params.referralCode;
+  const referralCode = typeof params?.referralCode === "string" ? params.referralCode : "";
 
   return <RegistrationForm initialReferralCode={referralCode} />;
 }

@@ -1,4 +1,12 @@
-const Button = ({ content, href, active }) => {
+import React from "react";
+
+export interface ButtonProps {
+  content: React.ReactNode;
+  href: string;
+  active?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({ content, href, active = false }) => {
   return (
     <a
       href={href}

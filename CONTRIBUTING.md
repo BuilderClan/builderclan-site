@@ -1,7 +1,7 @@
 # Contributing to BuilderClan Site
 
 🎉 Thanks for considering contributing to **BuilderClan Site**!  
-We’re building this project together as a community, and every contribution helps — from small documentation fixes to major feature implementations.
+We’re building this project together as a community, and every contribution helps, from small documentation fixes to major feature implementations.
 
 This document will guide you through the process.
 
@@ -95,7 +95,7 @@ Examples:
 When opening a PR:
 
 - Fill out the PR template (if available).
-- Keep changes focused — one feature/fix per PR.
+- Keep changes focused, one feature/fix per PR.
 - Describe **what** you changed and **why**.
 - Include screenshots for UI updates.
 - Ensure tests pass locally before pushing.
@@ -146,7 +146,7 @@ builderclan-site/
 
 ## 💬 Community Guidelines
 
-- Be respectful — follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+- Be respectful, follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 - Use clear, inclusive language in issues and PRs.
 - Ask for help by opening a discussion or commenting on an issue.
 - We welcome first-time contributors!

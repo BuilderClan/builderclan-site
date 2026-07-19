@@ -1,244 +1,213 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus, Sparkles, MessageCircle, Search } from "lucide-react";
 
 const faqs = [
   {
     question: "What is BuilderClan?",
     answer:
-      "BuilderClan is a tech community where innovators, developers, and enthusiasts come together to collaborate, learn, and build impactful projects.",
+      "BuilderClan is a welcoming tech community for hardware and software builders. A home where you can experiment, build anything in tech, and learn & grow together.",
   },
   {
-    question: "Who can join BuilderClan?",
+    question: "Is BuilderClan beginner friendly?",
     answer:
-      "Anyone passionate about technology, innovation, or collaboration can join. Whether you're a beginner or an expert, there's a place for you here!",
+      "Absolutely! Whether you are taking your first steps in coding or building your first electronics circuit, BuilderClan provides a supportive peer environment with starter projects, code reviews, and mentorship.",
   },
   {
-    question: "How can I become a member?",
+    question: "Does BuilderClan support both Hardware and Software?",
     answer:
-      "Get referred by an existing member and follow the signup process on our website. If you don’t know any members, feel free to reach out to us for more information.",
+      "Yes! We are a pure-tech community covering physical hardware (IoT, robotics, embedded systems, microcontrollers, PCB design) and digital software (AI, web, mobile, cloud, systems programming).",
   },
   {
-    question: "What activities does BuilderClan organize?",
+    question: "What can I build at BuilderClan?",
     answer:
-      "We host open-source projects, hackathons and coding challenges, workshops, webinars, and community meetups, as well as networking opportunities and mentorship programs.",
+      "Anything! From robotics, IoT devices, and embedded hardware to web apps, AI tools, and open-source projects. There are no limits on what you can explore and create.",
   },
   {
-    question: "How can I contribute to BuilderClan?",
+    question: "How does learning together work at BuilderClan?",
     answer:
-      "You can participate in open-source projects, share knowledge through posts or workshops, and help moderate discussions and mentor others.",
+      "We foster a welcoming, non-judgmental community where members at every skill level collaborate on projects, share build logs, ask questions freely, and grow together as peers.",
   },
   {
-    question: "Are there any rules for the community?",
+    question: "Is there any membership fee?",
     answer:
-      "Yes, we have a set of community rules to ensure a respectful and collaborative environment. You can find them on our website.",
+      "No! Joining BuilderClan is completely free. All core community activities, project teams, workshops, and discussions are 100% open to everyone.",
   },
   {
-    question: "How can I report issues or inappropriate behavior?",
+    question: "How can I contribute to hardware or software projects?",
     answer:
-      "If you encounter any violations of our rules, please report them to the moderators through our contact form or email at contact@builderclan.com.",
-  },
-  {
-    question: "Is there a membership fee?",
-    answer:
-      "No, joining BuilderClan is free! Some premium events or workshops may have a fee, but general membership is completely free.",
-  },
-  {
-    question: "Can I promote my projects or services in the community?",
-    answer:
-      "Yes, but please ensure your promotions are relevant and non-spammy. Use designated channels for project showcases.",
-  },
-  {
-    question: "How do I collaborate on community projects?",
-    answer:
-      "Keep an eye on announcements for project opportunities. Once a project is announced, you can apply to join the team or contribute through GitHub.",
+      "Check out our project announcements on Discord and GitHub. You can contribute code, report issues, design circuits, review pull requests, or propose a new project.",
   },
   {
     question: "How do I contact the BuilderClan team?",
     answer:
-      "You can reach us at main.builderclan@gmail.com or use the contact form on our website.",
+      "You can email us directly at main.builderclan@gmail.com or connect with maintainers inside our official Discord server.",
   },
 ];
 
 export default function FaqSection() {
-  const [showAll, setShowAll] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const controls = useAnimationControls();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    controls.start({
-      y: [0, -10, 0],
-      transition: { duration: 2, repeat: Number.POSITIVE_INFINITY },
-    });
-  }, [controls]);
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
-  const handleToggle = () => {
-    if (showAll) {
-      const faqSection = document.getElementById("faq");
-      faqSection?.scrollIntoView({ behavior: "smooth" });
-    }
-    setShowAll(!showAll);
-  };
-
-  const faqVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-    hover: {
-      scale: 1.03,
-      boxShadow: "0px 10px 30px rgba(202, 255, 51, 0.1)",
-      y: -5,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 15,
-      },
-    },
-  };
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
+  const filteredFaqs = faqs.filter(
+    (faq) =>
+      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
-    <section className="section" id="faq">
-      <div className="container mx-auto">
+    <section className="py-24 relative overflow-hidden bg-[#141414]" id="faq">
+      {/* FAQPage JSON-LD for Google Rich Results & AI Search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
+      {/* Ambient glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-gradient-to-t from-[#caff33]/6 via-transparent to-transparent pointer-events-none blur-3xl" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl">
+
+        {/* Header */}
         <motion.div
-          className="mb-20"
-          initial="hidden"
-          whileInView="visible"
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          variants={titleVariants}
+          transition={{ duration: 0.6 }}
         >
-          <motion.h1
-            className="section-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Frequently{" "}
-            <motion.span
-              className="text-white"
-              initial={{ opacity: 0, y: 5 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Asked Questions
-            </motion.span>
-          </motion.h1>
-          <motion.div
-            className="section-sub-text"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            Still you have any questions? Contact our Team via main.builderclan@gmail.com
-          </motion.div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-6 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>HAVE QUESTIONS?</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Frequently Asked <span className="text-[#caff33]">Questions</span>
+          </h2>
+          <p className="text-base text-[#a1a1aa] max-w-xl mx-auto leading-relaxed">
+            Everything you need to know about BuilderClan, community projects, and how to get involved.
+          </p>
         </motion.div>
-        <div className="faq-wrapper relative">
-          <AnimatePresence mode="wait">
-            <div className={`faq-content ${showAll ? "show" : ""}`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {faqs.slice(0, showAll ? faqs.length : 4).map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    className="p-10 faq-card backdrop-blur-sm"
-                    custom={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    whileHover="hover"
-                    viewport={{ once: true, amount: 0.1 }}
-                    variants={faqVariants}
-                    onHoverStart={() => setHoveredCard(index)}
-                    onHoverEnd={() => setHoveredCard(null)}
-                  >
-                    <motion.div
-                      className="pb-4 faq-question font-semibold"
-                      initial={{ color: "#caff33" }}
-                      animate={
-                        hoveredCard === index
-                          ? {
-                              color: ["#caff33", "#a5cc29", "#caff33"],
-                              transition: {
-                                duration: 1.5,
-                                repeat: Number.POSITIVE_INFINITY,
-                              },
-                            }
-                          : { color: "#caff33" }
-                      }
-                    >
-                      {faq.question}
-                    </motion.div>
-                    <motion.div
-                      className="pt-4 faq-answer"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1 }}
-                    >
-                      {faq.answer}
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </AnimatePresence>
-          <motion.button
-            className="flex gap-1 items-center faq-load-btn max-w-[160px] mx-auto w-full justify-center z-10 relative mt-10"
-            onClick={handleToggle}
-            whileHover={{
-              scale: 1.1,
-              boxShadow: "0px 5px 15px rgba(202, 255, 51, 0.15)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.6 },
-              y: { duration: 0.5, delay: 0.6 },
-              scale: { duration: 0.2 },
-            }}
-          >
-            <span>{!showAll ? "Show more" : "Show less"}</span>
-            <motion.div
-              animate={{
-                rotate: showAll ? 180 : 0,
-                y: showAll ? 0 : [0, 5, 0],
-              }}
-              transition={{
-                rotate: { duration: 0.3 },
-                y: {
-                  duration: 1.5,
-                  repeat: !showAll ? Number.POSITIVE_INFINITY : 0,
-                  repeatType: "reverse",
-                },
-              }}
-            >
-              <ChevronDown />
-            </motion.div>
-          </motion.button>
+
+        {/* Live Search Input */}
+        <div className="max-w-md mx-auto mb-12 relative">
+          <Search className="w-4.5 h-4.5 text-[#a1a1aa] absolute left-4 top-1/2 -translate-y-1/2" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search questions (e.g., hackathons, fee, projects)..."
+            className="w-full pl-11 pr-4 py-3 rounded-full bg-[#1c1c1c] border border-[#262626] focus:border-[#caff33] text-sm text-white placeholder-[#71717a] outline-none transition-all shadow-md focus:shadow-[0_0_15px_rgba(202,255,51,0.2)]"
+          />
         </div>
+
+        {/* FAQ List */}
+        {filteredFaqs.length > 0 ? (
+          <div className="divide-y divide-[#262626]">
+            {filteredFaqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              const num = String(i + 1).padStart(2, "0");
+              return (
+                <motion.div
+                  key={faq.question}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                >
+                  <button
+                    onClick={() => toggle(i)}
+                    className="w-full py-7 flex items-start gap-6 text-left group"
+                  >
+                    {/* Number */}
+                    <span className={`text-sm font-mono font-bold shrink-0 mt-0.5 transition-colors duration-200 ${isOpen ? "text-[#caff33]" : "text-[#3f3f46] group-hover:text-[#52525b]"}`}>
+                      {num}.
+                    </span>
+
+                    {/* Question */}
+                    <span className={`flex-1 text-base sm:text-lg font-semibold leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-[#a1a1aa] group-hover:text-[#d4d4d8]"}`}>
+                      {faq.question}
+                    </span>
+
+                    {/* Icon */}
+                    <div className={`shrink-0 mt-0.5 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                      isOpen
+                        ? "bg-[#caff33] border-[#caff33] text-[#1c1c1c]"
+                        : "border-[#333333] text-[#71717a] group-hover:border-[#444444]"
+                    }`}>
+                      {isOpen
+                        ? <Minus className="w-3.5 h-3.5" />
+                        : <Plus className="w-3.5 h-3.5" />
+                      }
+                    </div>
+                  </button>
+
+                  {/* Answer */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: "easeInOut" }}
+                      >
+                        <div className="pb-7 pl-11 pr-10 text-[#a1a1aa] text-sm sm:text-base leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-[#1c1c1c] border border-[#262626] rounded-2xl p-8">
+            <p className="text-white font-medium mb-1">No matching questions found</p>
+            <p className="text-sm text-[#a1a1aa]">Try searching for different keywords or contact us directly below.</p>
+          </div>
+        )}
+
+        {/* Still Have Questions */}
+        <motion.div
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#1c1c1c] border border-[#262626] flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 text-[#caff33]" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold text-white mb-1">Still have questions?</h4>
+              <p className="text-sm text-[#a1a1aa]">Can&apos;t find what you&apos;re looking for? We&apos;d love to talk.</p>
+            </div>
+            <a
+              href="mailto:main.builderclan@gmail.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-sm font-semibold transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Talk to us</span>
+            </a>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

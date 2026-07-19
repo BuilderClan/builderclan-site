@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ["localhost:3000", "192.168.1.37:3000", "192.168.1.37"],
   compress: true,
   images: {
     remotePatterns: [
@@ -10,14 +11,8 @@ const nextConfig = {
       },
     ],
   },
-
   async redirects() {
     return [
-      {
-        source: "/careers",
-        destination: "https://builderclan.org/careers",
-        permanent: false,
-      },
       {
         source: "/:path*",
         has: [
@@ -34,4 +29,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
