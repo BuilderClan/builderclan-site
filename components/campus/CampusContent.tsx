@@ -18,6 +18,8 @@ import {
   ExternalLink,
   Globe,
   Calendar,
+  SearchX,
+  RotateCcw,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -331,12 +333,48 @@ export default function CampusContent() {
                 </motion.div>
               </div>
             ) : (
-              <div className="text-center py-12 bg-[#1c1c1c] border border-[#262626] rounded-2xl p-8 max-w-md mx-auto">
-                <p className="text-white font-medium mb-1">No Campus Chapters Found</p>
-                <p className="text-xs text-[#a1a1aa]">
-                  No active chapter matches &quot;{searchQuery}&quot;. Be the first to bring BuilderClan to your campus!
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-8 sm:p-9 rounded-3xl bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#383838] max-w-lg mx-auto text-center shadow-xl backdrop-blur-md relative overflow-hidden transition-colors"
+              >
+                {/* Accent glow corner */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#caff33]/5 rounded-full blur-2xl pointer-events-none" />
+
+                <div className="flex flex-col items-center relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-[#caff33]/10 border border-[#caff33]/25 text-[#caff33] flex items-center justify-center mb-4 shadow-sm">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    No Chapters Found
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed max-w-sm mx-auto mb-6">
+                    No active chapter matches <span className="text-[#caff33] font-medium">&quot;{searchQuery}&quot;</span>. Be the pioneer to bring BuilderClan to your campus!
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+                    <a
+                      href="https://forms.gle/tBUDeHSj75sW7et69"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-bold text-xs transition-all shadow-[0_0_15px_rgba(202,255,51,0.2)]"
+                    >
+                      <span>Start Campus Chapter</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-[#141414] hover:bg-[#222222] border border-[#262626] text-xs font-medium text-[#a1a1aa] hover:text-white transition-all cursor-pointer"
+                    >
+                      <RotateCcw className="w-3 h-3 text-[#caff33]" />
+                      <span>Reset Search</span>
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
             )}
           </div>
         </section>
