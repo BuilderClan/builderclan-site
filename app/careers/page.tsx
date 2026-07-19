@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Careers | BuilderClan",
-    description: "Join BuilderClan — a global community of builders, developers, and creators.",
+    description: "Join BuilderClan, a global community of hardware and software builders.",
     images: ["/og-image.png"],
   },
 };
@@ -50,7 +50,7 @@ export default function Careers() {
               Build the Future <span className="text-[#caff33]">Together</span>
             </h1>
             <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-              We&apos;re building a global community of engineers, designers, and innovators. Join us to build impactful open-source software.
+              We&apos;re building a welcoming community of hardware hackers, software developers, and startup founders. Join us to experiment, build, and grow together.
             </p>
           </div>
 
@@ -63,11 +63,11 @@ export default function Careers() {
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-              No Open Positions Currently Available
+              No Open Full-Time Positions Currently
             </h2>
             
             <p className="text-base text-[#a1a1aa] max-w-xl mx-auto mb-8 leading-relaxed">
-              We don&apos;t have any full-time job openings at this exact moment. However, our community is constantly growing and opening volunteer leadership, mentorship, and project lead positions!
+              We don&apos;t have active full-time job openings at this moment. However, our community is constantly opening hardware/software project lead, beginner mentorship, and campus chapter leadership roles!
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -97,9 +97,9 @@ export default function Careers() {
               <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
                 <Code2 className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Open Source Project Leads</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Hardware & Software Project Leads</h3>
               <p className="text-sm text-[#a1a1aa] leading-relaxed mb-4">
-                Have an awesome idea or open-source repository? Pitch your project to lead a team of community developers.
+                Have a hardware device idea or software project in mind? Pitch your project to lead a team of community builders and create something awesome together.
               </p>
               <a
                 href="https://discord.gg/GFnBvjc5tj"
@@ -116,9 +116,9 @@ export default function Careers() {
               <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Community Mentors & Reviewers</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Community Support & Peer Mentors</h3>
               <p className="text-sm text-[#a1a1aa] leading-relaxed mb-4">
-                Share your technical expertise by reviewing PRs, mentoring junior developers, or hosting live tech workshops.
+                Help foster belonging and togetherness by guiding beginners, reviewing schematics & code, and hosting collaborative build sessions.
               </p>
               <a
                 href="mailto:main.builderclan@gmail.com"

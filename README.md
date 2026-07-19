@@ -1,6 +1,6 @@
 # 🌐 BuilderClan Site
 
-Welcome to the **BuilderClan Site** — the official open-source project for the BuilderClan community 🚀.  
+Welcome to the **BuilderClan Site**, the official open-source project for the BuilderClan community 🚀.  
 This repository powers our community website, built and maintained collaboratively by contributors.  
 
 ## Git Commands and Naming Etiquette

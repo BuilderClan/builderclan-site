@@ -1,6 +1,6 @@
 "use client";
 
-import { Target, Eye, Code2, Users, Rocket, Sparkles } from "lucide-react";
+import { Target, Eye, Code2, Users, Rocket, Sparkles, Cpu } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 export default function AboutSection() {
@@ -28,19 +28,19 @@ export default function AboutSection() {
 
   const values = [
     {
-      icon: Code2,
-      title: "Build in Public",
-      description: "Ship open-source projects, share code, and get real feedback from experienced peers.",
+      icon: Cpu,
+      title: "Hardware & Software",
+      description: "Explore and build across physical tech (IoT, robotics, embedded systems) and software (AI, web, cloud, apps).",
     },
     {
       icon: Users,
-      title: "Peer-to-Peer Growth",
-      description: "Collaborate across skill levels, mentor junior devs, and solve hard problems together.",
+      title: "Learn & Grow Together",
+      description: "A welcoming space where beginners and experts learn together, ask questions freely, and support each other.",
     },
     {
       icon: Rocket,
-      title: "Launchpad for Projects",
-      description: "Turn ideas into production-ready software, hackathon wins, and portfolio features.",
+      title: "Build Anything in Tech",
+      description: "Turn curiosity and ideas into real projects, open-source software, hardware builds, and personal breakthroughs.",
     },
   ];
 
@@ -65,11 +65,11 @@ export default function AboutSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Where Code Meets <span className="text-[#caff33]">Collaboration</span>
+            A Home for People Who <span className="text-[#caff33]">Love to Build.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            BuilderClan is a global community of coders, designers, and tech innovators dedicated to crafting impactful software, sharing knowledge, and accelerating developer growth.
+            BuilderClan is a welcoming community where hardware hackers, software developers, and curious minds find a place to belong. Build anything in tech, share your journey, and grow together.
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To empower developers and creators worldwide by providing a collaborative ecosystem, hands-on project experience, and mentorship to build software that solves real-world challenges.
+              To empower hardware and software builders of all skill levels to experiment, create whatever inspires them, and learn and grow together in a warm, supportive community.
             </p>
           </motion.div>
 
@@ -123,7 +123,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To become the world’s premier launchpad for tech talent and open-source innovation, bridging the gap between learning code and building industry-leading tech.
+              To be a global home for curious minds and passionate builders, where anyone can explore hardware & software, share technical knowledge, and build the future together.
             </p>
           </motion.div>
         </motion.div>

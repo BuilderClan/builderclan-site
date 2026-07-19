@@ -34,7 +34,7 @@ const CAMPUS_CHAPTERS = [
     members: 50,
     status: "Active Chapter",
     isFounding: true,
-    tags: ["Open Source", "Web Dev", "Hackathons", "Products"],
+    tags: ["Hardware & IoT", "Software & Web", "Startups", "Robotics", "Learning Together"],
   },
 ];
 
@@ -123,7 +123,7 @@ export default function CampusContent() {
               </h1>
 
               <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed mb-10">
-                BuilderClan Campus Chapters bring open-source software development, hackathons, product building, and tech mentorship directly to universities worldwide.
+                BuilderClan Campus Chapters bring hardware labs, software development, hackathons, startup building, and peer-to-peer tech mentorship directly to universities worldwide.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

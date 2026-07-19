@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CampusContent from "@/components/campus/CampusContent";
 
 const siteUrl = "https://builderclan.org";
-const pageTitle = "Campus Chapters — BuilderClan";
+const pageTitle = "Campus Chapters | BuilderClan";
 const pageDescription =
   "Discover BuilderClan Campus Chapters at top universities. Join student-led open-source development, hackathons, and tech mentorship or apply to start a chapter at your campus.";
 

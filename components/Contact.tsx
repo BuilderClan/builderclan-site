@@ -27,46 +27,46 @@ const tabContent: Record<TabType, ContactItem[]> = {
   general: [
     {
       title: "Community Support",
-      text: "Have questions about joining BuilderClan or accessing community resources? Reach out directly via Discord or email.",
+      text: "Have questions about joining BuilderClan or getting started as a beginner? Reach out directly via Discord or email.",
       link: "https://discord.gg/GFnBvjc5tj",
     },
     {
-      title: "Open Source Projects",
-      text: "Interested in contributing or listing your project under BuilderClan? Learn how to pitch your project to our community.",
+      title: "Hardware & Software Projects",
+      text: "Interested in pitching your hardware device or software project to BuilderClan? Learn how to get contributors.",
       link: "https://github.com/BuilderClan",
     },
     {
-      title: "Event & Hackathon Info",
-      text: "Want to know about upcoming webinars, coding workshops, or global hackathons hosted by BuilderClan?",
+      title: "Workshops & Build Sessions",
+      text: "Want to host a tech workshop, share a hardware build log, or learn about upcoming community build sessions?",
       link: "#faq",
     },
     {
       title: "General Inquiries",
-      text: "For any general questions, feedback, or ideas, send us an email at main.builderclan@gmail.com.",
+      text: "For general questions, community ideas, or feedback, send us an email at main.builderclan@gmail.com.",
       link: "mailto:main.builderclan@gmail.com",
     },
   ],
   partnership: [
     {
-      title: "Sponsor Hackathons & Events",
-      text: "Partner with BuilderClan to host hackathons, sponsor developer prizes, and connect with 500+ tech visionaries.",
+      title: "Sponsor Hackathons & Labs",
+      text: "Partner with BuilderClan to sponsor hardware labs, hackathons, and developer prizes for 500+ tech builders.",
       link: "mailto:main.builderclan@gmail.com",
     },
     {
-      title: "Corporate & Startup Collaboration",
-      text: "Collaborate with our community talent on open-source software, technical research, and product incubators.",
+      title: "Community & Open-Source Collaboration",
+      text: "Collaborate with our community of builders on hardware prototypes, software tools, and open-source projects.",
       link: "mailto:main.builderclan@gmail.com",
     },
   ],
   careers: [
     {
-      title: "Join Core Team",
-      text: "Explore volunteer and leadership opportunities inside BuilderClan to lead projects, moderate, and mentor.",
+      title: "Join Core Team & Project Leads",
+      text: "Lead hardware/software projects, moderate Discord, organize hackathons, or coordinate campus chapters.",
       link: "/careers",
     },
     {
-      title: "Mentor Developers",
-      text: "Share your industry experience by becoming a mentor, conducting code reviews, or hosting tech workshops.",
+      title: "Community Peer Support",
+      text: "Connect with fellow builders, share build logs, get hardware & software help, and learn together in an open environment.",
       link: "https://discord.gg/GFnBvjc5tj",
     },
   ],
