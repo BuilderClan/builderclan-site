@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Sparkles, Users, GitBranch, Terminal } from "lucide-react";
 
@@ -17,7 +17,7 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const heroTextVariants: any = {
+  const heroTextVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
@@ -118,7 +118,7 @@ export default function HomeSection() {
           </div>
 
           {/* Right Visual Section (5 Cols): 3D Floating Feature Stack System */}
-          <div className="col-span-12 lg:col-span-5 flex justify-center items-center relative min-h-[380px] sm:min-h-[440px] py-6">
+          <div className="col-span-12 lg:col-span-5 flex justify-center items-center relative min-h-[420px] sm:min-h-[440px] py-8 my-4">
             
             {/* Ambient Radial Glow Halo behind Logo */}
             <div className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-[#caff33]/20 via-[#a5cc29]/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
@@ -128,7 +128,7 @@ export default function HomeSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative z-20 flex items-center justify-center"
+              className="relative z-20 flex items-center justify-center my-6"
             >
               <Image
                 src="/Logo.png"
@@ -137,13 +137,13 @@ export default function HomeSection() {
                 height={320}
                 priority
                 style={{ width: "auto", height: "auto" }}
-                className="w-56 sm:w-64 md:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                className="w-48 sm:w-64 md:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
               />
             </motion.div>
 
             {/* Floating Micro-Card 1: Top-Right (Active Members) */}
             <motion.div
-              className="absolute top-2 right-0 sm:-right-4 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+              className="absolute -top-2 right-0 sm:-right-4 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 p-2.5 sm:p-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 transition-colors cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               animate={{
                 opacity: 1,
@@ -155,18 +155,18 @@ export default function HomeSection() {
               }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="p-2 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20">
-                <Users className="w-4 h-4 text-[#caff33]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20">
+                <Users className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold text-white">500+ Builders</div>
-                <div className="text-[11px] text-[#a1a1aa]">Global Community</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">500+ Builders</div>
+                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Global Community</div>
               </div>
             </motion.div>
 
             {/* Floating Micro-Card 2: Bottom-Left (Open Source Repos) */}
             <motion.div
-              className="absolute bottom-4 left-0 sm:-left-4 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+              className="absolute -bottom-2 left-0 sm:-left-4 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 p-2.5 sm:p-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 transition-colors cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               animate={{
                 opacity: 1,
@@ -178,18 +178,18 @@ export default function HomeSection() {
               }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="p-2 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20">
-                <GitBranch className="w-4 h-4 text-[#caff33]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20">
+                <GitBranch className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold text-white">20+ Projects</div>
-                <div className="text-[11px] text-[#a1a1aa]">Open Source Ecosystem</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">20+ Projects</div>
+                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Open Source Ecosystem</div>
               </div>
             </motion.div>
 
             {/* Floating Micro-Card 3: Top-Left (Hackathons & Workshops) */}
             <motion.div
-              className="absolute top-12 left-0 sm:-left-6 z-20 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 px-3 py-2 rounded-xl shadow-xl flex items-center gap-2 transition-colors"
+              className="absolute top-6 sm:top-12 left-0 sm:-left-6 z-20 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl shadow-xl flex items-center gap-2 transition-colors"
               initial={{ opacity: 0, x: -20 }}
               animate={{
                 opacity: 1,
@@ -200,8 +200,8 @@ export default function HomeSection() {
                 x: { duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.2 },
               }}
             >
-              <Terminal className="w-3.5 h-3.5 text-[#caff33]" />
-              <span className="text-xs font-medium text-[#d4d4d8]">Hackathons & Workshops</span>
+              <Terminal className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#caff33]" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#d4d4d8]">Hackathons & Workshops</span>
             </motion.div>
 
           </div>

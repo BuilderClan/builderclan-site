@@ -3,10 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -30,6 +32,11 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    if (pathname === "/careers") {
+      setActiveLink("careers");
+      return;
+    }
+
     const sections = document.querySelectorAll("section");
     const options = {
       root: null,
@@ -39,7 +46,7 @@ export default function Header() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.target.id) {
           setActiveLink(entry.target.id);
         }
       });
@@ -47,13 +54,13 @@ export default function Header() {
 
     sections.forEach((section) => observer.observe(section));
     return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+  }, [pathname]);
 
   const navLinks = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Opportunity", href: "#opportunity", id: "opportunity" },
-    { name: "FAQ", href: "#faq", id: "faq" },
+    { name: "Home", href: "/#home", id: "home" },
+    { name: "About", href: "/#about", id: "about" },
+    { name: "Opportunity", href: "/#opportunity", id: "opportunity" },
+    { name: "FAQ", href: "/#faq", id: "faq" },
     { name: "Careers", href: "/careers", id: "careers" },
   ];
 
@@ -67,7 +74,7 @@ export default function Header() {
         }`}
       >
         {/* Logo Brand */}
-        <Link href="#home" className="flex items-center group">
+        <Link href="/#home" className="flex items-center group">
           <Image
             src="/LogoShort.png"
             alt="BuilderClan Logo"
@@ -102,7 +109,7 @@ export default function Header() {
         {/* Desktop Right Action CTA */}
         <div className="hidden lg:flex items-center gap-3">
           <Link
-            href="#joinclan"
+            href="/#joinclan"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-xs sm:text-sm font-semibold transition-all shadow-md hover:shadow-[0_0_15px_rgba(202,255,51,0.4)]"
           >
             <span>Join Clan</span>
@@ -151,7 +158,7 @@ export default function Header() {
 
               <div className="pt-2 border-t border-[#262626] mt-1">
                 <Link
-                  href="#joinclan"
+                  href="/#joinclan"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#caff33] text-[#1c1c1c] text-sm font-semibold shadow-md"
                 >

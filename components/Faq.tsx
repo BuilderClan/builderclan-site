@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, Sparkles, MessageCircle } from "lucide-react";
+import { Plus, Minus, Sparkles, MessageCircle, Search } from "lucide-react";
 
 const faqs = [
   {
@@ -48,9 +48,16 @@ const faqs = [
 ];
 
 export default function FaqSection() {
+  const [searchQuery, setSearchQuery] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+
+  const filteredFaqs = faqs.filter(
+    (faq) =>
+      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <section className="py-24 relative overflow-hidden bg-[#141414]" id="faq">
@@ -79,7 +86,7 @@ export default function FaqSection() {
 
         {/* Header */}
         <motion.div
-          className="mb-20 text-center"
+          className="mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -97,65 +104,83 @@ export default function FaqSection() {
           </p>
         </motion.div>
 
-        {/* FAQ List */}
-        <div className="divide-y divide-[#262626]">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            const num = String(i + 1).padStart(2, "0");
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-              >
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full py-7 flex items-start gap-6 text-left group"
-                >
-                  {/* Number */}
-                  <span className={`text-sm font-mono font-bold shrink-0 mt-0.5 transition-colors duration-200 ${isOpen ? "text-[#caff33]" : "text-[#3f3f46] group-hover:text-[#52525b]"}`}>
-                    {num}.
-                  </span>
-
-                  {/* Question */}
-                  <span className={`flex-1 text-base sm:text-lg font-semibold leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-[#a1a1aa] group-hover:text-[#d4d4d8]"}`}>
-                    {faq.question}
-                  </span>
-
-                  {/* Icon */}
-                  <div className={`shrink-0 mt-0.5 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-200 ${
-                    isOpen
-                      ? "bg-[#caff33] border-[#caff33] text-[#1c1c1c]"
-                      : "border-[#333333] text-[#71717a] group-hover:border-[#444444]"
-                  }`}>
-                    {isOpen
-                      ? <Minus className="w-3.5 h-3.5" />
-                      : <Plus className="w-3.5 h-3.5" />
-                    }
-                  </div>
-                </button>
-
-                {/* Answer */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.28, ease: "easeInOut" }}
-                    >
-                      <div className="pb-7 pl-11 pr-10 text-[#a1a1aa] text-sm sm:text-base leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+        {/* Live Search Input */}
+        <div className="max-w-md mx-auto mb-12 relative">
+          <Search className="w-4.5 h-4.5 text-[#a1a1aa] absolute left-4 top-1/2 -translate-y-1/2" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search questions (e.g., hackathons, fee, projects)..."
+            className="w-full pl-11 pr-4 py-3 rounded-full bg-[#1c1c1c] border border-[#262626] focus:border-[#caff33] text-sm text-white placeholder-[#71717a] outline-none transition-all shadow-md focus:shadow-[0_0_15px_rgba(202,255,51,0.2)]"
+          />
         </div>
+
+        {/* FAQ List */}
+        {filteredFaqs.length > 0 ? (
+          <div className="divide-y divide-[#262626]">
+            {filteredFaqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              const num = String(i + 1).padStart(2, "0");
+              return (
+                <motion.div
+                  key={faq.question}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                >
+                  <button
+                    onClick={() => toggle(i)}
+                    className="w-full py-7 flex items-start gap-6 text-left group"
+                  >
+                    {/* Number */}
+                    <span className={`text-sm font-mono font-bold shrink-0 mt-0.5 transition-colors duration-200 ${isOpen ? "text-[#caff33]" : "text-[#3f3f46] group-hover:text-[#52525b]"}`}>
+                      {num}.
+                    </span>
+
+                    {/* Question */}
+                    <span className={`flex-1 text-base sm:text-lg font-semibold leading-snug transition-colors duration-200 ${isOpen ? "text-white" : "text-[#a1a1aa] group-hover:text-[#d4d4d8]"}`}>
+                      {faq.question}
+                    </span>
+
+                    {/* Icon */}
+                    <div className={`shrink-0 mt-0.5 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                      isOpen
+                        ? "bg-[#caff33] border-[#caff33] text-[#1c1c1c]"
+                        : "border-[#333333] text-[#71717a] group-hover:border-[#444444]"
+                    }`}>
+                      {isOpen
+                        ? <Minus className="w-3.5 h-3.5" />
+                        : <Plus className="w-3.5 h-3.5" />
+                      }
+                    </div>
+                  </button>
+
+                  {/* Answer */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: "easeInOut" }}
+                      >
+                        <div className="pb-7 pl-11 pr-10 text-[#a1a1aa] text-sm sm:text-base leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-[#1c1c1c] border border-[#262626] rounded-2xl p-8">
+            <p className="text-white font-medium mb-1">No matching questions found</p>
+            <p className="text-sm text-[#a1a1aa]">Try searching for different keywords or contact us directly below.</p>
+          </div>
+        )}
 
         {/* Still Have Questions */}
         <motion.div
