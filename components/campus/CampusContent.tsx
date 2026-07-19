@@ -17,6 +17,7 @@ import {
   Building2,
   ExternalLink,
   Globe,
+  Calendar,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -64,8 +65,8 @@ const CHAPTER_BENEFITS = [
 const LAUNCH_STEPS = [
   {
     step: "01",
-    title: "Submit Lead Application",
-    desc: "Tell us about your university, technical interests, and passion for community building.",
+    title: "Submit Application (1x / Year)",
+    desc: "Applications for Campus Leads open once per academic year. Share your university details and passion for tech.",
   },
   {
     step: "02",
@@ -115,16 +116,21 @@ export default function CampusContent() {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-6 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>BUILDERCLAN ON CAMPUS</span>
+                <span>BUILDERCLAN ON CAMPUS • ANNUAL RECRUITMENT COHORT</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
                 A Home for Campus Builders to <span className="text-[#caff33]">Learn & Grow</span>
               </h1>
 
-              <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed mb-10">
-                BuilderClan Campus Chapters bring hardware labs, software projects, hackathons, and a supportive community directly to universities worldwide — giving student builders a place to belong.
+              <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed mb-8">
+                BuilderClan Campus Leads represent the community on their university campus—spreading our vision, conducting hands-on events and hackathons, and building a supportive home for hardware & software creators.
               </p>
+
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1c1c1c]/90 border border-[#caff33]/30 text-xs font-semibold text-[#caff33] mb-10">
+                <Calendar className="w-4 h-4" />
+                <span>Campus Lead applications open once per academic year</span>
+              </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
@@ -157,7 +163,7 @@ export default function CampusContent() {
               {[
                 { label: "Founding Chapter", val: "1 (AISAT)" },
                 { label: "Student Builders", val: "50+" },
-                { label: "Workshops & Events", val: "10+" },
+                { label: "Application Window", val: "1x / Year" },
                 { label: "Community Access", val: "100% Free" },
               ].map((stat) => (
                 <div
@@ -412,7 +418,7 @@ export default function CampusContent() {
               </h2>
 
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl mx-auto leading-relaxed mb-8">
-                Lead a community of student builders. Organize hardware labs, software hackathons, and build anything in tech together.
+                Lead a community of student builders on your campus. Spread our vision, conduct hardware & software build events, and foster a home for creators. Applications open once per academic year.
               </p>
 
               <a
