@@ -8,10 +8,7 @@ const siteDescription =
   "BuilderClan is a global tech community where innovators, developers, designers, and creators collaborate, learn, and build impactful open-source software. Join 500+ builders worldwide.";
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#141414" },
-    { media: "(prefers-color-scheme: dark)", color: "#141414" },
-  ],
+  themeColor: "#141414",
   width: "device-width",
   initialScale: 1,
 };
@@ -122,9 +119,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="bg-[#141414] dark" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#141414" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="msapplication-navbutton-color" content="#141414" />
         <script
@@ -136,7 +134,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-[#141414] text-white">
         <main>{children}</main>
       </body>
       <GoogleAnalytics gaId="G-Y5L2HBGQLW" />
