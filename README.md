@@ -27,7 +27,7 @@ BuilderClan is a pure-tech, peer-to-peer community where people come together to
 
 ## Project Structure
 
-```
+```txt
 builderclan-site/
 ├── app/
 │   ├── campus/          # Campus Chapters page
