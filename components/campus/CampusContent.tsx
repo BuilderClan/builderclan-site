@@ -268,26 +268,16 @@ export default function CampusContent() {
                     </div>
 
                     {/* Action Links */}
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="mt-2">
                       <a
                         href={chapter.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-2.5 px-3 rounded-xl bg-[#141414] hover:bg-[#222222] text-[#d4d4d8] border border-[#262626] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        className="w-full py-2.5 px-4 rounded-xl bg-[#141414] hover:bg-[#222222] hover:border-[#caff33]/40 text-[#d4d4d8] border border-[#262626] text-xs font-semibold flex items-center justify-center gap-2 transition-all"
                       >
                         <Globe className="w-3.5 h-3.5 text-[#caff33]" />
                         <span>College Website</span>
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-
-                      <a
-                        href="https://discord.gg/GFnBvjc5tj"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="py-2.5 px-3 rounded-xl bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm"
-                      >
-                        <MessageCircle className="w-3.5 h-3.5" />
-                        <span>Join Community</span>
+                        <ExternalLink className="w-3 h-3 text-[#a1a1aa]" />
                       </a>
                     </div>
                   </motion.div>
