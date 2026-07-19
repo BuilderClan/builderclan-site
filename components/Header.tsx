@@ -36,6 +36,10 @@ export default function Header() {
       setActiveLink("careers");
       return;
     }
+    if (pathname === "/campus") {
+      setActiveLink("campus");
+      return;
+    }
 
     const sections = document.querySelectorAll("section");
     const options = {
@@ -59,6 +63,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/#home", id: "home" },
     { name: "About", href: "/#about", id: "about" },
+    { name: "Campus", href: "/campus", id: "campus" },
     { name: "Opportunity", href: "/#opportunity", id: "opportunity" },
     { name: "FAQ", href: "/#faq", id: "faq" },
     { name: "Careers", href: "/careers", id: "careers" },

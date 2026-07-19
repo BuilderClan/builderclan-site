@@ -34,6 +34,7 @@ export default function Footer() {
   const navigationLinks = [
     { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
+    { name: "Campus Chapters", href: "/campus" },
     { name: "Opportunity", href: "/#opportunity" },
     { name: "FAQ", href: "/#faq" },
     { name: "Careers", href: "/careers" },
