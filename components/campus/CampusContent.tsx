@@ -281,7 +281,7 @@ export default function CampusContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-5xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-24 sm:mt-28 max-w-5xl mx-auto"
             >
               {[
                 { label: "Founding Chapter", val: "1 (AISAT)" },
