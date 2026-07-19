@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { FolderGit2, Terminal, Lightbulb, Globe, Sparkles, ArrowUpRight } from "lucide-react";
+import { FolderGit2, Cpu, Rocket, BookOpen, Users, Sparkles, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function OpportunitySection() {
@@ -30,34 +30,34 @@ export default function OpportunitySection() {
   const opportunities = [
     {
       num: "01",
-      icon: FolderGit2,
-      title: "Open-Source Projects",
+      icon: Rocket,
+      title: "Build Anything in Tech",
       description:
-        "Collaborate on real-world open-source software, sharpen your skills, and build a standout developer portfolio that impresses recruiters.",
-      badge: "Hands-on",
+        "Tinker, experiment, and create whatever inspires you, from IoT devices and robotics to web apps, AI tools, and personal hacks.",
+      badge: "Explore",
     },
     {
       num: "02",
-      icon: Terminal,
-      title: "Workshops & Hackathons",
+      icon: FolderGit2,
+      title: "Beginner-Friendly Open Source",
       description:
-        "Gain practical technical skills through interactive live coding sessions, competitive hackathons, and deep-dive technical workshops.",
-      badge: "Interactive",
+        "Ship code and hardware schematics on real open-source products with beginner-friendly issues and supportive peer feedback.",
+      badge: "Open Source",
     },
     {
       num: "03",
-      icon: Lightbulb,
-      title: "Product Incubator",
+      icon: BookOpen,
+      title: "Learning & Growing Together",
       description:
-        "Turn your creative ideas into production-ready web and mobile applications with 1-on-1 community mentorship and peer code reviews.",
-      badge: "Innovation",
+        "Build lasting connections and grow alongside peers through collaborative build sessions, shared project logs, and continuous mutual support.",
+      badge: "Togetherness",
     },
     {
       num: "04",
-      icon: Globe,
-      title: "Global Developer Network",
+      icon: Users,
+      title: "Global Builder Network",
       description:
-        "Connect with tech enthusiasts, senior software engineers, and startup founders across the globe to elevate your professional network.",
+        "Connect with fellow beginners, senior engineers, hardware hackers, robotics enthusiasts, and startup founders in a welcoming environment.",
       badge: "Community",
     },
   ];
@@ -87,7 +87,7 @@ export default function OpportunitySection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            Discover how BuilderClan helps you accelerate your coding career, ship production software, and build lifelong connections.
+            Discover how BuilderClan brings hardware & software builders together to experiment, launch startups, ship open-source products, and grow together.
           </p>
         </motion.div>
 

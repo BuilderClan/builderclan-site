@@ -8,42 +8,42 @@ const faqs = [
   {
     question: "What is BuilderClan?",
     answer:
-      "BuilderClan is a tech community where innovators, developers, and creators come together to collaborate, learn, and build impactful open-source software.",
+      "BuilderClan is a welcoming tech community for hardware and software builders. A home where you can experiment, build anything in tech, and learn & grow together.",
   },
   {
-    question: "Who can join BuilderClan?",
+    question: "Is BuilderClan beginner friendly?",
     answer:
-      "Anyone passionate about technology, programming, design, or innovation! Whether you're a complete beginner or a senior engineer, there's a place for you here.",
+      "Absolutely! Whether you are taking your first steps in coding or building your first electronics circuit, BuilderClan provides a supportive peer environment with starter projects, code reviews, and mentorship.",
   },
   {
-    question: "How can I become a member?",
+    question: "Does BuilderClan support both Hardware and Software?",
     answer:
-      "You can join directly via our Discord community server or get referred by an existing member on our website signup portal.",
+      "Yes! We are a pure-tech community covering physical hardware (IoT, robotics, embedded systems, microcontrollers, PCB design) and digital software (AI, web, mobile, cloud, systems programming).",
   },
   {
-    question: "What activities does BuilderClan organize?",
+    question: "What can I build at BuilderClan?",
     answer:
-      "We host open-source projects, competitive hackathons, hands-on coding workshops, live webinars, code reviews, and global networking sessions.",
+      "Anything! From robotics, IoT devices, and embedded hardware to web apps, AI tools, and open-source projects. There are no limits on what you can explore and create.",
+  },
+  {
+    question: "How does learning together work at BuilderClan?",
+    answer:
+      "We foster a welcoming, non-judgmental community where members at every skill level collaborate on projects, share build logs, ask questions freely, and grow together as peers.",
   },
   {
     question: "Is there any membership fee?",
     answer:
-      "No! Joining BuilderClan is completely free. All core community activities, projects, and discussions are open to everyone.",
+      "No! Joining BuilderClan is completely free. All core community activities, project teams, workshops, and discussions are 100% open to everyone.",
   },
   {
-    question: "How can I contribute to community projects?",
+    question: "How can I contribute to hardware or software projects?",
     answer:
-      "Keep an eye on our project announcements in Discord or GitHub. Once a project opens up, you can submit pull requests, report issues, or join project teams.",
-  },
-  {
-    question: "Can I promote my own open-source projects?",
-    answer:
-      "Yes! We encourage members to showcase their projects in designated community channels to receive feedback, contributors, and support.",
+      "Check out our project announcements on Discord and GitHub. You can contribute code, report issues, design circuits, review pull requests, or propose a new project.",
   },
   {
     question: "How do I contact the BuilderClan team?",
     answer:
-      "You can email us directly at main.builderclan@gmail.com or ask questions inside our official Discord server.",
+      "You can email us directly at main.builderclan@gmail.com or connect with maintainers inside our official Discord server.",
   },
 ];
 

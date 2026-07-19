@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = "https://builderclan.org";
 const siteName = "BuilderClan";
 const siteDescription =
-  "BuilderClan is a global tech community where innovators, developers, designers, and creators collaborate, learn, and build impactful open-source software. Join 500+ builders worldwide.";
+  "BuilderClan is a welcoming tech community for hardware and software builders. A home to experiment with circuits and code, build anything in tech, and learn & grow together.";
 
 export const viewport: Viewport = {
   themeColor: "#141414",
@@ -16,21 +16,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "BuilderClan — Where Innovation Meets Collaboration",
+    default: "BuilderClan | A Home for People Who Love to Build",
     template: "%s | BuilderClan",
   },
   description: siteDescription,
   keywords: [
     "BuilderClan",
-    "developer community",
+    "home for builders",
+    "hardware and software community",
     "tech community",
-    "open source",
-    "hackathon",
-    "coding community",
-    "software developers",
-    "Discord tech community",
-    "collaborative coding",
-    "build in public",
+    "build anything in tech",
+    "open source projects",
+    "beginner friendly coding",
+    "learn and grow together",
+    "community belonging",
+    "robotics and IoT",
+    "embedded systems",
+    "software development",
+    "hardware hackers",
   ],
   authors: [{ name: "BuilderClan", url: siteUrl }],
   creator: "BuilderClan",
@@ -52,20 +55,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: "BuilderClan — Where Innovation Meets Collaboration",
+    title: "BuilderClan | A Home for People Who Love to Build",
     description: siteDescription,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BuilderClan — Where Innovation Meets Collaboration",
+        alt: "BuilderClan | A Home for People Who Love to Build",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuilderClan — Where Innovation Meets Collaboration",
+    title: "BuilderClan | A Home for People Who Love to Build",
     description: siteDescription,
     images: ["/og-image.png"],
     creator: "@builderclan",
@@ -93,11 +96,11 @@ const organizationJsonLd = {
   foundingDate: "2024",
   areaServed: "Worldwide",
   knowsAbout: [
+    "Hardware Engineering & Embedded Systems",
     "Software Development",
-    "Open Source",
-    "Hackathons",
-    "Tech Community",
-    "Collaborative Coding",
+    "Open Source Community",
+    "Learning & Growing Together",
+    "Robotics & IoT",
   ],
 };
 
