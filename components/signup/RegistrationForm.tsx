@@ -58,9 +58,18 @@ const signupSchema = z.object({
     .string()
     .min(1, { message: VALIDATION_MESSAGES.last_name.min })
     .regex(/^[A-Za-z\s]+$/, { message: VALIDATION_MESSAGES.last_name.pattern }),
-  dob: z.string().refine((date) => new Date(date) < new Date(), {
-    message: VALIDATION_MESSAGES.dob,
-  }),
+  dob: z
+    .string()
+    .min(1, { message: "Please select your date of birth" })
+    .refine(
+      (date) => {
+        const parsed = new Date(date);
+        return !isNaN(parsed.getTime()) && parsed < new Date();
+      },
+      {
+        message: VALIDATION_MESSAGES.dob,
+      }
+    ),
   gender: z.enum(["male", "female"], {
     errorMap: () => ({ message: VALIDATION_MESSAGES.gender }),
   }),
@@ -139,6 +148,14 @@ function FormField({ id, type = "text", label, placeholder, icon: Icon, register
           type={type}
           id={id}
           placeholder={placeholder}
+          style={type === "date" ? { colorScheme: "dark" } : undefined}
+          onClick={(e) => {
+            if (type === "date" && "showPicker" in e.currentTarget) {
+              try {
+                (e.currentTarget as HTMLInputElement).showPicker();
+              } catch {}
+            }
+          }}
           className={`w-full ${Icon ? "pl-10" : "px-3.5"} pr-3.5 py-2.5 rounded-xl bg-[#141414] border border-[#262626] text-white text-sm placeholder-[#52525b] outline-none transition-all focus:border-[#caff33] focus:shadow-[0_0_12px_rgba(202,255,51,0.2)] ${
             error ? "border-[#f87171] focus:border-[#f87171]" : ""
           }`}
