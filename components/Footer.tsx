@@ -32,10 +32,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Opportunity", href: "#opportunity" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Opportunity", href: "/#opportunity" },
+    { name: "FAQ", href: "/#faq" },
     { name: "Careers", href: "/careers" },
   ];
 
@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#262626]">
           {/* Brand Info Column (5 Cols) */}
           <div className="md:col-span-5 flex flex-col items-start gap-4">
-            <Link href="#home" className="flex items-center gap-3 group">
+            <Link href="/#home" className="flex items-center gap-3 group">
               <div className="p-2 rounded-xl bg-[#1c1c1c] border border-[#262626] group-hover:border-[#caff33]/50 transition-colors">
                 <Image src="/LogoShort.png" alt="BuilderClan Logo" width={32} height={26} style={{ width: "auto", height: "auto" }} />
               </div>
