@@ -34,7 +34,7 @@ const CAMPUS_CHAPTERS = [
     members: 50,
     status: "Active Chapter",
     isFounding: true,
-    tags: ["Hardware & IoT", "Software & Web", "Startups", "Robotics", "Learning Together"],
+    tags: ["Hardware & IoT", "Software & Web", "Open Source", "Robotics", "Learning Together"],
   },
 ];
 
@@ -42,7 +42,7 @@ const CHAPTER_BENEFITS = [
   {
     icon: ShieldCheck,
     title: "Direct Industry Mentorship",
-    desc: "Connect directly with senior engineers, open-source maintainers, and tech founders for guidance.",
+    desc: "Connect directly with senior engineers, open-source maintainers, and tech creators for guidance.",
   },
   {
     icon: Zap,
@@ -52,7 +52,7 @@ const CHAPTER_BENEFITS = [
   {
     icon: Award,
     title: "Leadership & Career Growth",
-    desc: "Gain hands-on experience managing tech communities, organizing events, and leading open-source projects.",
+    desc: "Gain hands-on experience managing campus communities, organizing build events, and leading open-source projects.",
   },
   {
     icon: Rocket,
@@ -80,7 +80,7 @@ const LAUNCH_STEPS = [
   {
     step: "04",
     title: "Launch & Start Building",
-    desc: "Host your university kickoff event, recruit student builders, and contribute to open source.",
+    desc: "Host your university kickoff event, recruit student builders, and start building hardware & software together.",
   },
 ];
 
@@ -119,11 +119,11 @@ export default function CampusContent() {
               </div>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
-                Empowering Next-Gen Builders on <span className="text-[#caff33]">Every Campus</span>
+                A Home for Campus Builders to <span className="text-[#caff33]">Learn & Grow</span>
               </h1>
 
               <p className="text-base sm:text-xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed mb-10">
-                BuilderClan Campus Chapters bring hardware labs, software development, hackathons, startup building, and peer-to-peer tech mentorship directly to universities worldwide.
+                BuilderClan Campus Chapters bring hardware labs, software projects, hackathons, and a supportive community directly to universities worldwide — giving student builders a place to belong.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -412,7 +412,7 @@ export default function CampusContent() {
               </h2>
 
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl mx-auto leading-relaxed mb-8">
-                Lead a community of student coders, designers, and innovators. Gain real leadership experience and open-source backing.
+                Lead a community of student builders. Organize hardware labs, software hackathons, and build anything in tech together.
               </p>
 
               <a
