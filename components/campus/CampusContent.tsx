@@ -20,6 +20,7 @@ import {
   Calendar,
   SearchX,
   RotateCcw,
+  Cpu,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -43,24 +44,24 @@ const CAMPUS_CHAPTERS = [
 
 const CHAPTER_BENEFITS = [
   {
-    icon: ShieldCheck,
-    title: "Direct Industry Mentorship",
-    desc: "Connect directly with senior engineers, open-source maintainers, and tech creators for guidance.",
+    icon: Cpu,
+    title: "Hardware & Software Guidance",
+    desc: "Connect your campus builders with peer experts, open-source projects, and technical learning resources.",
   },
   {
     icon: Zap,
-    title: "Hackathon Backing & Sponsorship",
-    desc: "Host university hackathons backed by BuilderClan sponsor networks, swag kits, and prize pools.",
+    title: "Event Decks & Launch Kits",
+    desc: "Get official BuilderClan event templates, presentation decks, branding assets, and dedicated Discord chapter channels.",
   },
   {
-    icon: Award,
-    title: "Leadership & Career Growth",
-    desc: "Gain hands-on experience managing campus communities, organizing build events, and leading open-source projects.",
+    icon: Users,
+    title: "Learn & Grow Together",
+    desc: "Build a welcoming, peer-to-peer tech community where students support each other, share knowledge, and belong.",
   },
   {
-    icon: Rocket,
-    title: "Swag & Exclusive Branding",
-    desc: "Receive official BuilderClan chapter logos, t-shirts, stickers, and priority access to global tech events.",
+    icon: Globe,
+    title: "Global Builder Network",
+    desc: "Connect your campus members directly with our global network of developers, hardware hackers, and open-source contributors.",
   },
 ];
 
@@ -501,14 +502,17 @@ export default function CampusContent() {
         </section>
 
         {/* Why Start a Campus Chapter? (Benefits) */}
-        <section className="py-20 bg-[#171717]/60 border-y border-[#262626] relative">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <section className="py-20 bg-[#141414] relative overflow-hidden">
+          {/* Ambient Lighting Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-72 bg-gradient-to-r from-[#caff33]/10 via-[#caff33]/5 to-transparent blur-3xl pointer-events-none opacity-60" />
+
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>LEADERSHIP PERKS</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white">
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
                 Why Start a <span className="text-[#caff33]">Campus Chapter?</span>
               </h2>
             </div>
@@ -523,9 +527,10 @@ export default function CampusContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="p-6 rounded-2xl bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/30 transition-all"
+                    whileHover={{ y: -4 }}
+                    className="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#1c1c1c] to-[#161616] border border-[#262626] hover:border-[#caff33]/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_0_30px_rgba(202,255,51,0.12)] group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20 flex items-center justify-center text-[#caff33] mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-[#caff33]/10 border border-[#caff33]/25 flex items-center justify-center text-[#caff33] mb-5 shadow-sm group-hover:scale-105 transition-transform">
                       <Icon className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 leading-snug">{benefit.title}</h3>
@@ -545,7 +550,7 @@ export default function CampusContent() {
                 How to Launch in <span className="text-[#caff33]">4 Simple Steps</span>
               </h2>
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-lg mx-auto">
-                We provide all the mentorship, pitch decks, sponsor kits, and platform support you need.
+                We provide all the event guides, presentation decks, branding assets, and community support you need.
               </p>
             </div>
 
