@@ -16,6 +16,7 @@ import {
   MessageCircle,
   Building2,
   ExternalLink,
+  Globe,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -24,83 +25,16 @@ import BackToTop from "@/components/BackToTop";
 const CAMPUS_CHAPTERS = [
   {
     id: 1,
-    name: "IIT Bombay",
-    city: "Mumbai",
+    name: "Albertian Institute of Science and Technology",
+    shortName: "AISAT Chapter",
+    city: "Kochi, Kerala",
     country: "India",
-    lead: "Aarav Sharma",
-    members: 340,
-    status: "Active",
-    tags: ["Web3", "Open Source", "AI"],
-  },
-  {
-    id: 2,
-    name: "Delhi Technological University (DTU)",
-    city: "New Delhi",
-    country: "India",
-    lead: "Priya Patel",
-    members: 280,
-    status: "Active",
-    tags: ["Hackathons", "DevOps", "Mobile"],
-  },
-  {
-    id: 3,
-    name: "BITS Pilani",
-    city: "Pilani",
-    country: "India",
-    lead: "Rohan Verma",
-    members: 220,
-    status: "Active",
-    tags: ["Rust", "Systems", "AI"],
-  },
-  {
-    id: 4,
-    name: "VIT Vellore",
-    city: "Vellore",
-    country: "India",
-    lead: "Vikram Singh",
-    members: 450,
-    status: "Active",
-    tags: ["Web Dev", "Cloud", "Open Source"],
-  },
-  {
-    id: 5,
-    name: "SRM Institute of Technology",
-    city: "Chennai",
-    country: "India",
-    lead: "Ananya Reddy",
-    members: 310,
-    status: "Active",
-    tags: ["Cybersecurity", "UI/UX", "Python"],
-  },
-  {
-    id: 6,
-    name: "Stanford University",
-    city: "Stanford, CA",
-    country: "United States",
-    lead: "Alex Chen",
-    members: 180,
-    status: "Active",
-    tags: ["AI/ML", "Startups", "Web3"],
-  },
-  {
-    id: 7,
-    name: "National University of Singapore (NUS)",
-    city: "Singapore",
-    country: "Singapore",
-    lead: "Marcus Tan",
-    members: 195,
-    status: "Launching Soon",
-    tags: ["Product Design", "Cloud"],
-  },
-  {
-    id: 8,
-    name: "University of Manchester",
-    city: "Manchester",
-    country: "United Kingdom",
-    lead: "Sophia Taylor",
-    members: 160,
-    status: "Launching Soon",
-    tags: ["Open Source", "Data Science"],
+    website: "https://aisat.ac.in/",
+    lead: "AISAT Student Team",
+    members: 50,
+    status: "Active Chapter",
+    isFounding: true,
+    tags: ["Open Source", "Web Dev", "Hackathons", "Products"],
   },
 ];
 
@@ -221,11 +155,11 @@ export default function CampusContent() {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto"
             >
               {[
-                { label: "Active Chapters", val: "15+" },
-                { label: "Student Builders", val: "2,500+" },
-                { label: "Hackathons & Events", val: "50+" },
+                { label: "Founding Chapter", val: "1 (AISAT)" },
+                { label: "Student Builders", val: "50+" },
+                { label: "Workshops & Events", val: "10+" },
                 { label: "Community Access", val: "100% Free" },
-              ].map((stat, i) => (
+              ].map((stat) => (
                 <div
                   key={stat.label}
                   className="p-5 rounded-2xl bg-[#1c1c1c]/80 border border-[#262626] text-center"
@@ -242,13 +176,13 @@ export default function CampusContent() {
 
         {/* Interactive Campus Directory Section */}
         <section className="py-16 relative" id="directory">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                Explore <span className="text-[#caff33]">Campus Chapters</span>
+                Our <span className="text-[#caff33]">Campus Chapters</span>
               </h2>
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl mx-auto">
-                Find a BuilderClan chapter at your university or discover student-led communities near you.
+                Explore our active founding chapter or apply to bring BuilderClan to your university.
               </p>
             </div>
 
@@ -266,7 +200,7 @@ export default function CampusContent() {
 
             {/* Chapter Cards Grid */}
             {filteredChapters.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 {filteredChapters.map((chapter) => (
                   <motion.div
                     key={chapter.id}
@@ -274,21 +208,15 @@ export default function CampusContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
-                    className="p-6 rounded-2xl bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/40 transition-all flex flex-col justify-between group shadow-lg hover:shadow-[0_0_20px_rgba(202,255,51,0.1)]"
+                    className="p-6 rounded-2xl bg-[#1c1c1c] border border-[#caff33]/40 transition-all flex flex-col justify-between group shadow-xl hover:shadow-[0_0_25px_rgba(202,255,51,0.15)]"
                   >
                     <div>
                       {/* Top status & logo */}
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20 flex items-center justify-center text-[#caff33]">
+                        <div className="w-10 h-10 rounded-xl bg-[#caff33]/10 border border-[#caff33]/30 flex items-center justify-center text-[#caff33]">
                           <GraduationCap className="w-5 h-5" />
                         </div>
-                        <span
-                          className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border ${
-                            chapter.status === "Active"
-                              ? "bg-[#caff33]/10 text-[#caff33] border-[#caff33]/30"
-                              : "bg-[#262626] text-[#a1a1aa] border-[#383838]"
-                          }`}
-                        >
+                        <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#caff33]/10 text-[#caff33] border border-[#caff33]/30">
                           {chapter.status}
                         </span>
                       </div>
@@ -308,8 +236,8 @@ export default function CampusContent() {
                       {/* Lead & Member Stats */}
                       <div className="pt-4 border-t border-[#262626] flex items-center justify-between text-xs text-[#d4d4d8] mb-4">
                         <div>
-                          <span className="text-[#71717a] block text-[10px]">CHAPTER LEAD</span>
-                          <span className="font-semibold text-white">{chapter.lead}</span>
+                          <span className="text-[#71717a] block text-[10px]">FOUNDING CHAPTER</span>
+                          <span className="font-semibold text-white">{chapter.shortName}</span>
                         </div>
                         <div className="text-right">
                           <span className="text-[#71717a] block text-[10px]">MEMBERS</span>
@@ -333,19 +261,59 @@ export default function CampusContent() {
                       </div>
                     </div>
 
-                    {/* Join CTA Button */}
+                    {/* Action Links */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href={chapter.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl bg-[#141414] hover:bg-[#222222] text-[#d4d4d8] border border-[#262626] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
+                      >
+                        <Globe className="w-3.5 h-3.5 text-[#caff33]" />
+                        <span>College Website</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+
+                      <a
+                        href="https://discord.gg/GFnBvjc5tj"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Join Community</span>
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+
+                {/* Apply to be next Chapter Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="p-6 rounded-2xl bg-[#1c1c1c]/50 border border-dashed border-[#383838] hover:border-[#caff33]/50 transition-all flex flex-col justify-between group text-center"
+                >
+                  <div className="flex flex-col items-center justify-center my-auto py-6">
+                    <div className="w-12 h-12 rounded-full bg-[#1c1c1c] border border-[#262626] flex items-center justify-center text-[#caff33] mb-4 group-hover:scale-110 transition-transform">
+                      <Building2 className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">Your University Here</h3>
+                    <p className="text-xs text-[#a1a1aa] max-w-xs mx-auto leading-relaxed mb-6">
+                      Bring BuilderClan hackathons, mentorship, and open-source projects to your campus.
+                    </p>
                     <a
                       href="https://discord.gg/GFnBvjc5tj"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2.5 rounded-xl bg-[#141414] hover:bg-[#caff33] text-[#d4d4d8] hover:text-[#1c1c1c] border border-[#262626] hover:border-[#caff33] text-xs font-semibold flex items-center justify-center gap-2 transition-all"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1c1c1c] hover:bg-[#caff33] text-[#d4d4d8] hover:text-[#1c1c1c] border border-[#262626] hover:border-[#caff33] text-xs font-semibold transition-all"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Join Chapter Discord</span>
-                      <ExternalLink className="w-3 h-3" />
+                      <span>Launch Next Chapter</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
-                  </motion.div>
-                ))}
+                  </div>
+                </motion.div>
               </div>
             ) : (
               <div className="text-center py-12 bg-[#1c1c1c] border border-[#262626] rounded-2xl p-8 max-w-md mx-auto">
