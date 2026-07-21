@@ -1,0 +1,25 @@
+# BuilderClan
+
+> BuilderClan is an open tech community where anyone can join, including professionals, students, teachers, researchers, beginners, and tech enthusiasts, to experiment, learn together, and build projects ranging from fun side hacks to open-source products and startups.
+
+## Overview
+BuilderClan bridges hardware and software enthusiasts across physical tech (IoT, robotics, embedded systems, microcontrollers) and digital software (AI, web, mobile, cloud, open-source tools). It is designed to be inclusive, welcoming, and collaborative regardless of skill level or background.
+
+## Community Members (Who Can Join)
+- **Students & Beginners:** Learn by doing, ask questions without fear, get code reviews, and receive peer mentorship.
+- **Professionals & Senior Engineers:** Collaborate on complex tech, build side projects, share domain expertise, and mentor emerging talent.
+- **Teachers & Educators:** Share educational resources, guide student builders, and explore hands-on tech tools.
+- **Researchers:** Explore frontier technologies in hardware, robotics, AI, and systems programming.
+- **Tech Lovers & Hobbyists:** No CS degree or prior experience required. Anyone interested in technology is welcome.
+
+## What Members Build
+- **Fun Projects & Hacks:** Curiosity-driven side projects, weekend hacks, IoT gadgets, and creative coding.
+- **Products & Open Source:** Production-grade software applications, open-source libraries, and reusable hardware schematics.
+- **Startups & Ventures:** Prototype ideas, form founding teams, and launch real-world technology startups.
+
+## Key Links & Resources
+- [Official Website](https://builderclan.org): Main landing page and community overview.
+- [BuilderClan On Campus (BCC)](https://builderclan.org/campus): Student & teacher campus builder ecosystem initiative.
+- [Careers](https://builderclan.org/careers): Open roles and community volunteer opportunities.
+- [Discord Community](https://discord.gg/GFnBvjc5tj): Live chat, project channels, and community events.
+- [Full LLM Context](/llms-full.txt): Comprehensive documentation for LLMs.

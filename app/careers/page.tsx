@@ -50,7 +50,7 @@ export default function Careers() {
               Build the Future <span className="text-[#caff33]">Together</span>
             </h1>
             <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-              We&apos;re building a welcoming community of hardware hackers, software developers, and startup founders. Join us to experiment, build, and grow together.
+              We are an open tech community for professionals, students, teachers, researchers, beginners, and tech lovers. Join us to build anything from fun side projects to open-source products and startups.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function Careers() {
             </h2>
             
             <p className="text-base text-[#a1a1aa] max-w-xl mx-auto mb-8 leading-relaxed">
-              We don&apos;t have active full-time job openings at this moment. However, our community is constantly opening hardware/software project lead, beginner mentorship, and campus chapter leadership roles!
+              We don&apos;t have active full-time job openings at this moment. However, our community is constantly opening hardware/software project lead, peer mentorship, and BuilderClan On Campus (BCC) leadership roles!
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -91,16 +91,18 @@ export default function Careers() {
             </div>
           </div>
 
-          {/* Additional Community Roles Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#181818] border border-[#262626] p-6 sm:p-8 rounded-2xl">
-              <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
-                <Code2 className="w-6 h-6" />
+          {/* Additional Community Roles Cards (3 Columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 transition-all p-6 sm:p-7 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
+                  <Code2 className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Project Leads</h3>
+                <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-4">
+                  Have an idea for a fun side hack, open-source product, or startup? Lead a team of community builders and turn ideas into reality.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Hardware & Software Project Leads</h3>
-              <p className="text-sm text-[#a1a1aa] leading-relaxed mb-4">
-                Have a hardware device idea or software project in mind? Pitch your project to lead a team of community builders and create something awesome together.
-              </p>
               <a
                 href="https://discord.gg/GFnBvjc5tj"
                 target="_blank"
@@ -112,14 +114,16 @@ export default function Careers() {
               </a>
             </div>
 
-            <div className="bg-[#181818] border border-[#262626] p-6 sm:p-8 rounded-2xl">
-              <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
-                <Users className="w-6 h-6" />
+            <div className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 transition-all p-6 sm:p-7 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
+                  <Users className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Peer Mentors</h3>
+                <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-4">
+                  Support beginners, students, and curious minds by reviewing code & schematics, answering questions, and hosting build sessions.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Community Support & Peer Mentors</h3>
-              <p className="text-sm text-[#a1a1aa] leading-relaxed mb-4">
-                Help foster belonging and togetherness by guiding beginners, reviewing schematics & code, and hosting collaborative build sessions.
-              </p>
               <a
                 href="mailto:main.builderclan@gmail.com"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-[#caff33] hover:underline"
@@ -127,6 +131,25 @@ export default function Careers() {
                 <span>Become a Mentor</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
+            </div>
+
+            <div className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 transition-all p-6 sm:p-7 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">BCC Campus Leads</h3>
+                <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed mb-4">
+                  Build a campus ecosystem where students and teachers work side by side to learn, experiment, and build tech projects together.
+                </p>
+              </div>
+              <Link
+                href="/campus"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#caff33] hover:underline"
+              >
+                <span>Apply as BCC Lead</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
 
