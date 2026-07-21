@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CampusContent from "@/components/campus/CampusContent";
 
 const siteUrl = "https://builderclan.org";
-const pageTitle = "Campus Chapters | BuilderClan";
+const pageTitle = "BuilderClan On Campus (BCC) | BuilderClan";
 const pageDescription =
-  "Discover BuilderClan Campus Chapters at top universities. Join student-led open-source development, hackathons, and tech mentorship or apply to start a chapter at your campus.";
+  "Discover BuilderClan On Campus (BCC) chapters at universities. Build a campus ecosystem where students and teachers work side by side to learn, experiment, and build tech projects together.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 const campusJsonLd = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  name: "BuilderClan Campus Chapters",
+  name: "BuilderClan On Campus (BCC)",
   url: `${siteUrl}/campus`,
   description: pageDescription,
   parentOrganization: {

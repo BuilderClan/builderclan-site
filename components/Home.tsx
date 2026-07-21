@@ -83,7 +83,7 @@ export default function HomeSection() {
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                Whether you&apos;re a professional, student, teacher, researcher, beginner, or tech enthusiast—BuilderClan is your welcoming home to build anything from fun side projects to open-source products & startups.
+                Whether you&apos;re a professional, student, teacher, researcher, beginner, or tech enthusiast, BuilderClan is your welcoming home to build anything from fun side projects to open-source products & startups.
               </motion.p>
 
               {/* Action Buttons */}

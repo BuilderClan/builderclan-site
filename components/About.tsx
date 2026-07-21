@@ -99,7 +99,7 @@ export default function AboutSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            BuilderClan is an inclusive community where anyone interested in technology can connect, experiment, and grow together—regardless of background or experience level.
+            BuilderClan is an inclusive community where anyone interested in technology can connect, experiment, and grow together, regardless of background or experience level.
           </p>
         </motion.div>
 
@@ -130,7 +130,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To empower hardware and software builders of all backgrounds—from absolute beginners to senior pros—to experiment freely, build whatever inspires them, and grow together in a warm, supportive community.
+              To empower hardware and software builders of all backgrounds, from absolute beginners to senior pros, to experiment freely, build whatever inspires them, and grow together in a warm, supportive community.
             </p>
           </motion.div>
 
@@ -153,7 +153,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To be a global home for curious minds, students, teachers, researchers, and creators—where anyone can explore hardware & software, launch startups, and build the future together.
+              To be a global home for curious minds, students, teachers, researchers, and creators, where anyone can explore hardware & software, launch startups, and build the future together.
             </p>
           </motion.div>
         </motion.div>

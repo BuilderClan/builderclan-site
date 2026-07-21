@@ -8,12 +8,12 @@ const faqs = [
   {
     question: "What is BuilderClan?",
     answer:
-      "BuilderClan is an open tech community where anyone can join—including professionals, students, teachers, researchers, beginners, and tech enthusiasts. It is a home where you can experiment with hardware and software, learn together, and build anything from fun side hacks to products and startups.",
+      "BuilderClan is an open tech community where anyone can join, including professionals, students, teachers, researchers, beginners, and tech enthusiasts. It is a home where you can experiment with hardware and software, learn together, and build anything from fun side hacks to products and startups.",
   },
   {
     question: "Who can join BuilderClan?",
     answer:
-      "Anyone interested in technology! Whether you are a senior professional, university student, educator, researcher, beginner learning your first programming language, or tech hobbyist—BuilderClan welcomes everyone regardless of background or experience.",
+      "Anyone interested in technology! Whether you are a senior professional, university student, educator, researcher, beginner learning your first programming language, or tech hobbyist, BuilderClan welcomes everyone regardless of background or experience.",
   },
   {
     question: "What types of projects can I build at BuilderClan?",

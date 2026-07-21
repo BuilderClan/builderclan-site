@@ -6,11 +6,11 @@ BuilderClan is a global tech community created for people who love to build. It 
 ### Core Philosophy
 1. **Anyone Can Join:** Whether you are a seasoned professional, a university student, an educator, a researcher, or taking your first steps in coding/electronics, BuilderClan welcomes you.
 2. **Hardware + Software Unity:** We believe technology is richest at the intersection of code and physical hardware (IoT, robotics, microcontrollers, embedded systems, web, AI, cloud).
-3. **From Curiosity to Company:** Members can build anything—ranging from fun weekend side hacks to full production-grade open source projects and commercial startups.
+3. **From Curiosity to Company:** Members can build anything, ranging from fun weekend side hacks to full production-grade open source projects and commercial startups.
 
 ## Target Demographics & Roles
 - **Professionals & Industry Veterans:** Share knowledge, stay engaged with emerging tech, mentor early-stage builders, or build passion projects outside work.
-- **Students & Campus Builders:** Gain practical project experience beyond textbooks, find collaborators, get portfolio feedback, and join campus chapters.
+- **Students & Campus Builders:** Gain practical project experience beyond textbooks, find collaborators, get portfolio feedback, and join BuilderClan On Campus (BCC) chapters.
 - **Teachers & Educators:** Bring real-world project methodologies to their students and collaborate on educational tech initiatives.
 - **Researchers:** Prototype experimental hardware/software concepts and engage with an active developer community.
 - **Beginners & Self-Taught Builders:** Learn in a supportive, judgment-free zone with community help and project reviews.

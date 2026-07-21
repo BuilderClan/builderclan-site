@@ -44,9 +44,14 @@ const CAMPUS_CHAPTERS = [
 
 const CHAPTER_BENEFITS = [
   {
+    icon: Users,
+    title: "Student-Teacher Co-Building",
+    desc: "Build a campus ecosystem where students and teachers work side by side, learn from each other, and turn ideas into real builds.",
+  },
+  {
     icon: Cpu,
-    title: "Hardware & Software Guidance",
-    desc: "Connect your campus builders with peer experts, open-source projects, and technical learning resources.",
+    title: "Fun Hacks to Campus Startups",
+    desc: "Guide campus projects across curiosity-driven side hacks, hardware labs, open-source software tools, and campus startups.",
   },
   {
     icon: Zap,
@@ -54,14 +59,9 @@ const CHAPTER_BENEFITS = [
     desc: "Get official BuilderClan event templates, presentation decks, branding assets, and dedicated Discord chapter channels.",
   },
   {
-    icon: Users,
-    title: "Learn & Grow Together",
-    desc: "Build a welcoming, peer-to-peer tech community where students support each other, share knowledge, and belong.",
-  },
-  {
     icon: Globe,
     title: "Global Builder Network",
-    desc: "Connect your campus members directly with our global network of developers, hardware hackers, and open-source contributors.",
+    desc: "Connect your campus ecosystem directly with our global network of senior developers, hardware hackers, and startup founders.",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function CampusContent() {
                 {/* Top Badge */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-6 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>BUILDERCLAN ON CAMPUS</span>
+                  <span>BUILDERCLAN ON CAMPUS (BCC)</span>
                   <span className="text-[#383838]">•</span>
                   <span className="text-[#a1a1aa] font-medium flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-[#caff33]" />
@@ -134,12 +134,12 @@ export default function CampusContent() {
 
                 {/* Main Headline */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
-                  A Home for Campus Builders to <span className="text-[#caff33] drop-shadow-[0_0_20px_rgba(202,255,51,0.3)]">Learn & Grow</span>
+                  A Campus Ecosystem Where Students & Teachers <span className="text-[#caff33] drop-shadow-[0_0_20px_rgba(202,255,51,0.3)]">Build Together</span>
                 </h1>
 
                 {/* Subtitle */}
                 <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mb-8 max-w-xl">
-                  Campus Leads represent BuilderClan at their universities — organizing hardware labs, software projects, and hackathons while building a supportive tech community.
+                  BuilderClan On Campus (BCC) creates an active builder ecosystem at your university, providing a collaborative space where students and teachers work side by side to learn, experiment, and build anything in tech.
                 </p>
 
                 {/* CTA Buttons */}
@@ -163,13 +163,13 @@ export default function CampusContent() {
                   </a>
                 </div>
 
-                {/* Inline 4-Column Feature Pills Grid (Peer Community perfectly aligned!) */}
+                {/* Inline 4-Column Feature Pills Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl pt-6 border-t border-[#262626]/80">
                   {[
-                    { icon: Rocket, label: "Hardware Labs" },
-                    { icon: Zap, label: "Hackathons" },
-                    { icon: ShieldCheck, label: "Mentorship" },
-                    { icon: Users, label: "Peer Community" },
+                    { icon: Users, label: "Students & Teachers" },
+                    { icon: Rocket, label: "Co-Building Ecosystem" },
+                    { icon: Zap, label: "Fun Hacks & Startups" },
+                    { icon: ShieldCheck, label: "Open Learning" },
                   ].map((pill) => {
                     const Icon = pill.icon;
                     return (
@@ -587,11 +587,11 @@ export default function CampusContent() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#caff33]/10 rounded-full blur-3xl pointer-events-none" />
 
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-tight">
-                Ready to Bring BuilderClan to <span className="text-[#caff33]">Your University?</span>
+                Ready to Bring BuilderClan On Campus (BCC) to <span className="text-[#caff33]">Your University?</span>
               </h2>
 
               <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl mx-auto leading-relaxed mb-8">
-                Lead a community of student builders on your campus. Spread our vision, conduct hardware & software build events, and foster a home for creators. Applications open once per academic year.
+                Build a thriving campus ecosystem where students and teachers work side by side. Lead hardware & software builds, host hackathons, and turn ideas into fun side projects, open-source tools, and campus startups.
               </p>
 
               <a
