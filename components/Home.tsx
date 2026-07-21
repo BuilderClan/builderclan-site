@@ -55,7 +55,7 @@ export default function HomeSection() {
               >
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c]/90 border border-[#262626] text-xs font-medium text-white shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 text-[#caff33]" />
-                  <span>Hardware & Software Community • Learn & Grow Together</span>
+                  <span>Open Tech Community • Anyone Can Join</span>
                 </div>
               </motion.div>
 
@@ -83,7 +83,7 @@ export default function HomeSection() {
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                From hardware to software, circuits to code, BuilderClan is a welcoming community where you can experiment, build whatever inspires you, and grow alongside fellow builders.
+                Whether you&apos;re a professional, student, teacher, researcher, beginner, or tech enthusiast—BuilderClan is your welcoming home to build anything from fun side projects to open-source products & startups.
               </motion.p>
 
               {/* Action Buttons */}
@@ -141,7 +141,7 @@ export default function HomeSection() {
               />
             </motion.div>
 
-            {/* Floating Card 1: Top-Right (Hardware & Software) */}
+            {/* Floating Card 1: Top-Right (Everyone Welcome) */}
             <motion.div
               className="absolute -top-2 right-0 sm:-right-4 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 p-2.5 sm:p-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 transition-colors cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
@@ -156,11 +156,11 @@ export default function HomeSection() {
               whileHover={{ scale: 1.05 }}
             >
               <div className="p-1.5 sm:p-2 rounded-xl bg-[#caff33]/10 border border-[#caff33]/20">
-                <Cpu className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
+                <Users className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-white">Hardware & Software</div>
-                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Circuits, Code, AI & IoT</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">Pros, Students & Beginners</div>
+                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Teachers & Researchers Welcome</div>
               </div>
             </motion.div>
 
@@ -182,12 +182,12 @@ export default function HomeSection() {
                 <Rocket className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-white">Build Anything in Tech</div>
-                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Projects, Experiments & Open Source</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">Fun Hacks, Products & Startups</div>
+                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">From Curiosity to Companies</div>
               </div>
             </motion.div>
 
-            {/* Floating Card 3: Top-Left (Learn & Grow Together) */}
+            {/* Floating Card 3: Top-Left (Hardware & Software) */}
             <motion.div
               className="absolute top-6 sm:top-12 left-0 sm:-left-6 z-20 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#262626] hover:border-[#caff33]/40 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl shadow-xl flex items-center gap-2 transition-colors"
               initial={{ opacity: 0, x: -20 }}
@@ -200,8 +200,8 @@ export default function HomeSection() {
                 x: { duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.2 },
               }}
             >
-              <Users className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#caff33]" />
-              <span className="text-[10px] sm:text-xs font-medium text-[#d4d4d8]">Learn & Grow Together</span>
+              <Cpu className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#caff33]" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#d4d4d8]">Hardware & Software</span>
             </motion.div>
 
           </div>

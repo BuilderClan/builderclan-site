@@ -93,7 +93,7 @@ export default function Careers() {
 
           {/* Additional Community Roles Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#181818] border border-[#262626] p-6 sm:p-8 rounded-2xl">
+            <div className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 transition-all p-6 sm:p-8 rounded-2xl">
               <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
                 <Code2 className="w-6 h-6" />
               </div>
@@ -112,7 +112,7 @@ export default function Careers() {
               </a>
             </div>
 
-            <div className="bg-[#181818] border border-[#262626] p-6 sm:p-8 rounded-2xl">
+            <div className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 transition-all p-6 sm:p-8 rounded-2xl">
               <div className="p-3 rounded-xl bg-[#222222] text-[#caff33] w-fit mb-4">
                 <Users className="w-6 h-6" />
               </div>

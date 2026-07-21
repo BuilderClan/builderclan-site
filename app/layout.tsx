@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = "https://builderclan.org";
 const siteName = "BuilderClan";
 const siteDescription =
-  "BuilderClan is a welcoming tech community for hardware and software builders. A home to experiment with circuits and code, build anything in tech, and learn & grow together.";
+  "BuilderClan is an open tech community for professionals, students, teachers, researchers, beginners, and tech lovers. Build fun projects, open-source products, and startups across hardware and software.";
 
 export const viewport: Viewport = {
   themeColor: "#141414",
@@ -16,24 +16,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "BuilderClan | A Home for People Who Love to Build",
+    default: "BuilderClan | Community for Pros, Students, Researchers & Beginners",
     template: "%s | BuilderClan",
   },
   description: siteDescription,
   keywords: [
     "BuilderClan",
-    "home for builders",
-    "hardware and software community",
     "tech community",
+    "students and beginners in tech",
+    "tech teachers and researchers",
+    "software engineers and pros",
+    "fun side projects",
+    "open source products",
+    "tech startups",
+    "hardware and software community",
     "build anything in tech",
-    "open source projects",
-    "beginner friendly coding",
-    "learn and grow together",
-    "community belonging",
     "robotics and IoT",
     "embedded systems",
     "software development",
-    "hardware hackers",
   ],
   authors: [{ name: "BuilderClan", url: siteUrl }],
   creator: "BuilderClan",
@@ -55,20 +55,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: "BuilderClan | A Home for People Who Love to Build",
+    title: "BuilderClan | Community for Pros, Students, Researchers & Beginners",
     description: siteDescription,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BuilderClan | A Home for People Who Love to Build",
+        alt: "BuilderClan | Community for Pros, Students, Researchers & Beginners",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuilderClan | A Home for People Who Love to Build",
+    title: "BuilderClan | Community for Pros, Students, Researchers & Beginners",
     description: siteDescription,
     images: ["/og-image.png"],
     creator: "@builderclan",
@@ -97,9 +97,10 @@ const organizationJsonLd = {
   areaServed: "Worldwide",
   knowsAbout: [
     "Hardware Engineering & Embedded Systems",
-    "Software Development",
-    "Open Source Community",
-    "Learning & Growing Together",
+    "Software Development & AI",
+    "Open Source Products & Fun Side Projects",
+    "Tech Startups & Ventures",
+    "Students, Teachers, Researchers & Professionals Community",
     "Robotics & IoT",
   ],
 };

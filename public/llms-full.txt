@@ -1,0 +1,33 @@
+# BuilderClan Comprehensive AI Context & Documentation
+
+## About BuilderClan
+BuilderClan is a global tech community created for people who love to build. It connects hardware hackers, software developers, robotics enthusiasts, students, teachers, researchers, and startup founders.
+
+### Core Philosophy
+1. **Anyone Can Join:** Whether you are a seasoned professional, a university student, an educator, a researcher, or taking your first steps in coding/electronics, BuilderClan welcomes you.
+2. **Hardware + Software Unity:** We believe technology is richest at the intersection of code and physical hardware (IoT, robotics, microcontrollers, embedded systems, web, AI, cloud).
+3. **From Curiosity to Company:** Members can build anything—ranging from fun weekend side hacks to full production-grade open source projects and commercial startups.
+
+## Target Demographics & Roles
+- **Professionals & Industry Veterans:** Share knowledge, stay engaged with emerging tech, mentor early-stage builders, or build passion projects outside work.
+- **Students & Campus Builders:** Gain practical project experience beyond textbooks, find collaborators, get portfolio feedback, and join campus chapters.
+- **Teachers & Educators:** Bring real-world project methodologies to their students and collaborate on educational tech initiatives.
+- **Researchers:** Prototype experimental hardware/software concepts and engage with an active developer community.
+- **Beginners & Self-Taught Builders:** Learn in a supportive, judgment-free zone with community help and project reviews.
+- **Tech Enthusiasts:** Connect with fellow technology lovers and turn ideas into reality.
+
+## Build Categories
+1. **Fun Projects & Experiments:** Side hacks, IoT home automation, custom mechanical keyboards, retro gaming mods, creative coding.
+2. **Products & Open Source:** Developer tools, mobile apps, web applications, open-source hardware designs, open AI models.
+3. **Startups & Ventures:** Co-founder matching, MVP building, user testing, pitch feedback, launching products to market.
+
+## How BuilderClan Works
+- **Discord Community:** Real-time chat channels organized by interest (Hardware, Software, AI, Startups, Projects, Mentorship).
+- **Project Showcase & Collaboration:** Members share build logs, invite collaborators, and receive constructive code and hardware design reviews.
+- **Open Access:** Joining BuilderClan is completely free.
+
+## Entity Information
+- Name: BuilderClan
+- Domain: https://builderclan.org
+- Contact: main.builderclan@gmail.com
+- Discord: https://discord.gg/GFnBvjc5tj

@@ -31,34 +31,34 @@ export default function OpportunitySection() {
     {
       num: "01",
       icon: Rocket,
-      title: "Build Anything in Tech",
+      title: "Fun Side Projects to Startups",
       description:
-        "Tinker, experiment, and create whatever inspires you, from IoT devices and robotics to web apps, AI tools, and personal hacks.",
-      badge: "Explore",
+        "Tinker on low-pressure weekend experiments, build open-source products, or form a team to turn your ideas into viable tech startups.",
+      badge: "Projects & Startups",
     },
     {
       num: "02",
       icon: FolderGit2,
       title: "Beginner-Friendly Open Source",
       description:
-        "Ship code and hardware schematics on real open-source products with beginner-friendly issues and supportive peer feedback.",
+        "Ship code and hardware schematics on real open-source products with beginner-friendly issues, peer reviews, and guidance.",
       badge: "Open Source",
     },
     {
       num: "03",
       icon: BookOpen,
-      title: "Learning & Growing Together",
+      title: "Learn & Grow Across All Levels",
       description:
-        "Build lasting connections and grow alongside peers through collaborative build sessions, shared project logs, and continuous mutual support.",
-      badge: "Togetherness",
+        "Build lasting connections whether you're a student, professional, teacher, or researcher through collaborative build logs and workshops.",
+      badge: "Peer Growth",
     },
     {
       num: "04",
       icon: Users,
-      title: "Global Builder Network",
+      title: "Global Multi-Disciplinary Clan",
       description:
-        "Connect with fellow beginners, senior engineers, hardware hackers, robotics enthusiasts, and startup founders in a welcoming environment.",
-      badge: "Community",
+        "Connect with senior engineers, students, educators, researchers, hardware hackers, and founders in a 100% open, welcoming environment.",
+      badge: "Everyone Welcome",
     },
   ];
 
@@ -87,7 +87,7 @@ export default function OpportunitySection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            Discover how BuilderClan brings hardware & software builders together to experiment, launch startups, ship open-source products, and grow together.
+            Discover how BuilderClan brings students, professionals, teachers, researchers, and beginners together to build fun hacks, ship products, and launch startups.
           </p>
         </motion.div>
 
