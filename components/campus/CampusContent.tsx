@@ -108,11 +108,11 @@ export default function CampusContent() {
       {/* Ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 bg-gradient-to-b from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl" />
 
-      <main className="mt-[100px] sm:mt-[110px] pb-24 relative z-10">
+      <main className="mt-[100px] sm:mt-[108px] pb-16 relative z-10">
         {/* Hero Banner Section (2-Column Grid with Floating 3D Elements) */}
-        <section className="pt-16 sm:pt-24 pb-16 relative">
+        <section className="pt-8 sm:pt-12 pb-10 relative">
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               {/* Left Column Text (7 Cols) */}
               <motion.div
@@ -122,7 +122,7 @@ export default function CampusContent() {
                 className="lg:col-span-7 text-left"
               >
                 {/* Top Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-6 shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>BUILDERCLAN ON CAMPUS (BCC)</span>
                   <span className="text-[#383838]">•</span>
@@ -133,22 +133,22 @@ export default function CampusContent() {
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-4">
                   A Campus Ecosystem Where Students & Teachers <span className="text-[#caff33] drop-shadow-[0_0_20px_rgba(202,255,51,0.3)]">Build Together</span>
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed mb-8 max-w-xl">
+                <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed mb-6 max-w-xl">
                   BuilderClan On Campus (BCC) creates an active builder ecosystem at your university, providing a collaborative space where students and teachers work side by side to learn, experiment, and build anything in tech.
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 mb-10">
+                <div className="flex flex-wrap items-center gap-4 mb-6">
                   <a
                     href="https://forms.gle/tBUDeHSj75sW7et69"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-extrabold text-sm transition-all shadow-[0_0_20px_rgba(202,255,51,0.3)] hover:shadow-[0_0_30px_rgba(202,255,51,0.5)]"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#caff33] hover:bg-[#bce62e] text-[#1c1c1c] font-extrabold text-sm transition-all shadow-[0_0_20px_rgba(202,255,51,0.3)] hover:shadow-[0_0_30px_rgba(202,255,51,0.5)]"
                   >
                     <Building2 className="w-4 h-4" />
                     <span>Apply as Campus Lead</span>
@@ -157,14 +157,14 @@ export default function CampusContent() {
 
                   <a
                     href="#directory"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1c1c] hover:bg-[#262626] border border-[#262626] text-white font-semibold text-sm transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#1c1c1c] hover:bg-[#262626] border border-[#262626] text-white font-semibold text-sm transition-all"
                   >
                     <span>Explore Chapters</span>
                   </a>
                 </div>
 
-                {/* Inline 4-Column Feature Pills Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl pt-6 border-t border-[#262626]/80">
+                {/* Inline Feature Pills (Flex Wrap to display complete text without truncation) */}
+                <div className="flex flex-wrap gap-2.5 pt-4 border-t border-[#262626]/80">
                   {[
                     { icon: Users, label: "Students & Teachers" },
                     { icon: Rocket, label: "Co-Building Ecosystem" },
@@ -175,10 +175,10 @@ export default function CampusContent() {
                     return (
                       <div
                         key={pill.label}
-                        className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-[#1c1c1c]/80 border border-[#262626] text-xs font-semibold text-[#d4d4d8] shadow-sm text-center"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#1c1c1c]/90 border border-[#262626] text-xs font-semibold text-[#d4d4d8] shadow-sm"
                       >
                         <Icon className="w-3.5 h-3.5 text-[#caff33] shrink-0" />
-                        <span className="truncate">{pill.label}</span>
+                        <span className="whitespace-nowrap">{pill.label}</span>
                       </div>
                     );
                   })}
@@ -186,7 +186,7 @@ export default function CampusContent() {
               </motion.div>
 
               {/* Right Column: 3D Interactive Floating Visual Elements (5 Cols) */}
-              <div className="lg:col-span-5 relative flex items-center justify-center min-h-[380px] sm:min-h-[400px] py-6 [perspective:1000px]">
+              <div className="lg:col-span-5 relative flex items-center justify-center min-h-[280px] sm:min-h-[320px] py-2 [perspective:1000px]">
                 
                 {/* Radial Glow Lighting Halo */}
                 <div className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#caff33]/20 via-[#a5cc29]/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
