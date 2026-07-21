@@ -121,8 +121,8 @@ export default function CampusContent() {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 text-left"
               >
-                {/* Top Badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
+                {/* Desktop Single Pill Badge (sm and up) */}
+                <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>BUILDERCLAN ON CAMPUS (BCC)</span>
                   <span className="text-[#383838]">•</span>
@@ -130,6 +130,18 @@ export default function CampusContent() {
                     <Calendar className="w-3.5 h-3.5 text-[#caff33]" />
                     Applications Open 1x / Year
                   </span>
+                </div>
+
+                {/* Mobile Double Compact Pills (below sm) */}
+                <div className="flex sm:hidden flex-wrap items-center gap-2 mb-4">
+                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-[11px] font-semibold text-[#caff33] shadow-sm">
+                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                    <span>BUILDERCLAN ON CAMPUS (BCC)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-[11px] font-medium text-[#a1a1aa] shadow-sm">
+                    <Calendar className="w-3.5 h-3.5 text-[#caff33] shrink-0" />
+                    <span>Applications Open 1x / Year</span>
+                  </div>
                 </div>
 
                 {/* Main Headline */}
