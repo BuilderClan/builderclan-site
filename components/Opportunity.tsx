@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { FolderGit2, Cpu, Rocket, BookOpen, Users, Sparkles, ArrowUpRight } from "lucide-react";
+import { FolderGit2, Rocket, BookOpen, Users, Sparkles, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function OpportunitySection() {
@@ -31,34 +31,34 @@ export default function OpportunitySection() {
     {
       num: "01",
       icon: Rocket,
-      title: "Fun Side Projects to Startups",
+      title: "From Side Projects to Startups",
       description:
-        "Tinker on low-pressure weekend experiments, build open-source products, or form a team to turn your ideas into viable tech startups.",
-      badge: "Projects & Startups",
+        "Start with weekend experiments, prototypes, and passion projects. Grow your ideas into open-source products, research, or real startups with the support of the community.",
+      badge: "BUILD JOURNEY",
     },
     {
       num: "02",
       icon: FolderGit2,
-      title: "Beginner-Friendly Open Source",
+      title: "Build in Open Source",
       description:
-        "Ship code and hardware schematics on real open-source products with beginner-friendly issues, peer reviews, and guidance.",
-      badge: "Open Source",
+        "Contribute to meaningful software and hardware projects, collaborate with experienced builders, review code, and create technology anyone can use.",
+      badge: "OPEN SOURCE",
     },
     {
       num: "03",
       icon: BookOpen,
-      title: "Learn & Grow Across All Levels",
+      title: "Grow with the Community",
       description:
-        "Build lasting connections whether you're a student, professional, teacher, or researcher through collaborative build logs and workshops.",
-      badge: "Peer Growth",
+        "Learn from peers, mentors, workshops, talks, and real-world collaboration. Every project is an opportunity to improve your skills.",
+      badge: "LEARN TOGETHER",
     },
     {
       num: "04",
       icon: Users,
-      title: "Global Multi-Disciplinary Clan",
+      title: "Builders Across Every Discipline",
       description:
-        "Connect with senior engineers, students, educators, researchers, hardware hackers, and founders in a 100% open, welcoming environment.",
-      badge: "Everyone Welcome",
+        "Connect with students, engineers, designers, researchers, educators, founders, and creators who share the same builder mindset.",
+      badge: "BUILDER NETWORK",
     },
   ];
 
@@ -79,15 +79,16 @@ export default function OpportunitySection() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>WHAT WE OFFER</span>
+            <span>What We Offer</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Unlock Unlimited <span className="text-[#caff33]">Opportunities</span>
+            More Than a Community.{" "}
+            <span className="text-[#caff33]">A Place to Build.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            Discover how BuilderClan brings students, professionals, teachers, researchers, and beginners together to build fun hacks, ship products, and launch startups.
+            BuilderClan gives you the environment, people, and opportunities to turn curiosity into real projects, open source, products, research, and startups.
           </p>
         </motion.div>
 
@@ -112,7 +113,7 @@ export default function OpportunitySection() {
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full bg-[#222222] border border-[#262626] text-xs text-[#a1a1aa] font-medium">
+                  <span className="px-3 py-1 rounded-full bg-[#222222] border border-[#262626] text-xs text-[#a1a1aa] font-medium tracking-wide">
                     {item.badge}
                   </span>
                   <span className="text-3xl font-black text-[#262626] group-hover:text-[#caff33]/40 transition-colors">
