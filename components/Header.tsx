@@ -83,11 +83,10 @@ export default function Header() {
           <Image
             src="/LogoShort.png"
             alt="BuilderClan Logo"
-            width={32}
-            height={26}
+            width={206}
+            height={161}
             priority
-            style={{ width: "auto", height: "auto" }}
-            className="transition-transform group-hover:scale-105"
+            className="w-8 h-auto transition-transform group-hover:scale-105"
           />
         </Link>
 
