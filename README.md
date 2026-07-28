@@ -165,7 +165,7 @@ Pull requests should target the **`dev`** branch.
 
 ## Maintainers
 
-Maintained by the BuilderClan core team. Reach out at [hello@builder-clan.org](mailto:hello@builder-clan.org) or open an issue on GitHub.
+Maintained by the BuilderClan core team. Reach out at [main.builderclan@gmail.com](mailto:main.builderclan@gmail.com) or open an issue on GitHub.
 
 ---
 
