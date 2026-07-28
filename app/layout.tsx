@@ -126,6 +126,7 @@ export default function RootLayout({
     <html lang="en" className="bg-[#141414] dark" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#141414" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="msapplication-navbutton-color" content="#141414" />
