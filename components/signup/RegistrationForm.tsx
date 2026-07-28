@@ -71,10 +71,10 @@ const signupSchema = z.object({
       }
     ),
   gender: z.enum(["male", "female"], {
-    errorMap: () => ({ message: VALIDATION_MESSAGES.gender }),
+    message: VALIDATION_MESSAGES.gender,
   }),
   role: z.enum(["student", "professional"], {
-    errorMap: () => ({ message: VALIDATION_MESSAGES.role }),
+    message: VALIDATION_MESSAGES.role,
   }),
   phone_number: z
     .string()
