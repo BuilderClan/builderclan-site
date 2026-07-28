@@ -289,6 +289,7 @@ export function RegistrationForm({ initialReferralCode = "" }: RegistrationFormP
               alt="BuilderClan Logo"
               width={28}
               height={22}
+              style={{ width: "auto", height: "auto" }}
             />
             <span className="text-sm font-bold text-white tracking-tight group-hover:text-[#caff33] transition-colors">
               BuilderClan

@@ -86,6 +86,7 @@ export default function Header() {
             width={32}
             height={26}
             priority
+            style={{ width: "auto", height: "auto" }}
             className="transition-transform group-hover:scale-105"
           />
         </Link>
