@@ -10,10 +10,10 @@ import CTA from "@components/CTA";
 export default function Home() {
   return (
     <>
-      <header className="fixed w-full top-3 sm:top-0 left-0 z-50">
+      <header className="fixed w-full top-4 sm:top-6 left-0 z-50 pointer-events-none">
         <Header />
       </header>
-      <div className="mt-[93px]">
+      <div className="pt-24 sm:pt-28">
         <HomeSection />
         <AboutSection />
         <OpportunitySection />
