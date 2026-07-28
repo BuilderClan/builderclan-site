@@ -9,6 +9,7 @@ import {
   Users,
   GraduationCap,
   ArrowUpRight,
+  ArrowRight,
   Rocket,
   Building2,
   ExternalLink,
@@ -78,44 +79,74 @@ const WHY_START_CARDS = [
 ];
 
 const HOW_IT_WORKS_STEPS = [
-  { step: "01", title: "Apply", desc: "Submit your campus chapter application (1x / Academic Year)." },
-  { step: "02", title: "Get Approved", desc: "Alignment & review call with the BuilderClan team." },
-  { step: "03", title: "Launch Chapter", desc: "Receive chapter kit, branding assets, and dedicated channels." },
-  { step: "04", title: "Build Community", desc: "Bring together engineering students, researchers, and educators." },
-  { step: "05", title: "Host Events", desc: "Run technical workshops, hackathons, and hands-on build sessions." },
-  { step: "06", title: "Grow Together", desc: "Ship open source, research, hardware, software, and campus startups." },
+  {
+    step: "01",
+    title: "Apply to Lead",
+    desc: "Share your vision for bringing hands-on building, hardware labs, and open source to your campus.",
+    icon: Compass,
+  },
+  {
+    step: "02",
+    title: "Align on Vision",
+    desc: "Connect with the BuilderClan team to outline your chapter goals and receive dedicated guidance.",
+    icon: Users,
+  },
+  {
+    step: "03",
+    title: "Receive Chapter Kit",
+    desc: "Get official branding, event decks, workshop templates, and dedicated community channels.",
+    icon: Layers,
+  },
+  {
+    step: "04",
+    title: "Gather Your Builders",
+    desc: "Recruit passionate engineering students, educators, and researchers to form your founding core team.",
+    icon: GraduationCap,
+  },
+  {
+    step: "05",
+    title: "Host Hands-on Events",
+    desc: "Run workshops, hackathons, technical talks, and collaborative build sessions on your campus.",
+    icon: Calendar,
+  },
+  {
+    step: "06",
+    title: "Ship & Scale",
+    desc: "Turn campus projects into open-source repositories, research papers, products, and startups.",
+    icon: Rocket,
+  },
 ];
 
 const TARGET_AUDIENCE = [
   {
     icon: GraduationCap,
     title: "Students",
-    desc: "Learn by building real hardware, software, AI, and open-source projects.",
+    desc: "Move beyond textbook theory to build real hardware, software, AI, and open-source projects alongside mentors.",
   },
   {
     icon: BookOpen,
-    title: "Educators",
-    desc: "Mentor student innovators and guide research into real-world impact.",
+    title: "Educators & Faculty",
+    desc: "Guide student innovators, bridge classroom learning with hands-on practice, and turn academic research into real impact.",
   },
   {
     icon: Layers,
     title: "Student Clubs",
-    desc: "Partner with BuilderClan to expand tech workshops and hackathons.",
+    desc: "Partner with BuilderClan to supercharge your workshops, co-host hackathons, and connect your members to a global network.",
   },
   {
     icon: Lightbulb,
     title: "Innovation Cells",
-    desc: "Transform campus prototypes into research, products, and startups.",
+    desc: "Transform campus prototypes and research ideas into open-source initiatives, real-world tools, or startups.",
   },
   {
     icon: School,
     title: "Engineering Colleges",
-    desc: "Establish an active hands-on builder culture on campus.",
+    desc: "Establish an active builder culture that attracts curious minds, fosters collaboration, and elevates campus tech capability.",
   },
   {
     icon: Globe,
     title: "Universities",
-    desc: "Connect your academic community with a global builder ecosystem.",
+    desc: "Connect your campus academic community directly with global developers, researchers, and technology ecosystems.",
   },
 ];
 
@@ -368,7 +399,7 @@ export default function CampusContent() {
               </p>
             </div>
 
-            {/* 3x2 Grid Cards with Generous Internal Whitespace & Outcome Copy */}
+            {/* 3x2 Grid Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
               {WHY_START_CARDS.map((card, i) => {
                 const Icon = card.icon;
@@ -403,50 +434,79 @@ export default function CampusContent() {
           </div>
         </section>
 
-        {/* How BuilderClan on Campus Works */}
-        <section className="py-20 relative" aria-label="How It Works">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* How BuilderClan on Campus Works (Structured Builder Journey Pathway) */}
+        <section className="py-24 relative overflow-hidden" aria-label="How It Works">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
                 <Compass className="w-3.5 h-3.5" />
-                <span>CHAPTER PATHWAY</span>
+                <span>BUILDER JOURNEY PATHWAY</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
                 How BuilderClan on Campus <span className="text-[#caff33]">Works</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#a1a1aa] max-w-lg mx-auto">
-                A simple, structured journey from application to launching hardware labs, workshops, open-source projects, and campus startups.
+              <p className="text-sm sm:text-base text-[#a1a1aa] max-w-lg mx-auto leading-relaxed">
+                A structured step-by-step pathway for leaders bringing hands-on tech, hardware labs, open source, and startups to their university.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-              {HOW_IT_WORKS_STEPS.map((step, i) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  whileHover={{ y: -3 }}
-                  className="p-6 sm:p-7 rounded-2xl bg-[#1c1c1c] border border-[#262626] hover:border-[#383838] relative flex flex-col justify-between transition-all"
-                >
-                  <div>
-                    <div className="text-3xl font-extrabold font-mono text-[#caff33] mb-3">
-                      {step.step}
+            {/* Step-by-Step Pathway Grid with Connectors */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
+              {HOW_IT_WORKS_STEPS.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    whileHover={{ y: -3 }}
+                    className="p-7 sm:p-8 rounded-3xl bg-gradient-to-b from-[#1c1c1c] to-[#161616] border border-[#262626] hover:border-[#caff33]/50 transition-all duration-250 ease-out shadow-md hover:shadow-[0_0_25px_rgba(202,255,51,0.12)] group flex flex-col justify-between h-full relative overflow-hidden"
+                  >
+                    <div>
+                      {/* Top Header Row with Mono Step Number & Icon */}
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#caff33] tracking-wider">
+                          {step.step}
+                        </span>
+                        <div className="p-2.5 rounded-xl bg-[#141414] border border-[#262626] group-hover:border-[#caff33]/40 text-[#a1a1aa] group-hover:text-[#caff33] transition-colors duration-250">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                      </div>
+
+                      {/* Step Title & Builder-Focused Copy */}
+                      <h3 className="text-lg font-bold text-white mb-2.5 leading-snug tracking-tight group-hover:text-[#caff33] transition-colors duration-250">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+                        {step.desc}
+                      </p>
                     </div>
-                    <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">{step.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+
+                    {/* Step Connector Indicator at Bottom */}
+                    <div className="pt-4 mt-4 border-t border-[#262626]/60 flex items-center justify-between text-[11px] font-semibold text-[#71717a] group-hover:text-[#caff33] transition-colors duration-250">
+                      <span>STEP {step.step} OF 06</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-250" />
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Inspiring Closing Philosophy Statement */}
+            <div className="mt-16 text-center">
+              <p className="text-xs sm:text-sm text-[#71717a] font-medium max-w-md mx-auto leading-relaxed opacity-90">
+                Every great builder starts with a single step.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Who is BuilderClan on Campus For? */}
-        <section className="py-20 bg-[#141414] relative overflow-hidden" aria-label="Target Audience">
+        {/* Who is BuilderClan on Campus For? Section */}
+        <section className="py-24 bg-[#141414] relative overflow-hidden" aria-label="Target Audience">
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-semibold text-[#caff33] mb-4 shadow-sm">
                 <Users className="w-3.5 h-3.5" />
                 <span>ECOSYSTEM AUDIENCE</span>
@@ -454,12 +514,13 @@ export default function CampusContent() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
                 Who is BuilderClan on Campus <span className="text-[#caff33]">For?</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#a1a1aa] max-w-xl mx-auto">
-                A unified ecosystem built for everyone passionate about technology across the academic environment.
+              <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed max-w-2xl mx-auto">
+                A home for anyone passionate about technology, learning, and creating together across campus.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {/* Audience Grid with Transformation & Outcome Copy */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
               {TARGET_AUDIENCE.map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -470,18 +531,25 @@ export default function CampusContent() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     whileHover={{ y: -4 }}
-                    className="p-7 rounded-3xl bg-gradient-to-b from-[#1c1c1c] to-[#161616] border border-[#262626] hover:border-[#caff33]/50 transition-all shadow-md group flex flex-col justify-between h-full"
+                    className="p-7 sm:p-8 rounded-3xl bg-gradient-to-b from-[#1c1c1c] to-[#161616] border border-[#262626] hover:border-[#caff33]/50 transition-all duration-250 ease-out shadow-md hover:shadow-[0_0_25px_rgba(202,255,51,0.12)] group flex flex-col justify-between h-full"
                   >
                     <div>
-                      <div className="w-12 h-12 rounded-2xl bg-[#caff33]/10 border border-[#caff33]/25 flex items-center justify-center text-[#caff33] mb-5 shadow-sm group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-2xl bg-[#caff33]/10 border border-[#caff33]/25 flex items-center justify-center text-[#caff33] mb-5 shadow-sm group-hover:scale-105 transition-transform duration-250 ease-out">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2 leading-snug">{item.title}</h3>
+                      <h3 className="text-lg font-bold text-white mb-2.5 leading-snug tracking-tight group-hover:text-[#caff33] transition-colors duration-250">{item.title}</h3>
                       <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 );
               })}
+            </div>
+
+            {/* Philosophy Closing Quote */}
+            <div className="mt-16 text-center">
+              <p className="text-xs sm:text-sm text-[#71717a] font-medium max-w-md mx-auto leading-relaxed opacity-90">
+                BuilderClan isn&apos;t defined by roles—it grows through people who love to build.
+              </p>
             </div>
           </div>
         </section>
@@ -601,7 +669,7 @@ export default function CampusContent() {
                       >
                         <Globe className="w-4 h-4 text-[#caff33]" />
                         <span>Visit College Website</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-[#71717a] group-hover/btn:text-[#caff33] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
+                        <ExternalLink className="w-3.5 h-3.5 text-[#71717a] group-hover/btn:text-[#caff33] group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-all" />
                       </a>
                     </div>
                   </motion.div>
