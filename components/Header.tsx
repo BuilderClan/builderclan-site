@@ -40,6 +40,10 @@ export default function Header() {
       setActiveLink("campus");
       return;
     }
+    if (pathname !== "/") {
+      setActiveLink("");
+      return;
+    }
 
     const sections = document.querySelectorAll("section");
     const options = {
@@ -70,7 +74,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="pt-4 sm:pt-7 px-4 container mx-auto max-w-6xl">
+    <div className="px-4 container mx-auto max-w-6xl pointer-events-auto">
       <div
         className={`rounded-full transition-all duration-300 backdrop-blur-xl border px-4 sm:px-6 py-3 flex items-center justify-between shadow-2xl ${
           scrolled
