@@ -29,48 +29,48 @@ export default function AboutSection() {
   const audience = [
     {
       icon: GraduationCap,
-      badge: "Students & Beginners",
-      title: "Learn & Build Hands-On",
-      description: "Ask questions without judgment, get starter project ideas, code reviews, and friendly peer mentorship.",
+      badge: "CURIOUS BEGINNERS",
+      title: "Learn by Building",
+      description: "Start with real projects, ask questions without judgment, receive mentorship, and build confidence through hands-on experience.",
     },
     {
       icon: Briefcase,
-      badge: "Pros & Senior Engineers",
+      badge: "PROFESSIONALS",
       title: "Collaborate & Mentor",
-      description: "Work on passion projects, explore new tech stacks, share industry experience, and guide rising builders.",
+      description: "Work on ambitious projects, explore new technologies, share industry experience, and help shape the next generation of builders.",
     },
     {
       icon: BookOpenCheck,
-      badge: "Teachers & Researchers",
-      title: "Share Knowledge & Innovate",
-      description: "Explore frontier hardware, AI & software, share educational insights, and guide student innovators.",
+      badge: "RESEARCHERS & EDUCATORS",
+      title: "Share Knowledge",
+      description: "Advance hardware, software, AI, and research while mentoring curious minds and transforming ideas into real-world impact.",
     },
     {
       icon: Flame,
-      badge: "Anyone Interested in Tech",
-      title: "No Experience Required",
-      description: "Whether you're starting from scratch or just tech-curious, if you want to build, you belong here.",
+      badge: "LIFELONG LEARNERS",
+      title: "Keep Building",
+      description: "You don't need a title to belong here—only curiosity and the desire to keep learning and building.",
     },
   ];
 
   const buildSpectrum = [
     {
       icon: Gamepad2,
-      title: "Fun Side Projects & Hacks",
-      subtitle: "Low pressure, pure passion",
-      description: "Weekend experiments, IoT home gadgets, creative web apps, retro gaming hacks, and fun coding projects.",
+      subtitle: "START HERE",
+      title: "Side Projects",
+      description: "Experiment, explore new technologies, and learn by building things that genuinely interest you.",
     },
     {
       icon: PackageCheck,
-      title: "Real Products & Open Source",
-      subtitle: "Production-ready tools",
-      description: "Shipped software products, developer utilities, open-source libraries, and reusable hardware schematics.",
+      subtitle: "BUILD TOGETHER",
+      title: "Open Source",
+      description: "Contribute to meaningful software and hardware projects, collaborate with other builders, and create technology anyone can use.",
     },
     {
       icon: Rocket,
-      title: "Startups & Ventures",
-      subtitle: "From prototype to company",
-      description: "Turn innovative prototypes into startups, find co-founders, get early user feedback, and launch ventures.",
+      subtitle: "MAKE AN IMPACT",
+      title: "Products & Startups",
+      description: "Turn ideas into products, validate them with the community, find collaborators, and launch real ventures.",
     },
   ];
 
@@ -83,7 +83,7 @@ export default function AboutSection() {
         
         {/* Section Header */}
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -91,21 +91,22 @@ export default function AboutSection() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>WHO WE ARE & WHO CAN JOIN</span>
+            <span>Why We Exist</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            A Community Built for <span className="text-[#caff33]">Everyone in Tech.</span>
+            Building More Than Technology.{" "}
+            <span className="text-[#caff33]">We&apos;re Building People.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#a1a1aa] leading-relaxed">
-            BuilderClan is an inclusive community where anyone interested in technology can connect, experiment, and grow together, regardless of background or experience level.
+            Great technology doesn&apos;t begin with code—it begins with curious people willing to learn, build, and share. BuilderClan exists to bring those people together, creating an environment where ideas become projects, projects become products, and builders grow together.
           </p>
         </motion.div>
 
         {/* Dual Hero Cards: Mission & Vision */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -130,7 +131,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To empower hardware and software builders of all backgrounds, from absolute beginners to senior pros, to experiment freely, build whatever inspires them, and grow together in a warm, supportive community.
+              Empower builders of all backgrounds to learn, collaborate, and build meaningful technology together.
             </p>
           </motion.div>
 
@@ -153,24 +154,28 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#d4d4d8] text-base leading-relaxed">
-              To be a global home for curious minds, students, teachers, researchers, and creators, where anyone can explore hardware & software, launch startups, and build the future together.
+              Become the world&apos;s most welcoming home for builders.
             </p>
           </motion.div>
         </motion.div>
 
-        {/* Section 2: Who Can Join? (4 Card Grid) */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-              Who Can Join <span className="text-[#caff33]">BuilderClan?</span>
+        {/* Section 1: Where You Fit (4 Card Grid) */}
+        <div className="mb-24">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Everyone Starts Somewhere</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              There&apos;s a Place for <span className="text-[#caff33]">Every Builder.</span>
             </h3>
-            <p className="text-sm sm:text-base text-[#a1a1aa]">
-              No matter your title or experience level, there is a place for you here.
+            <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed max-w-2xl mx-auto">
+              Whether you&apos;re taking your first steps or mentoring the next generation, BuilderClan grows with you. Everyone has something to learn, something to build, and something to share.
             </p>
           </div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full items-stretch"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -181,7 +186,7 @@ export default function AboutSection() {
                 key={idx}
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
-                className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 p-6 rounded-2xl transition-all shadow-md flex flex-col justify-between"
+                className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 p-6 rounded-2xl transition-all shadow-md flex flex-col justify-between h-full w-full"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -202,19 +207,23 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Section 3: What Can You Build? (3 Pillars) */}
+        {/* Section 2: What You'll Build Together (4 Card Grid) */}
         <div>
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-              What Can You <span className="text-[#caff33]">Build?</span>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#262626] text-xs font-medium text-[#caff33] mb-4 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>What You&apos;ll Build Together</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              Build What <span className="text-[#caff33]">Matters.</span>
             </h3>
-            <p className="text-sm sm:text-base text-[#a1a1aa]">
-              From casual weekend hacks to launching tech ventures, every build is celebrated.
+            <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed max-w-2xl mx-auto">
+              From your first side project to open source, research, products, and startups, BuilderClan is where ideas become reality.
             </p>
           </div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-stretch"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -225,15 +234,15 @@ export default function AboutSection() {
                 key={idx}
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
-                className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 p-7 rounded-2xl transition-all shadow-lg flex flex-col justify-between"
+                className="bg-[#1c1c1c] border border-[#262626] hover:border-[#caff33]/50 p-6 rounded-2xl transition-all shadow-lg flex flex-col justify-between h-full w-full"
               >
                 <div>
                   <div className="p-3.5 w-fit rounded-xl bg-[#222222] text-[#caff33] mb-4">
-                    <item.icon className="w-6 h-6" />
+                    <item.icon className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-medium text-[#caff33] block mb-1">{item.subtitle}</span>
-                  <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
-                  <p className="text-sm text-[#a1a1aa] leading-relaxed">
+                  <span className="text-[11px] font-semibold text-[#caff33] uppercase tracking-wider block mb-1">{item.subtitle}</span>
+                  <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -246,4 +255,3 @@ export default function AboutSection() {
     </section>
   );
 }
-

@@ -55,7 +55,7 @@ export default function HomeSection() {
               >
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c1c]/90 border border-[#262626] text-xs font-medium text-white shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 text-[#caff33]" />
-                  <span>Open Tech Community • Anyone Can Join</span>
+                  <span>Build from the Foundation Up</span>
                 </div>
               </motion.div>
 
@@ -83,7 +83,7 @@ export default function HomeSection() {
                 animate={isVisible ? "visible" : "hidden"}
                 variants={heroTextVariants}
               >
-                Whether you&apos;re a professional, student, teacher, researcher, beginner, or tech enthusiast, BuilderClan is your welcoming home to build anything from fun side projects to open-source products & startups.
+                From your first side project to your first startup, BuilderClan brings curious minds together to learn, collaborate, and build meaningful technology.
               </motion.p>
 
               {/* Action Buttons */}
@@ -109,7 +109,7 @@ export default function HomeSection() {
                     href="#about"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1c1c1c] hover:bg-[#262626] border border-[#262626] hover:border-[#383838] text-white font-medium text-sm transition-all"
                   >
-                    <span>Learn More</span>
+                    <span>Explore BuilderClan</span>
                   </Link>
                 </motion.div>
               </motion.div>
@@ -159,7 +159,7 @@ export default function HomeSection() {
                 <Users className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-white">Pros, Students & Beginners</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">Students • Professionals • Builders</div>
                 <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">Teachers & Researchers Welcome</div>
               </div>
             </motion.div>
@@ -182,7 +182,7 @@ export default function HomeSection() {
                 <Rocket className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-white">Fun Hacks, Products & Startups</div>
+                <div className="text-[11px] sm:text-xs font-bold text-white">Side Projects → Startups</div>
                 <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">From Curiosity to Companies</div>
               </div>
             </motion.div>
@@ -201,7 +201,7 @@ export default function HomeSection() {
               }}
             >
               <Cpu className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#caff33]" />
-              <span className="text-[10px] sm:text-xs font-medium text-[#d4d4d8]">Hardware & Software</span>
+              <span className="text-[10px] sm:text-xs font-medium text-[#d4d4d8]">Hardware • Software • AI</span>
             </motion.div>
 
           </div>
