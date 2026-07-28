@@ -123,7 +123,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-[#141414] dark" suppressHydrationWarning>
+    <html lang="en" className="bg-[#141414] dark" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#141414" />
         <meta name="mobile-web-app-capable" content="yes" />
