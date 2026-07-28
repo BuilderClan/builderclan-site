@@ -136,7 +136,6 @@ export default function HomeSection() {
                 width={320}
                 height={320}
                 priority
-                style={{ width: "auto", height: "auto" }}
                 className="w-48 sm:w-64 md:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
               />
             </motion.div>
