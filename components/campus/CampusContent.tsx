@@ -20,7 +20,7 @@ export default function CampusContent() {
       {/* Subtle Ambient Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 bg-gradient-to-b from-[#caff33]/10 via-transparent to-transparent pointer-events-none blur-3xl" />
 
-      <main className="mt-[100px] sm:mt-[108px] pb-16 relative z-10">
+      <main className="mt-[108px] sm:mt-[116px] pb-16 relative z-10">
         <CampusHero />
         <CampusWhyStart />
         <CampusHowItWorks />

@@ -14,7 +14,7 @@ import {
 
 export default function CampusHero() {
   return (
-    <section className="pt-8 sm:pt-14 pb-12 relative" aria-label="Hero">
+    <section className="pt-8 sm:pt-12 pb-12 relative" aria-label="Hero">
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           {/* Left Column Text (7 Cols) */}
@@ -86,7 +86,7 @@ export default function CampusHero() {
             </div>
 
             {/* Feature Pills */}
-            <div className="flex flex-wrap gap-2.5">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
               {[
                 { icon: Users, label: "Students & Educators" },
                 { icon: Cpu, label: "Hardware & Software" },
@@ -97,10 +97,10 @@ export default function CampusHero() {
                 return (
                   <div
                     key={pill.label}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1c1c1c]/90 border border-[#262626] text-xs font-semibold text-[#d4d4d8] shadow-sm"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#1c1c1c]/90 border border-[#262626] text-[11px] sm:text-xs font-semibold text-[#d4d4d8] shadow-sm justify-center sm:justify-start"
                   >
                     <Icon className="w-3.5 h-3.5 text-[#caff33] shrink-0" />
-                    <span className="whitespace-nowrap">{pill.label}</span>
+                    <span className="truncate sm:whitespace-nowrap">{pill.label}</span>
                   </div>
                 );
               })}
@@ -108,7 +108,7 @@ export default function CampusHero() {
           </motion.div>
 
           {/* Right Column: 3D Floating Emblem Visual */}
-          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[300px] sm:min-h-[340px] py-4 [perspective:1000px]">
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[320px] sm:min-h-[360px] pt-8 pb-6 mt-10 lg:mt-0 [perspective:1000px]">
             {/* Radial Glow Halos */}
             <div className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#caff33]/20 via-[#a5cc29]/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
 
@@ -139,7 +139,7 @@ export default function CampusHero() {
 
             {/* Floating Micro-Badge 1: Top-Right */}
             <motion.div
-              className="absolute top-2 right-0 sm:right-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+              className="absolute -top-3 right-0 sm:top-2 sm:right-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-2.5 sm:p-3 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 transition-colors cursor-pointer max-w-[220px] sm:max-w-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{
                 opacity: 1,
@@ -151,18 +151,18 @@ export default function CampusHero() {
               }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30">
-                <Cpu className="w-4 h-4 text-[#caff33]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30 shrink-0">
+                <Cpu className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-extrabold text-white">Hardware & Software</div>
-                <div className="text-[11px] text-[#a1a1aa]">IoT, AI & Labs</div>
+                <div className="text-[11px] sm:text-xs font-extrabold text-white">Hardware & Software</div>
+                <div className="text-[10px] sm:text-[11px] text-[#a1a1aa]">IoT, AI & Labs</div>
               </div>
             </motion.div>
 
             {/* Floating Micro-Badge 2: Bottom-Left */}
             <motion.div
-              className="absolute bottom-2 left-0 sm:left-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-colors cursor-pointer"
+              className="absolute -bottom-3 left-0 sm:bottom-2 sm:left-2 z-30 backdrop-blur-md bg-[#1c1c1c]/90 border border-[#caff33]/40 hover:border-[#caff33] p-2.5 sm:p-3 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 transition-colors cursor-pointer max-w-[220px] sm:max-w-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{
                 opacity: 1,
@@ -174,12 +174,12 @@ export default function CampusHero() {
               }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30">
-                <Calendar className="w-4 h-4 text-[#caff33]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-[#caff33]/15 border border-[#caff33]/30 shrink-0">
+                <Calendar className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#caff33]" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-extrabold text-white">Annual Application</div>
-                <div className="text-[11px] text-[#caff33] font-semibold flex items-center gap-1">
+                <div className="text-[11px] sm:text-xs font-extrabold text-white">Annual Application</div>
+                <div className="text-[10px] sm:text-[11px] text-[#caff33] font-semibold flex items-center gap-1">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#caff33] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#caff33]"></span>
