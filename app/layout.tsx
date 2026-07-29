@@ -74,8 +74,12 @@ export const metadata: Metadata = {
     creator: "@builderclan",
   },
   icons: {
-    icon: "/builderLogo.svg",
-    shortcut: "/builderLogo.svg",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
   },
 };
 
